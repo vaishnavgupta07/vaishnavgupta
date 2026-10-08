@@ -755,6 +755,54 @@ print("SCAN Head Movement =", movement)
                 document.body.removeChild(tempTextArea);
             }
         }
-    </script>
+    </script><script type="module">
+  // Firebase Initialize
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA1IORY8celcNg91WoB-SDPfbzK45F_cGw",
+    authDomain: "study-notes-5ad14.firebaseapp.com",
+    projectId: "study-notes-5ad14",
+    storageBucket: "study-notes-5ad14.firebasestorage.app",
+    messagingSenderId: "105612656855",
+    appId: "1:105612656855:web:28861f2b105d5da2557092"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Notes fetch karne ka logic
+  async function loadNotes() {
+    try {
+      const querySnapshot = await getDocs(collection(db, "notes"));
+      // Abhi tumhare notes section me ye ek naya note top par add karega
+      const notesContainer = document.querySelector('.space-y-8');
+      
+      querySnapshot.forEach((doc) => {
+        const note = doc.data();
+        // Naya HTML card banana
+        const noteHTML = `
+        <article class="bg-white shadow-sm rounded-xl border border-brand-200 overflow-hidden mt-8 border-l-4 border-l-brand-500">
+            <div class="border-b border-gray-200 bg-gray-50 px-6 py-4 flex justify-between items-center flex-wrap gap-4">
+                <h3 class="text-lg font-bold text-gray-900 flex items-center">
+                    <i class="fas fa-cloud text-brand-500 mr-2"></i> ${note.title} (Live from Firebase)
+                </h3>
+            </div>
+            <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto rounded-b-xl">
+                <pre class="whitespace-pre-wrap">${note.code}</pre>
+            </div>
+        </article>`;
+        
+        notesContainer.insertAdjacentHTML('afterbegin', noteHTML);
+      });
+    } catch (error) {
+      console.error("Notes fetch karne mein error:", error);
+    }
+  }
+
+  // Page load hone par function chalao
+  loadNotes();
+</script>
 </body>
 </html>
