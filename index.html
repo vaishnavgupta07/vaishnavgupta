@@ -220,63 +220,26 @@
                     </p>
                 </div>
 
-                <!-- Subject Tabs Navigation -->
-                <div class="flex space-x-4 mb-8 border-b border-gray-200 overflow-x-auto pb-2">
-                    <button class="tab-btn px-4 py-2 text-brand-600 border-b-2 border-brand-600 font-medium whitespace-nowrap transition-colors focus:outline-none" data-target="os">Operating Systems</button>
-                    <button class="tab-btn px-4 py-2 text-gray-500 hover:text-brand-600 font-medium whitespace-nowrap transition-colors focus:outline-none" data-target="toc">Theory of Computation</button>
-                    <button class="tab-btn px-4 py-2 text-gray-500 hover:text-brand-600 font-medium whitespace-nowrap transition-colors focus:outline-none" data-target="lp">Linear Programming</button>
-                </div>
-
-                <!-- Operating Systems Content (Active by default) -->
-                <div id="os" class="tab-content space-y-8 block">
+                <!-- Subject Tabs Navigation (Box Style) -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+                    <!-- Operating Systems Box (Active by default) -->
+                    <button class="tab-btn bg-brand-50 border-2 border-brand-500 text-brand-700 shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center transform scale-105" data-target="os">
+                        <div class="text-3xl mb-3"><i class="fas fa-microchip"></i></div>
+                        Operating Systems
+                    </button>
                     
-                    <!-- EXMAPLE HARDCODED NOTE -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="border-b border-gray-200 bg-gray-50 px-6 py-4 flex justify-between items-center flex-wrap gap-4">
-                            <h3 class="text-lg font-bold text-gray-900 flex items-center">
-                                <i class="fas fa-microchip text-gray-500 mr-2"></i> Prac 4 A - Fibonacci Sequence
-                            </h3>
-                            <button onclick="copyNoteText(this, 'note-os-1')" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
-                                <i class="far fa-copy mr-2"></i> <span>Copy Notes</span>
-                            </button>
-                        </div>
-                        <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto rounded-b-xl">
-                            <pre id="note-os-1" class="whitespace-pre-wrap">import threading
-def fibonacci(n):
-    a = 0
-    b = 1
-    print("Fibonacci Series:")
-    for i in range(n):
-        print(a, end=" ")
-        c = a + b
-        a = b
-        b = c
-n = int(input("Enter number of terms: "))
-t = threading.Thread(target=fibonacci, args=(n,))
-t.start()
-t.join()</pre>
-                        </div>
-                    </article>
+                    <!-- Theory of Computation Box -->
+                    <button class="tab-btn bg-white border border-gray-200 text-gray-500 hover:text-brand-600 hover:border-brand-300 hover:shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center" data-target="toc">
+                        <div class="text-3xl mb-3"><i class="fas fa-laptop-code"></i></div>
+                        Theory of Computation
+                    </button>
                     
+                    <!-- Linear Programming Box -->
+                    <button class="tab-btn bg-white border border-gray-200 text-gray-500 hover:text-brand-600 hover:border-brand-300 hover:shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center" data-target="lp">
+                        <div class="text-3xl mb-3"><i class="fas fa-chart-line"></i></div>
+                        Linear Programming
+                    </button>
                 </div>
-
-                <!-- Theory of Computation Content (Hidden by default) -->
-                <div id="toc" class="tab-content space-y-8 hidden">
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center text-gray-500 shadow-sm">
-                        <i class="fas fa-folder-open text-3xl mb-3 text-gray-300"></i>
-                        <p>Theory of Computation notes coming soon...</p>
-                    </div>
-                </div>
-
-                <!-- Linear Programming Content (Hidden by default) -->
-                <div id="lp" class="tab-content space-y-8 hidden">
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center text-gray-500 shadow-sm">
-                        <i class="fas fa-folder-open text-3xl mb-3 text-gray-300"></i>
-                        <p>Linear Programming notes coming soon...</p>
-                    </div>
-                </div>
-
-            </div>
         </section>
     </main>
     
@@ -357,17 +320,21 @@ t.join()</pre>
 
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                // 1. Sabhi buttons ko normal (inactive) box style me reset karo
                 tabBtns.forEach(b => {
-                    b.classList.remove('text-brand-600', 'border-b-2', 'border-brand-600');
-                    b.classList.add('text-gray-500');
+                    b.className = 'tab-btn bg-white border border-gray-200 text-gray-500 hover:text-brand-600 hover:border-brand-300 hover:shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center';
                 });
-                btn.classList.remove('text-gray-500');
-                btn.classList.add('text-brand-600', 'border-b-2', 'border-brand-600');
 
+                // 2. Jo button click hua hai, usko highlight (active) box banao
+                btn.className = 'tab-btn bg-brand-50 border-2 border-brand-500 text-brand-700 shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center transform scale-105';
+
+                // 3. Sabhi content (notes) hide karo
                 tabContents.forEach(content => {
                     content.classList.remove('block');
                     content.classList.add('hidden');
                 });
+
+                // 4. Jis subject pe click kiya hai, uske notes show karo
                 const targetId = btn.getAttribute('data-target');
                 document.getElementById(targetId).classList.remove('hidden');
                 document.getElementById(targetId).classList.add('block');
