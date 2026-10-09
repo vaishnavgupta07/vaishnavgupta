@@ -464,18 +464,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
         import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyA1IORY8celcNg91WoB-SDPfbzK45F_cGw",
-            authDomain: "study-notes-5ad14.firebaseapp.com",
-            projectId: "study-notes-5ad14",
-            storageBucket: "study-notes-5ad14.firebasestorage.app",
-            messagingSenderId: "105612656855",
-            appId: "1:105612656855:web:28861f2b105d5da2557092"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
+     
         async function loadNotes() {
             try {
                 const querySnapshot = await getDocs(collection(db, "notes"));
