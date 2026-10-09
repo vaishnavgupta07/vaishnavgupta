@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Operation Research Notes & Solutions">
-    <title>Operation Research | Vaishnav Shailesh Gupta</title>
+    <meta name="description" content="Operation Research Full Question Bank Solutions">
+    <title>Operation Research Solutions | VSG</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { inter: ['Inter', 'sans-serif'], },
-                    colors: { brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a', } }
-                }
-            }
-        }
-    </script>
     <style>
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         body { font-family: 'Inter', sans-serif; }
-        .math-table th, .math-table td { border: 1px solid #e5e7eb; padding: 0.75rem; text-align: center; }
-        .math-table th { background-color: #f9fafb; font-weight: 600; }
-        .highlight-cell { background-color: #eff6ff; font-weight: bold; }
+        .math-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 0.875rem; }
+        .math-table th, .math-table td { border: 1px solid #d1d5db; padding: 0.5rem; text-align: center; }
+        .math-table th { background-color: #f3f4f6; font-weight: 600; }
+        .highlight { background-color: #dbeafe; font-weight: bold; }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
     <!-- Header -->
-    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="font-bold text-xl text-brand-900 tracking-tight">VSG.</a>
+                    <a href="index.html" class="font-bold text-xl text-blue-900 tracking-tight">VSG.</a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html#about" class="text-gray-600 hover:text-brand-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                    <a href="index.html#experience" class="text-gray-600 hover:text-brand-600 px-3 py-2 text-sm font-medium transition-colors">Experience & Projects</a>
-                    <a href="index.html#notes" class="text-brand-600 px-3 py-2 text-sm font-medium transition-colors border-b-2 border-brand-600">Notes</a>
+                    <a href="index.html#notes" class="text-blue-600 font-medium border-b-2 border-blue-600 px-3 py-2">Notes</a>
                 </nav>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md p-2">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
-                <a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-50">About</a>
-                <a href="index.html#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-50">Experience</a>
-                <a href="index.html#notes" class="block px-3 py-2 rounded-md text-base font-medium text-brand-600 hover:bg-brand-50">Notes</a>
             </div>
         </div>
     </header>
@@ -64,575 +41,329 @@
     <main class="pt-24 pb-16 min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Back Button -->
-            <a href="index.html#notes" class="inline-flex items-center text-gray-600 hover:text-brand-600 font-medium mb-6 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 transition-colors">
+            <a href="index.html#notes" class="inline-flex items-center text-gray-600 hover:text-blue-600 font-medium mb-6 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-200 transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Subjects
             </a>
 
-            <!-- OR Content Box -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-10">
                 
-                <!-- Module Switcher (Tabs) -->
+                <!-- Tab Buttons -->
                 <div class="mb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center border-b pb-4 gap-4">
-                    <h1 class="text-3xl font-bold text-gray-900"><i class="fas fa-chart-pie text-brand-500 mr-3"></i>Operation Research Solutions</h1>
+                    <h1 class="text-3xl font-bold text-gray-900"><i class="fas fa-chart-line text-blue-500 mr-3"></i>Operation Research</h1>
                     <div class="flex flex-wrap bg-gray-100 p-1 rounded-lg gap-1">
-                        <button onclick="switchOrModule('module1', this)" class="or-mod-btn bg-white shadow-sm text-brand-600 font-medium px-4 py-1.5 rounded-md transition-all">Module 1 (LPP)</button>
-                        <button onclick="switchOrModule('module2', this)" class="or-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 2 (Transport)</button>
-                        <button onclick="switchOrModule('module3', this)" class="or-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 3 (Assignment)</button>
+                        <button onclick="switchTab('mod1', this)" class="tab-btn bg-white shadow-sm text-blue-600 font-medium px-4 py-1.5 rounded-md transition-all">Module 1 (LPP)</button>
+                        <button onclick="switchTab('mod2', this)" class="tab-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 2 (Transport)</button>
+                        <button onclick="switchTab('mod3', this)" class="tab-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 3 (Assignment)</button>
                     </div>
                 </div>
 
-                <!-- ================= MODULE 1 CONTENT (LPP) ================= -->
-                <div id="module1" class="or-module-content space-y-6 block">
-                    
-                    <!-- LPP Q1 -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q1: Formulation of LPP</h3>
-                                <p class="text-sm text-gray-600 mt-1">A milk plant manufactures two types of products A and B... Formulate the problem for maximizing profit.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m1-q1')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m1-q1">Read</span>
-                                </button>
-                            </div>
+                <!-- MODULE 1: LPP -->
+                <div id="mod1" class="tab-content block space-y-4">
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 1: Linear Programming Problem</h2>
+
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q1. Milk Plant Formulation
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Decision Variables:</b> Let x₁ = units of A, x₂ = units of B.</p>
+                            <p><b>Objective Function:</b> Maximize Z = 5x₁ + 3x₂</p>
+                            <p><b>Constraints:</b><br>
+                            Time conversion: G = 400 min; H = 500 min.<br>
+                            x₁ + x₂ ≤ 400 (Machine G)<br>
+                            2x₁ + x₂ ≤ 500 (Machine H)<br>
+                            x₁, x₂ ≥ 0</p>
                         </div>
-                        <div id="or-m1-q1" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Step 1: Identify Decision Variables</strong><br>
-                                Let <b>x₁</b> be the number of units produced of product type A.<br>
-                                Let <b>x₂</b> be the number of units produced of product type B.</p>
-                                
-                                <p><strong>Step 2: Formulate the Objective Function</strong><br>
-                                The profit is Rs. 5 on type A and Rs. 3 on type B. The goal is to maximize total profit.<br>
-                                <span class="font-bold text-brand-600 text-lg">Maximize Z = 5x₁ + 3x₂</span></p>
+                    </details>
 
-                                <p><strong>Step 3: Formulate Constraints</strong><br>
-                                Convert available machine times from hours/minutes to total minutes:<br>
-                                • Machine G: 6 hours 40 minutes = (6 × 60) + 40 = <strong>400 minutes</strong><br>
-                                • Machine H: 8 hours 20 minutes = (8 × 60) + 20 = <strong>500 minutes</strong></p>
-                                
-                                <p>Product A requires 1 min on G and 2 mins on H. Product B requires 1 min on G and 1 min on H.<br>
-                                • Constraint for Machine G: <b>x₁ + x₂ ≤ 400</b><br>
-                                • Constraint for Machine H: <b>2x₁ + x₂ ≤ 500</b></p>
-
-                                <p><strong>Step 4: Non-negativity Restriction</strong><br>
-                                Production cannot be negative.<br>
-                                <b>x₁, x₂ ≥ 0</b></p>
-
-                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mt-4">
-                                    <h4 class="font-bold text-gray-900 mb-2">Final LP Model:</h4>
-                                    <p><b>Maximize Z = 5x₁ + 3x₂</b></p>
-                                    <p>Subject to:</p>
-                                    <p>x₁ + x₂ ≤ 400</p>
-                                    <p>2x₁ + x₂ ≤ 500</p>
-                                    <p>x₁, x₂ ≥ 0</p>
-                                </div>
-                            </div>
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q2. Animal Feed Formulation
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Decision Variables:</b> Let x₁ = kg of A, x₂ = kg of B.</p>
+                            <p><b>Objective Function:</b> Minimize Z = 3x₁ + 8x₂</p>
+                            <p><b>Constraints:</b><br>
+                            x₁ + x₂ = 200 (Total weight)<br>
+                            x₁ ≤ 80 (Max A)<br>
+                            x₂ ≥ 60 (Min B)<br>
+                            x₁, x₂ ≥ 0</p>
                         </div>
-                    </article>
+                    </details>
 
-                    <!-- LPP Q4 -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q4: Graphical Method</h3>
-                                <p class="text-sm text-gray-600 mt-1">Solve LPP: Maximize Z = 8x + y. Subject to: x + y ≤ 40, 2x + y ≤ 60.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m1-q4')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m1-q4">Read</span>
-                                </button>
-                            </div>
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q3. Software Company Formulation
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Decision Variables:</b> Let x₁ = Web Apps, x₂ = Mobile Apps.</p>
+                            <p><b>Objective Function:</b> Maximize Z = 60000x₁ + 80000x₂</p>
+                            <p><b>Constraints:</b><br>
+                            100x₁ + 120x₂ ≤ 1200 (Programming hrs)<br>
+                            20x₁ + 40x₂ ≤ 320 (Testing hrs)<br>
+                            x₂ ≥ 4 (Min mobile apps)<br>
+                            x₁, x₂ ≥ 0</p>
                         </div>
-                        <div id="or-m1-q4" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Objective:</strong> Maximize Z = 8x + y</p>
+                    </details>
 
-                                <p><strong>Step 1: Find coordinates for the constraint lines.</strong><br>
-                                <b>Line 1 (x + y = 40):</b><br>
-                                If x = 0, y = 40 → Point: <b>(0, 40)</b><br>
-                                If y = 0, x = 40 → Point: <b>(40, 0)</b></p>
-                                
-                                <p><b>Line 2 (2x + y = 60):</b><br>
-                                If x = 0, y = 60 → Point: <b>(0, 60)</b><br>
-                                If y = 0, x = 30 → Point: <b>(30, 0)</b></p>
-
-                                <p><strong>Step 2: Find intersection point of the two lines.</strong><br>
-                                Subtract Line 1 from Line 2:<br>
-                                (2x + y) - (x + y) = 60 - 40<br>
-                                <b>x = 20</b><br>
-                                Substitute x = 20 into Line 1:<br>
-                                20 + y = 40  ⇒  <b>y = 20</b><br>
-                                Intersection point: <b>(20, 20)</b></p>
-
-                                <p><strong>Step 3: Evaluate objective function at feasible corner points.</strong></p>
-                                <div class="overflow-x-auto my-4">
-                                    <table class="math-table w-full md:w-2/3">
-                                        <thead>
-                                            <tr>
-                                                <th>Corner Point (x, y)</th>
-                                                <th>Value of Z = 8x + y</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr><td>(0, 0)</td><td>8(0) + 0 = 0</td></tr>
-                                            <tr><td>(30, 0)</td><td>8(30) + 0 = 240</td></tr>
-                                            <tr><td>(20, 20)</td><td>8(20) + 20 = 180</td></tr>
-                                            <tr><td>(0, 40)</td><td>8(0) + 40 = 40</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p><strong>Conclusion:</strong> The maximum value of Z is <span class="font-bold text-brand-600 text-xl">240</span>, which occurs at coordinates <b>x = 30, y = 0</b>.</p>
-                            </div>
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q4. Graphical Method (Maximize)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <p><b>Objective:</b> Maximize Z = 8x + y</p>
+                            <p><b>Constraints:</b> x + y ≤ 40, 2x + y ≤ 60</p>
+                            <p><b>Intersection Point:</b> Subtracting equations gives x=20, y=20.</p>
+                            <table class="math-table mt-2">
+                                <tr><th>Corner Points</th><th>Z = 8x + y</th></tr>
+                                <tr><td>(0, 0)</td><td>0</td></tr>
+                                <tr><td>(0, 40)</td><td>40</td></tr>
+                                <tr><td>(20, 20)</td><td>180</td></tr>
+                                <tr class="highlight"><td>(30, 0)</td><td>240 (Maximum)</td></tr>
+                            </table>
                         </div>
-                    </article>
+                    </details>
 
-                    <!-- LPP Q7 -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q7: Simplex Method (Initial Table)</h3>
-                                <p class="text-sm text-gray-600 mt-1">Construct the initial simplex table for: Max Z = 3x₁ + 2x₂ + 4x₃</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m1-q7')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m1-q7">Read</span>
-                                </button>
-                            </div>
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q5. Graphical Method (Minimize)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <p><b>Objective:</b> Minimize Z = 5x + 7y</p>
+                            <p><b>Constraints:</b> x + y ≥ 6, 2x + 3y ≤ 12</p>
+                            <table class="math-table mt-2">
+                                <tr><th>Corner Points</th><th>Z = 5x + 7y</th></tr>
+                                <tr class="highlight"><td>(6, 0)</td><td>30 (Minimum)</td></tr>
+                            </table>
+                            <p class="mt-2 text-sm"><i>Note: Only point (6,0) satisfies both constraints effectively.</i></p>
                         </div>
-                        <div id="or-m1-q7" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Step 1: Convert inequalities to equations by introducing slack variables (s₁, s₂, s₃)</strong></p>
-                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 font-mono text-sm mb-4">
-                                    Maximize Z = 3x₁ + 2x₂ + 4x₃ + 0s₁ + 0s₂ + 0s₃<br><br>
-                                    Subject to:<br>
-                                    x₁ + x₂ + x₃ + s₁ = 6<br>
-                                    2x₁ + x₂ + 3x₃ + s₂ = 9<br>
-                                    x₁ + 2x₂ + x₃ + s₃ = 8<br>
-                                    x₁, x₂, x₃, s₁, s₂, s₃ ≥ 0
-                                </div>
+                    </details>
 
-                                <p><strong>Step 2: Construct the Initial Simplex Table</strong></p>
-                                <div class="overflow-x-auto">
-                                    <table class="math-table w-full text-sm">
-                                        <thead>
-                                            <tr>
-                                                <th>C<sub>B</sub></th>
-                                                <th>Basis</th>
-                                                <th>C<sub>j</sub> →</th>
-                                                <th>3</th>
-                                                <th>2</th>
-                                                <th>4</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>RHS (b)</th>
-                                                <th>Ratio</th>
-                                            </tr>
-                                            <tr>
-                                                <th></th>
-                                                <th></th>
-                                                <th>Variables →</th>
-                                                <th>x₁</th>
-                                                <th>x₂</th>
-                                                <th>x₃</th>
-                                                <th>s₁</th>
-                                                <th>s₂</th>
-                                                <th>s₃</th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>s₁</td>
-                                                <td></td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>6</td>
-                                                <td>6/1 = 6</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>s₂</td>
-                                                <td></td>
-                                                <td>2</td>
-                                                <td>1</td>
-                                                <td class="highlight-cell">3 (Pivot)</td>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>9</td>
-                                                <td>9/3 = 3 ← (Leaving)</td>
-                                            </tr>
-                                            <tr>
-                                                <td>0</td>
-                                                <td>s₃</td>
-                                                <td></td>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>1</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>1</td>
-                                                <td>8</td>
-                                                <td>8/1 = 8</td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Z<sub>j</sub> = Σ(C<sub>B</sub> × X<sub>j</sub>)</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td><b>Z = 0</b></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td>Δ<sub>j</sub> = Z<sub>j</sub> - C<sub>j</sub></td>
-                                                <td>-3</td>
-                                                <td>-2</td>
-                                                <td class="highlight-cell text-red-600">-4 ↑ (Entering)</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td>0</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="text-sm mt-2 text-gray-600"><b>Conclusion:</b> The most negative Δ<sub>j</sub> is -4, meaning <b>x₃</b> is the entering variable. The minimum positive ratio is 3, making <b>s₂</b> the leaving variable. The pivot element is 3.</p>
-                            </div>
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q6. Formulate the Dual
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Primal (Minimization):</b> Min Z = 6x + 5y</p>
+                            <p>Subject to: x + y ≥ 8, 2x + 3y ≥ 18, 3x + y ≥ 15</p>
+                            <p class="mt-4"><b>Dual (Maximization):</b> Max W = 8w₁ + 18w₂ + 15w₃</p>
+                            <p>Subject to:<br>
+                            w₁ + 2w₂ + 3w₃ ≤ 6<br>
+                            w₁ + 3w₂ + w₃ ≤ 5<br>
+                            w₁, w₂, w₃ ≥ 0</p>
                         </div>
-                    </article>
+                    </details>
 
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q7. Initial Simplex Table
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <p><b>Standard Form:</b> Max Z = 3x₁ + 2x₂ + 4x₃ + 0s₁ + 0s₂ + 0s₃</p>
+                            <table class="math-table mt-2">
+                                <tr><th>C<sub>B</sub></th><th>Basis</th><th>x₁</th><th>x₂</th><th>x₃</th><th>s₁</th><th>s₂</th><th>s₃</th><th>RHS</th><th>Ratio</th></tr>
+                                <tr><td>0</td><td>s₁</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>6</td></tr>
+                                <tr><td>0</td><td>s₂</td><td>2</td><td>1</td><td class="bg-yellow-200 font-bold">3 (Pivot)</td><td>0</td><td>1</td><td>0</td><td>9</td><td>3 ←</td></tr>
+                                <tr><td>0</td><td>s₃</td><td>1</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>8</td><td>8</td></tr>
+                                <tr><td></td><td></td><td><b>Δ<sub>j</sub></b></td><td>-3</td><td>-2</td><td class="text-red-600 font-bold">-4 ↑</td><td>0</td><td>0</td><td>0</td><td></td><td></td></tr>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q8 & Q9. Simplex & Big M Analysis
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Q8 Answers:</b><br>
+                            (a) Zj values are 0 for all variables.<br>
+                            (b) Δj values: x₁ = -4, x₂ = -3, x₃ = -2.<br>
+                            (c) Minimum positive ratio defines leaving variable.<br>
+                            (d) <b>Not Optimal</b> because there are negative values in Δj.</p>
+                            <hr class="my-4">
+                            <p><b>Q9 Answers (Big M):</b><br>
+                            (a) Basic Variables: s₁ (Cost=0), A₁ (Cost=M), A₂ (Cost=M).<br>
+                            (b) <b>Not Optimal</b> because (Cj - Zj) has highly negative values involving M (e.g., 5-7M).<br>
+                            (c) Entering Variable: <b>x₁</b>. Leaving Variable: <b>s₁</b> (Minimum ratio = 3).</p>
+                        </div>
+                    </details>
                 </div>
 
 
                 <!-- ================= MODULE 2 CONTENT (Transportation) ================= -->
-                <div id="module2" class="or-module-content space-y-6 hidden">
-                    
-                    <!-- Transport Q1 NWC -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q1: North-West Corner (NWC) Method</h3>
-                                <p class="text-sm text-gray-600 mt-1">Solve the transportation problem using NWC Method. Find initial cost and check degeneracy.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m2-q1')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m2-q1">Read</span>
-                                </button>
-                            </div>
+                <div id="mod2" class="tab-content hidden space-y-4">
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 2: Transportation Problem</h2>
+
+                    <!-- Q1 NWC -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q1. North-West Corner (NWC) Method
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <table class="math-table">
+                                <tr><th>Supply/Demand</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
+                                <tr><td><b>S₁</b></td><td class="highlight">10 (C:4)</td><td class="highlight">10 (C:6)</td><td>(C:8)</td><td>20</td></tr>
+                                <tr><td><b>S₂</b></td><td>(C:3)</td><td class="highlight">25 (C:5)</td><td class="highlight">5 (C:7)</td><td>30</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:4)</td><td>(C:6)</td><td class="highlight">25 (C:5)</td><td>25</td></tr>
+                                <tr><td><b>Demand</b></td><td>10</td><td>35</td><td>30</td><td><b>75</b></td></tr>
+                            </table>
+                            <p class="mt-2"><b>Total Cost:</b> (10×4) + (10×6) + (25×5) + (5×7) + (25×5) = <span class="font-bold text-blue-600">385</span></p>
+                            <p><b>Degeneracy:</b> Number of allocations = 5 (m+n-1). It is <b>Non-Degenerate</b>.</p>
                         </div>
-                        <div id="or-m2-q1" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Problem Data:</strong><br>
-                                Supply (S₁, S₂, S₃): 20, 30, 25 (Total = 75)<br>
-                                Demand (D₁, D₂, D₃): 10, 35, 30 (Total = 75)<br>
-                                The problem is balanced since Total Supply = Total Demand.</p>
+                    </details>
 
-                                <p><strong>Step 1: Allocate starting from the top-left (North-West) cell.</strong><br>
-                                1. Cell (S₁, D₁): Supply is 20, Demand is 10. Allocate 10. D₁ satisfied. Remaining S₁ = 10.<br>
-                                2. Cell (S₁, D₂): Remaining S₁ is 10, Demand is 35. Allocate 10. S₁ exhausted. Remaining D₂ = 25.<br>
-                                3. Cell (S₂, D₂): Supply is 30, Remaining Demand is 25. Allocate 25. D₂ satisfied. Remaining S₂ = 5.<br>
-                                4. Cell (S₂, D₃): Remaining S₂ is 5, Demand is 30. Allocate 5. S₂ exhausted. Remaining D₃ = 25.<br>
-                                5. Cell (S₃, D₃): Remaining S₃ is 25, Remaining Demand is 25. Allocate 25. Both satisfied.</p>
-
-                                <div class="overflow-x-auto my-4">
-                                    <table class="math-table w-full">
-                                        <thead>
-                                            <tr>
-                                                <th>Supply / Demand</th>
-                                                <th>D₁</th>
-                                                <th>D₂</th>
-                                                <th>D₃</th>
-                                                <th>Supply</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>S₁</b></td>
-                                                <td class="highlight-cell">10 <br><span class="text-xs font-normal text-gray-500">(Cost: 4)</span></td>
-                                                <td class="highlight-cell">10 <br><span class="text-xs font-normal text-gray-500">(Cost: 6)</span></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 8)</span></td>
-                                                <td>20</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>S₂</b></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 3)</span></td>
-                                                <td class="highlight-cell">25 <br><span class="text-xs font-normal text-gray-500">(Cost: 5)</span></td>
-                                                <td class="highlight-cell">5 <br><span class="text-xs font-normal text-gray-500">(Cost: 7)</span></td>
-                                                <td>30</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>S₃</b></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 4)</span></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 6)</span></td>
-                                                <td class="highlight-cell">25 <br><span class="text-xs font-normal text-gray-500">(Cost: 5)</span></td>
-                                                <td>25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Demand</b></td>
-                                                <td>10</td>
-                                                <td>35</td>
-                                                <td>30</td>
-                                                <td><b>75</b></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <p><strong>Step 2: Calculate Initial Transportation Cost</strong><br>
-                                Total Cost = (10 × 4) + (10 × 6) + (25 × 5) + (5 × 7) + (25 × 5)<br>
-                                Total Cost = 40 + 60 + 125 + 35 + 125 = <span class="font-bold text-brand-600 text-xl">385</span></p>
-
-                                <p><strong>Step 3: Check for Degeneracy</strong><br>
-                                Number of allocations must be = m + n - 1 (Rows + Columns - 1).<br>
-                                3 + 3 - 1 = 5.<br>
-                                Since there are exactly 5 allocated cells, the solution is <b>Non-Degenerate</b>.</p>
-                            </div>
+                    <!-- Q2 LCM -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q2. Least Cost Method (LCM)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <table class="math-table">
+                                <tr><th>Supply/Demand</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
+                                <tr><td><b>S₁</b></td><td class="highlight">20 (C:8)</td><td>(C:6)</td><td>(C:10)</td><td>20</td></tr>
+                                <tr><td><b>S₂</b></td><td class="highlight">10 (C:12)</td><td>(C:7)</td><td class="highlight">20 (C:9)</td><td>30</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:11)</td><td class="highlight">20 (C:5)</td><td class="highlight">20 (C:8)</td><td>40</td></tr>
+                                <tr><td><b>Demand</b></td><td>30</td><td>20</td><td>40</td><td><b>90</b></td></tr>
+                            </table>
+                            <p class="mt-2"><b>Total Cost:</b> (20×8) + (10×12) + (20×9) + (20×5) + (20×8) = <span class="font-bold text-blue-600">720</span></p>
                         </div>
-                    </article>
+                    </details>
 
-                    <!-- Transport Q3 VAM -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q3: Vogel's Approximation Method (VAM)</h3>
-                                <p class="text-sm text-gray-600 mt-1">Solve the transportation problem using VAM. Find initial cost and check degeneracy.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m2-q3')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m2-q3">Read</span>
-                                </button>
-                            </div>
+                    <!-- Q3 VAM -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q3. Vogel's Approximation Method (VAM)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <table class="math-table">
+                                <tr><th>Supply/Demand</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
+                                <tr><td><b>S₁</b></td><td>(C:8)</td><td class="highlight">25 (C:3)</td><td>(C:7)</td><td>25</td></tr>
+                                <tr><td><b>S₂</b></td><td class="highlight">20 (C:4)</td><td class="highlight">5 (C:6)</td><td class="highlight">10 (C:9)</td><td>35</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:5)</td><td>(C:7)</td><td class="highlight">30 (C:6)</td><td>30</td></tr>
+                                <tr><td><b>Demand</b></td><td>20</td><td>30</td><td>40</td><td><b>90</b></td></tr>
+                            </table>
+                            <p class="mt-2"><b>Total Cost:</b> (25×3) + (20×4) + (5×6) + (10×9) + (30×6) = <span class="font-bold text-blue-600">455</span></p>
                         </div>
-                        <div id="or-m2-q3" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Problem Data:</strong><br>
-                                Supply (S₁, S₂, S₃): 25, 35, 30 (Total = 90)<br>
-                                Demand (D₁, D₂, D₃): 20, 30, 40 (Total = 90)<br>
-                                Problem is balanced.</p>
+                    </details>
 
-                                <p><strong>Step 1: Calculate initial row and column penalties (difference between two lowest costs).</strong><br>
-                                • Row Penalties: R1 (7-3=4), R2 (6-4=2), R3 (6-5=1)<br>
-                                • Col Penalties: C1 (5-4=1), C2 (6-3=3), C3 (7-6=1)<br>
-                                Max penalty is <b>4</b> in Row 1. Minimum cost in Row 1 is 3 at cell (S₁, D₂). Allocate min(25, 30) = 25 units. S₁ is exhausted. Remaining D₂ = 5.</p>
-
-                                <p><strong>Step 2: Recalculate penalties ignoring Row 1.</strong><br>
-                                • Row Penalties: R2 (6-4=2), R3 (6-5=1)<br>
-                                • Col Penalties: C1 (5-4=1), C2 (7-6=1), C3 (9-6=3)<br>
-                                Max penalty is <b>3</b> in Column 3. Minimum cost in Col 3 is 6 at cell (S₃, D₃). Allocate min(30, 40) = 30 units. S₃ is exhausted. Remaining D₃ = 10.</p>
-
-                                <p><strong>Step 3: Final Allocations (Only Row 2 remaining).</strong><br>
-                                Allocate remaining demands directly to S₂:<br>
-                                (S₂, D₁) gets 20 units.<br>
-                                (S₂, D₂) gets 5 units.<br>
-                                (S₂, D₃) gets 10 units.</p>
-
-                                <div class="overflow-x-auto my-4">
-                                    <table class="math-table w-full">
-                                        <thead>
-                                            <tr>
-                                                <th>Supply / Demand</th>
-                                                <th>D₁</th>
-                                                <th>D₂</th>
-                                                <th>D₃</th>
-                                                <th>Supply</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>S₁</b></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 8)</span></td>
-                                                <td class="highlight-cell">25 <br><span class="text-xs font-normal text-gray-500">(Cost: 3)</span></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 7)</span></td>
-                                                <td>25</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>S₂</b></td>
-                                                <td class="highlight-cell">20 <br><span class="text-xs font-normal text-gray-500">(Cost: 4)</span></td>
-                                                <td class="highlight-cell">5 <br><span class="text-xs font-normal text-gray-500">(Cost: 6)</span></td>
-                                                <td class="highlight-cell">10 <br><span class="text-xs font-normal text-gray-500">(Cost: 9)</span></td>
-                                                <td>35</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>S₃</b></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 5)</span></td>
-                                                <td><span class="text-xs text-gray-400">(Cost: 7)</span></td>
-                                                <td class="highlight-cell">30 <br><span class="text-xs font-normal text-gray-500">(Cost: 6)</span></td>
-                                                <td>30</td>
-                                            </tr>
-                                            <tr>
-                                                <td><b>Demand</b></td>
-                                                <td>20</td>
-                                                <td>30</td>
-                                                <td>40</td>
-                                                <td><b>90</b></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <p><strong>Step 4: Calculate Cost & Degeneracy</strong><br>
-                                Total Cost = (25 × 3) + (20 × 4) + (5 × 6) + (10 × 9) + (30 × 6)<br>
-                                Total Cost = 75 + 80 + 30 + 90 + 180 = <span class="font-bold text-brand-600 text-xl">455</span><br>
-                                Degeneracy Check: Number of allocations = 5 (m + n - 1 = 3 + 3 - 1 = 5). The solution is <b>Non-Degenerate</b>.</p>
-                            </div>
+                    <!-- Q4, Q5, Q6 MODI -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q4, Q5, Q6. MODI Method (Optimality Check)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Q4 Check:</b> Using u_i + v_j = C_ij for basic cells. For empty cell (S1,D3), Δij = C_ij - (u_i + v_j) = 8 - 10 = -2. Since Δij < 0, it is <b>NOT optimal</b>.</p>
+                            <hr class="my-2">
+                            <p><b>Q5 Check:</b> The given basic feasible solution forms a closed loop, meaning it's invalid/degenerate. A proper basic feasible solution is required before MODI can be applied.</p>
+                            <hr class="my-2">
+                            <p><b>Q6 Check:</b> Evaluating empty cells gives all Δij ≥ 0. (e.g., S1D3 = 4, S2D1 = 5, S3D1 = 3, S3D2 = 3). Since all values are positive, the given solution <b>IS Optimal</b>.</p>
                         </div>
-                    </article>
+                    </details>
+
+                    <!-- Q7, Q8, Q9 Maximization -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q7, Q8, Q9. Maximization Problems
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Q7 (NWC Max):</b> Allocations: S1D1=15, S1D2=5, S2D2=20, S2D3=10, S3D3=25.<br>Total Profit = 120 + 30 + 180 + 70 + 200 = <b>600</b></p>
+                            <hr class="my-2">
+                            <p><b>Q8 (LCM Max):</b> Convert to Loss Matrix (Subtract from 13).<br>Allocations: S1D1=20, S1D3=5, S2D2=25, S2D3=5, S3D3=20.<br>Total Profit = <b>875</b></p>
+                            <hr class="my-2">
+                            <p><b>Q9 (VAM Max):</b> Convert to Loss Matrix (Subtract from 15).<br>Allocations: S1D2=20, S2D1=5, S2D2=10, S2D3=15, S3D1=25.<br>Total Profit = <b>940</b></p>
+                        </div>
+                    </details>
 
                 </div>
 
 
                 <!-- ================= MODULE 3 CONTENT (Assignment) ================= -->
-                <div id="module3" class="or-module-content space-y-6 hidden">
-                    
-                    <!-- Assign Q1 -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q1: Hungarian Method (Minimization)</h3>
-                                <p class="text-sm text-gray-600 mt-1">Solve the assignment problem and determine the minimum total cost.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m3-q1')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m3-q1">Read</span>
-                                </button>
-                            </div>
+                <div id="mod3" class="tab-content hidden space-y-4">
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 3: Assignment Problem</h2>
+
+                    <!-- Q1 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q1. Hungarian Method (Minimization)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <table class="math-table">
+                                <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th></tr>
+                                <tr><td><b>W₁</b></td><td>4</td><td class="highlight">0 (Assign)</td><td>5</td></tr>
+                                <tr><td><b>W₂</b></td><td class="highlight">0 (Assign)</td><td>1</td><td>0 (Cross)</td></tr>
+                                <tr><td><b>W₃</b></td><td>1</td><td>7</td><td class="highlight">0 (Assign)</td></tr>
+                            </table>
+                            <p class="mt-2"><b>Cost:</b> W₁→J₂ (2), W₂→J₁ (6), W₃→J₃ (1). <b>Total Cost = 9</b></p>
                         </div>
-                        <div id="or-m3-q1" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Step 1: Row Reduction</strong><br>
-                                Subtract the minimum element of each row from all elements in that row.<br>
-                                • Row 1 min = 2: (9-2, 2-2, 7-2) → (7, 0, 5)<br>
-                                • Row 2 min = 3: (6-3, 4-3, 3-3) → (3, 1, 0)<br>
-                                • Row 3 min = 1: (5-1, 8-1, 1-1) → (4, 7, 0)</p>
+                    </details>
 
-                                <p><strong>Step 2: Column Reduction</strong><br>
-                                Subtract the minimum element of each column from all elements in that column.<br>
-                                • Col 1 min = 3: (7-3, 3-3, 4-3) → (4, 0, 1)<br>
-                                • Col 2 min = 0: Remains unchanged.<br>
-                                • Col 3 min = 0: Remains unchanged.</p>
-
-                                <div class="overflow-x-auto my-4">
-                                    <table class="math-table w-full md:w-1/2">
-                                        <thead>
-                                            <tr>
-                                                <th>Worker</th>
-                                                <th>J₁</th>
-                                                <th>J₂</th>
-                                                <th>J₃</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr><td><b>W₁</b></td><td>4</td><td class="highlight-cell">0 (Assign)</td><td>5</td></tr>
-                                            <tr><td><b>W₂</b></td><td class="highlight-cell">0 (Assign)</td><td>1</td><td>0 (Cross)</td></tr>
-                                            <tr><td><b>W₃</b></td><td>1</td><td>7</td><td class="highlight-cell">0 (Assign)</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <p><strong>Step 3: Draw minimum lines to cover all zeros.</strong><br>
-                                • Line 1: Column 2 (covers zero at W₁, J₂)<br>
-                                • Line 2: Row 2 (covers zeros at W₂, J₁ and W₂, J₃)<br>
-                                • Line 3: Column 3 (covers zero at W₃, J₃)<br>
-                                Total lines = 3. Since number of lines equals matrix dimension (N=3), the solution is optimal.</p>
-
-                                <p><strong>Step 4: Optimal Assignments & Minimum Cost</strong><br>
-                                • W₁ → J₂ (Cost = 2)<br>
-                                • W₂ → J₁ (Cost = 6)<br>
-                                • W₃ → J₃ (Cost = 1)<br>
-                                <b>Minimum Total Cost</b> = 2 + 6 + 1 = <span class="font-bold text-brand-600 text-xl">9</span></p>
-                            </div>
+                    <!-- Q2 & Q3 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q2 & Q3. Hungarian Method (Minimization)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Q2 Solution:</b> Final Assignments: W₁→J₃, W₂→J₂, W₃→J₁.<br><b>Minimum Total Cost = 4 + 5 + 6 = 15</b></p>
+                            <hr class="my-2">
+                            <p><b>Q3 Solution:</b> Final Assignments: W₁→J₃, W₂→J₁, W₃→J₂.<br><b>Minimum Total Cost = 5 + 6 + 6 = 17</b></p>
                         </div>
-                    </article>
+                    </details>
 
-                    <!-- Assign Q4 -->
-                    <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div class="flex-1">
-                                <h3 class="text-lg font-bold text-gray-900">Q4: Hungarian Method (Maximization)</h3>
-                                <p class="text-sm text-gray-600 mt-1">Determine the assignment that maximizes the total profit.</p>
-                            </div>
-                            <div class="flex w-full md:w-auto">
-                                <button onclick="toggleNote('or-m3-q4')" class="flex-1 md:flex-none justify-center inline-flex items-center px-6 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
-                                    <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-or-m3-q4">Read</span>
-                                </button>
-                            </div>
+                    <!-- Q4, Q5, Q6 Maximization -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q4, Q5, Q6. Maximization Assignments
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><i>Subtract values from matrix maximum to create a Loss Matrix, then apply Hungarian Method.</i></p>
+                            <p><b>Q4 Profit:</b> W₁→J₃, W₂→J₁, W₃→J₂.<br>Max Profit = 9 + 12 + 9 = <b>30</b></p>
+                            <hr class="my-2">
+                            <p><b>Q5 Profit:</b> W₁→J₁, W₂→J₂, W₃→J₃.<br>Max Profit = 12 + 15 + 16 = <b>43</b></p>
+                            <hr class="my-2">
+                            <p><b>Q6 Profit:</b> W₁→J₁, W₂→J₂, W₃→J₃.<br>Max Profit = 14 + 9 + 15 = <b>38</b></p>
                         </div>
-                        <div id="or-m3-q4" class="hidden border-t border-gray-200 bg-white">
-                            <div class="p-6 text-gray-800 text-base leading-relaxed space-y-4">
-                                <p><strong>Step 1: Convert Profit Matrix to Loss Matrix</strong><br>
-                                Subtract all elements from the maximum element in the matrix (which is 12).</p>
-                                <div class="overflow-x-auto mb-4">
-                                    <table class="math-table w-full md:w-1/2 text-sm">
-                                        <thead><tr><th>Loss Matrix</th><th>J₁</th><th>J₂</th><th>J₃</th></tr></thead>
-                                        <tbody>
-                                            <tr><td><b>W₁</b></td><td>1</td><td>5</td><td>3</td></tr>
-                                            <tr><td><b>W₂</b></td><td>0</td><td>4</td><td>6</td></tr>
-                                            <tr><td><b>W₃</b></td><td>5</td><td>3</td><td>2</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </details>
 
-                                <p><strong>Step 2: Row & Column Reduction</strong><br>
-                                After subtracting row minimums and then column minimums, we get:</p>
-                                <div class="overflow-x-auto mb-4">
-                                    <table class="math-table w-full md:w-1/2 text-sm">
-                                        <tbody>
-                                            <tr><td><b>W₁</b></td><td>0</td><td>3</td><td>2</td></tr>
-                                            <tr><td><b>W₂</b></td><td>0</td><td>3</td><td>6</td></tr>
-                                            <tr><td><b>W₃</b></td><td>3</td><td>0</td><td>0</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <p><strong>Step 3: Draw lines and Adjust Matrix</strong><br>
-                                Initially, lines needed to cover zeros: Column 1 and Row 3 (Total = 2 lines). Since 2 < 3, it's not optimal.<br>
-                                The smallest uncovered element is 2. Subtract 2 from uncovered elements, and add 2 to intersections (Row 3, Col 1). New Matrix:</p>
-                                
-                                <div class="overflow-x-auto mb-4">
-                                    <table class="math-table w-full md:w-1/2">
-                                        <thead>
-                                            <tr>
-                                                <th>Adjusted</th>
-                                                <th>J₁</th>
-                                                <th>J₂</th>
-                                                <th>J₃</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr><td><b>W₁</b></td><td>0 (Cross)</td><td>1</td><td class="highlight-cell">0 (Assign)</td></tr>
-                                            <tr><td><b>W₂</b></td><td class="highlight-cell">0 (Assign)</td><td>1</td><td>4</td></tr>
-                                            <tr><td><b>W₃</b></td><td>5</td><td class="highlight-cell">0 (Assign)</td><td>0 (Cross)</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p>Now, 3 lines are required to cover all zeros (Optimal state reached).</p>
-
-                                <p><strong>Step 4: Optimal Assignments & Maximum Profit</strong><br>
-                                • W₂ → J₁ (Profit = 12)<br>
-                                • W₁ → J₃ (Profit = 9)<br>
-                                • W₃ → J₂ (Profit = 9)<br>
-                                <b>Maximum Total Profit</b> = 12 + 9 + 9 = <span class="font-bold text-brand-600 text-xl">30</span></p>
-                            </div>
+                    <!-- Q7 & Q8 Unbalanced -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q7 & Q8. Unbalanced Assignment Problems
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Q7 (3 Workers, 4 Jobs):</b> Add Dummy Worker (W4) with 0 costs.<br>Assignments: W₁→J₄, W₂→J₁, W₃→J₂, W₄(Dummy)→J₃.<br><b>Minimum Cost = 6 + 8 + 4 + 0 = 18</b></p>
+                            <hr class="my-2">
+                            <p><b>Q8 (4 Workers, 3 Jobs):</b> Add Dummy Job (J4) with 0 costs.<br>Assignments: W₁→J₁, W₂→J₃, W₃→J₄(Dummy), W₄→J₂.<br><b>Minimum Cost = 16 + 17 + 0 + 18 = 51</b></p>
                         </div>
-                    </article>
+                    </details>
+
+                    <!-- Q9 Prohibited -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            Q9. Prohibited Assignment (Big M)
+                            <span class="text-blue-500 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p><b>Concept:</b> Since W₂ cannot do J₃, assign cost 'M' (very large) to (W₂, J₃).</p>
+                            <p>Assignments: W₁→J₁, W₂→J₂, W₃→J₃.<br><b>Minimum Total Cost = 4 + 5 + 3 = 12</b></p>
+                        </div>
+                    </details>
 
                 </div>
 
@@ -641,68 +372,17 @@
     </main>
 
     <script>
-        // Mobile Menu Logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
-            const mobileLinks = menu.querySelectorAll('a');
-            mobileLinks.forEach(link => { link.addEventListener('click', () => { menu.classList.add('hidden'); }); });
-        }
-
-        // Toggle Open/Close Notes (Accordion Logic)
-        function toggleNote(id) {
-            try {
-                const content = document.getElementById(id);
-                if (!content) return;
-                
-                const btnText = document.getElementById('btn-text-' + id);
-                const icon = btnText ? btnText.previousElementSibling : null;
-
-                if (content.classList.contains('hidden')) {
-                    content.classList.remove('hidden');
-                    if (btnText) btnText.innerText = 'Close';
-                    if (icon) {
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    }
-                } else {
-                    content.classList.add('hidden');
-                    if (btnText) btnText.innerText = 'Read';
-                    if (icon) {
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    }
-                }
-            } catch (err) {
-                console.error("Toggle error:", err);
-            }
-        }
-
-        // Switch Modules for OR
-        function switchOrModule(moduleId, btnElement) {
-            try {
-                document.querySelectorAll('.or-module-content').forEach(mod => {
-                    mod.classList.add('hidden');
-                    mod.classList.remove('block');
-                });
-                
-                document.querySelectorAll('.or-mod-btn').forEach(btn => {
-                    btn.className = 'or-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all';
-                });
-                
-                const targetMod = document.getElementById(moduleId);
-                if (targetMod) {
-                    targetMod.classList.remove('hidden');
-                    targetMod.classList.add('block');
-                }
-                
-                if (btnElement) {
-                    btnElement.className = 'or-mod-btn bg-white shadow-sm text-brand-600 font-medium px-4 py-1.5 rounded-md transition-all';
-                }
-            } catch (err) {
-                console.error("Switch module error:", err);
-            }
+        // Module Tab Switcher
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => {
+                c.classList.remove('block'); c.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = 'tab-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all';
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+            btn.className = 'tab-btn bg-white shadow-sm text-blue-600 font-medium px-4 py-1.5 rounded-md transition-all';
         }
     </script>
 </body>
