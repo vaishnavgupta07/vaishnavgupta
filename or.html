@@ -18,10 +18,11 @@
         .math-table th, .math-table td { border: 1px solid #d1d5db; padding: 0.4rem; text-align: center; }
         .math-table th { background-color: #f3f4f6; font-weight: 600; color: #1f2937; }
         .highlight { background-color: #dbeafe; font-weight: bold; color: #1e3a8a; }
-        .strike { text-decoration: line-through; color: #9ca3af; }
+        .strike { text-decoration: line-through; color: #ef4444; }
         details > summary { list-style: none; outline: none; }
         details > summary::-webkit-details-marker { display: none; }
-        .step-title { font-weight: 700; color: #b45309; margin-top: 0.5rem; margin-bottom: 0.2rem; }
+        .question-box { background-color: #f8fafc; padding: 1rem; border-left: 4px solid #3b82f6; margin-bottom: 1rem; font-style: italic; font-size: 0.9rem;}
+        .step-title { font-weight: 700; color: #b45309; margin-top: 1rem; margin-bottom: 0.25rem; font-size: 0.95rem; border-bottom: 1px dashed #fcd34d; padding-bottom: 2px;}
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
@@ -51,7 +52,7 @@
                 
                 <!-- Tab Buttons -->
                 <div class="mb-8 flex flex-col lg:flex-row justify-between items-start lg:items-center border-b pb-4 gap-4">
-                    <h1 class="text-3xl font-bold text-gray-900"><i class="fas fa-chart-line text-blue-500 mr-3"></i>Operation Research Solutions</h1>
+                    <h1 class="text-3xl font-bold text-gray-900"><i class="fas fa-chart-line text-blue-500 mr-3"></i>Operation Research (All 27 Qs)</h1>
                     <div class="flex flex-wrap bg-gray-100 p-1 rounded-lg gap-1">
                         <button onclick="switchTab('mod1', this)" class="tab-btn bg-white shadow-sm text-blue-600 font-medium px-4 py-1.5 rounded-md transition-all">Module 1 (LPP)</button>
                         <button onclick="switchTab('mod2', this)" class="tab-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 2 (Transport)</button>
@@ -61,57 +62,63 @@
 
                 <!-- ================= MODULE 1 CONTENT (LPP - 9 Questions) ================= -->
                 <div id="mod1" class="tab-content block space-y-4">
-                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 1: Linear Programming Problem (LPP)</h2>
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 1: Linear Programming Problem (9 Qs)</h2>
 
                     <!-- Q1 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q1. Formulation (Milk Plant) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q1. LPP Formulation (Milk Plant) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Variables</p><p>Let x₁ = units of A, x₂ = units of B.</p>
-                            <p class="step-title">Step 2: Objective</p><p>Maximize Profit Z = 5x₁ + 3x₂</p>
-                            <p class="step-title">Step 3: Constraints</p>
-                            <p>Machine G (6h 40m = 400m): x₁ + x₂ ≤ 400<br>Machine H (8h 20m = 500m): 2x₁ + x₂ ≤ 500</p>
-                            <p class="step-title">Step 4: Non-negativity</p><p>x₁, x₂ ≥ 0</p>
+                            <div class="question-box">A milk plant manufactures two types of products A and B... Profit Rs. 5 on A, Rs. 3 on B. Processing time: A needs 1 min on G, 2 min on H. B needs 1 min on G, 1 min on H. Machine G available 6h 40m, H available 8h 20m. Formulate to maximize profit.</div>
+                            <p class="step-title">Step 1: Variables</p><p class="text-sm">Let x₁ = units of A, x₂ = units of B.</p>
+                            <p class="step-title">Step 2: Objective Function</p><p class="text-sm font-bold text-blue-700">Maximize Z = 5x₁ + 3x₂</p>
+                            <p class="step-title">Step 3: Constraints (Convert to Minutes)</p>
+                            <p class="text-sm">Machine G: 6h 40m = (6×60)+40 = 400 mins. → <b>1x₁ + 1x₂ ≤ 400</b><br>Machine H: 8h 20m = (8×60)+20 = 500 mins. → <b>2x₁ + 1x₂ ≤ 500</b></p>
+                            <p class="step-title">Step 4: Non-negativity</p><p class="text-sm"><b>x₁, x₂ ≥ 0</b></p>
                         </div>
                     </details>
 
                     <!-- Q2 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q2. Formulation (Animal Feed) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q2. LPP Formulation (Animal Feed) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Variables</p><p>Let x₁ = kg of A, x₂ = kg of B.</p>
-                            <p class="step-title">Step 2: Objective</p><p>Minimize Cost Z = 3x₁ + 8x₂</p>
+                            <div class="question-box">Produce 200 kg of mixture of A and B. Cost A=Rs 3/kg, B=Rs 8/kg. Max 80 kg of A can be used, min 60 kg of B must be used. Minimize cost.</div>
+                            <p class="step-title">Step 1: Variables</p><p class="text-sm">Let x₁ = kg of ingredient A, x₂ = kg of ingredient B.</p>
+                            <p class="step-title">Step 2: Objective Function</p><p class="text-sm font-bold text-blue-700">Minimize Cost Z = 3x₁ + 8x₂</p>
                             <p class="step-title">Step 3: Constraints</p>
-                            <p>Total mix: x₁ + x₂ = 200<br>Max A: x₁ ≤ 80<br>Min B: x₂ ≥ 60</p>
-                            <p class="step-title">Step 4: Non-negativity</p><p>x₁, x₂ ≥ 0</p>
+                            <p class="text-sm">Total Mixture: <b>x₁ + x₂ = 200</b><br>Maximum A: <b>x₁ ≤ 80</b><br>Minimum B: <b>x₂ ≥ 60</b></p>
+                            <p class="step-title">Step 4: Non-negativity</p><p class="text-sm"><b>x₁, x₂ ≥ 0</b></p>
                         </div>
                     </details>
 
                     <!-- Q3 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q3. Formulation (Software Company) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q3. LPP Formulation (Software Co.) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Variables</p><p>Let x₁ = Web apps, x₂ = Mobile apps.</p>
-                            <p class="step-title">Step 2: Objective</p><p>Maximize Profit Z = 60000x₁ + 80000x₂</p>
+                            <div class="question-box">Profit: Web app ₹60,000, Mobile app ₹80,000. Web needs 100h prog, 20h testing. Mobile needs 120h prog, 40h testing. Available: 1200h prog, 320h testing. At least 4 mobile apps must be developed. Formulate LPP.</div>
+                            <p class="step-title">Step 1: Variables</p><p class="text-sm">Let x₁ = Web applications, x₂ = Mobile applications.</p>
+                            <p class="step-title">Step 2: Objective</p><p class="text-sm font-bold text-blue-700">Maximize Profit Z = 60000x₁ + 80000x₂</p>
                             <p class="step-title">Step 3: Constraints</p>
-                            <p>Programming: 100x₁ + 120x₂ ≤ 1200<br>Testing: 20x₁ + 40x₂ ≤ 320<br>Min Mobile: x₂ ≥ 4</p>
-                            <p class="step-title">Step 4: Non-negativity</p><p>x₁, x₂ ≥ 0</p>
+                            <p class="text-sm">Programming limit: <b>100x₁ + 120x₂ ≤ 1200</b><br>Testing limit: <b>20x₁ + 40x₂ ≤ 320</b><br>Min Mobile apps: <b>x₂ ≥ 4</b></p>
+                            <p class="step-title">Step 4: Non-negativity</p><p class="text-sm"><b>x₁, x₂ ≥ 0</b></p>
                         </div>
                     </details>
 
                     <!-- Q4 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q4. Graphical Method (Maximize) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
-                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p><b>Objective:</b> Max Z = 8x + y. <b>Constraints:</b> x+y≤40, 2x+y≤60.</p>
-                            <p class="step-title">Step 1: Coordinates & Intersection</p>
-                            <p>Line 1: (0,40), (40,0). Line 2: (0,60), (30,0). Intersection: (20,20).</p>
-                            <table class="math-table w-full md:w-1/2">
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <p class="text-sm"><b>Objective:</b> Max Z = 8x + y. <b>Constraints:</b> x+y≤40, 2x+y≤60.</p>
+                            <p class="step-title">Step 1: Find Line Coordinates</p>
+                            <p class="text-sm">Line 1 (x+y=40): (0,40) and (40,0).<br>Line 2 (2x+y=60): (0,60) and (30,0).</p>
+                            <p class="step-title">Step 2: Find Intersection Point</p>
+                            <p class="text-sm">Solve (2x+y=60) - (x+y=40) → <b>x=20</b>. Put x=20 in L1 → <b>y=20</b>. Point is (20,20).</p>
+                            <p class="step-title">Step 3: Evaluate Corner Points</p>
+                            <table class="math-table w-full md:w-2/3">
                                 <tr><th>Corner Points</th><th>Z = 8x + y</th></tr>
                                 <tr><td>(0, 0)</td><td>0</td></tr>
                                 <tr><td>(0, 40)</td><td>40</td></tr>
                                 <tr><td>(20, 20)</td><td>180</td></tr>
-                                <tr><td class="highlight">(30, 0)</td><td class="highlight">240 (Max)</td></tr>
+                                <tr><td class="highlight">(30, 0)</td><td class="highlight">240 (Maximum)</td></tr>
                             </table>
                         </div>
                     </details>
@@ -120,13 +127,11 @@
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q5. Graphical Method (Minimize) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p><b>Objective:</b> Min Z = 5x + 7y. <b>Constraints:</b> x+y≥6.</p>
-                            <p class="step-title">Step 1: Corner Points of Feasible Region</p>
-                            <table class="math-table w-full md:w-1/2">
-                                <tr><th>Corner Points</th><th>Z = 5x + 7y</th></tr>
-                                <tr><td>(0, 6)</td><td>42</td></tr>
-                                <tr><td class="highlight">(6, 0)</td><td class="highlight">30 (Min)</td></tr>
-                            </table>
+                            <p class="text-sm"><b>Objective:</b> Min Z = 5x + 7y. <b>Constraints:</b> x+y≥6, 2x+3y≤12, x,y≥0.</p>
+                            <p class="step-title">Step 1: Plotting Lines & Feasible Region</p>
+                            <p class="text-sm">L1 (x+y=6): (0,6), (6,0). (Region is ABOVE line)<br>L2 (2x+3y=12): (0,4), (6,0). (Region is BELOW line)<br>Kyunki L1 ke upar aur L2 ke niche ka area chahiye, aisi sirf ek hi common point hai jaha dono conditions milti hain: <b>(6, 0)</b>.</p>
+                            <p class="step-title">Step 2: Evaluate Point</p>
+                            <p class="text-sm">Z = 5(6) + 7(0) = <span class="font-bold text-blue-700">30 (Minimum)</span></p>
                         </div>
                     </details>
 
@@ -134,50 +139,74 @@
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q6. Formulate the Dual <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert Min to Max</p>
-                            <p><b>Primal:</b> Min Z = 6x + 5y. Constraints: x+y≥8, 2x+3y≥18, 3x+y≥15.</p>
-                            <p class="mt-2"><b>Dual:</b> Maximize W = 8w₁ + 18w₂ + 15w₃<br>
-                            Subject to:<br>
-                            1w₁ + 2w₂ + 3w₃ ≤ 6<br>
-                            1w₁ + 3w₂ + 1w₃ ≤ 5<br>
-                            w₁, w₂, w₃ ≥ 0</p>
+                            <div class="question-box">Min Z = 6x + 5y. Subj to: x+y≥8, 2x+3y≥18, 3x+y≥15.</div>
+                            <p class="step-title">Rules applied:</p>
+                            <ul class="list-disc pl-5 text-sm mb-4">
+                                <li>Minimization becomes Maximization.</li>
+                                <li>RHS constants (8,18,15) become Objective function coefficients.</li>
+                                <li>Objective coefficients (6,5) become RHS constraints.</li>
+                                <li>Rows shift to Columns (Transpose matrix).</li>
+                            </ul>
+                            <div class="p-4 bg-blue-50 border border-blue-200 rounded-md text-sm">
+                                <b>Dual Problem:</b> Let dual variables be w₁, w₂, w₃.<br><br>
+                                <b>Maximize W = 8w₁ + 18w₂ + 15w₃</b><br>
+                                Subject to:<br>
+                                1w₁ + 2w₂ + 3w₃ ≤ 6<br>
+                                1w₁ + 3w₂ + 1w₃ ≤ 5<br>
+                                w₁, w₂, w₃ ≥ 0
+                            </div>
                         </div>
                     </details>
 
                     <!-- Q7 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q7. Simplex Method (Initial Table) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q7. Simplex Initial Table <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
-                            <p class="step-title">Step 1: Add Slack Variables</p>
-                            <p>Max Z = 3x₁ + 2x₂ + 4x₃ + 0s₁ + 0s₂ + 0s₃</p>
-                            <table class="math-table mt-2">
-                                <tr><th>C<sub>B</sub></th><th>Basis</th><th>x₁</th><th>x₂</th><th>x₃</th><th>s₁</th><th>s₂</th><th>s₃</th><th>RHS</th><th>Ratio</th></tr>
-                                <tr><td>0</td><td>s₁</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>6</td></tr>
-                                <tr><td>0</td><td>s₂</td><td>2</td><td>1</td><td class="bg-yellow-200 font-bold text-yellow-800">3 (Pivot)</td><td>0</td><td>1</td><td>0</td><td>9</td><td>3 ← (Leave)</td></tr>
-                                <tr><td>0</td><td>s₃</td><td>1</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>8</td><td>8</td></tr>
-                                <tr><td></td><td><b>Δ<sub>j</sub></b></td><td>-3</td><td>-2</td><td class="text-red-600 font-bold">-4 ↑ (Enter)</td><td>0</td><td>0</td><td>0</td><td></td><td></td></tr>
+                            <p class="step-title">Step 1: Add Slack Variables (s₁, s₂, s₃)</p>
+                            <p class="text-sm font-mono">Max Z = 3x₁ + 2x₂ + 4x₃ + 0s₁ + 0s₂ + 0s₃<br>
+                            x₁ + x₂ + x₃ + s₁ = 6<br>
+                            2x₁ + x₂ + 3x₃ + s₂ = 9<br>
+                            x₁ + 2x₂ + x₃ + s₃ = 8</p>
+                            <p class="step-title">Step 2: Construct Simplex Table</p>
+                            <p class="text-sm mb-2">Rule: Enter column with most negative Δj. Leave row with minimum positive ratio.</p>
+                            <table class="math-table">
+                                <tr><th>C<sub>B</sub></th><th>Basis</th><th>x₁ (3)</th><th>x₂ (2)</th><th>x₃ (4)</th><th>s₁ (0)</th><th>s₂ (0)</th><th>s₃ (0)</th><th>RHS</th><th>Ratio</th></tr>
+                                <tr><td>0</td><td>s₁</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>6/1 = 6</td></tr>
+                                <tr><td>0</td><td class="text-red-600 font-bold">s₂ (Leave)</td><td>2</td><td>1</td><td class="bg-yellow-200 font-bold">3 (Pivot)</td><td>0</td><td>1</td><td>0</td><td>9</td><td>9/3 = <b>3</b></td></tr>
+                                <tr><td>0</td><td>s₃</td><td>1</td><td>2</td><td>1</td><td>0</td><td>0</td><td>1</td><td>8</td><td>8/1 = 8</td></tr>
+                                <tr><td></td><td><b>Z<sub>j</sub></b></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><b>0</b></td><td></td></tr>
+                                <tr><td></td><td><b>Δ<sub>j</sub></b></td><td>-3</td><td>-2</td><td class="text-green-600 font-bold">-4 (Enter)</td><td>0</td><td>0</td><td>0</td><td></td><td></td></tr>
                             </table>
                         </div>
                     </details>
 
                     <!-- Q8 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q8. Simplex Analysis Check <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q8. Simplex Table Analysis <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p><b>(a) Zj values:</b> All 0.</p>
-                            <p><b>(b) Δj values:</b> x₁=-4, x₂=-3, x₃=-2.</p>
-                            <p><b>(c) Ratio:</b> Evaluated on entering column x₁.</p>
-                            <p><b>(d) Optimality:</b> <span class="text-red-600 font-bold">Not Optimal</span> because Δj has negative values (Max problem needs all Δj ≥ 0).</p>
+                            <p class="text-sm mb-4">Given a partially solved simplex table, we analyze it.</p>
+                            <p class="step-title">(a) Calculate Zj values:</p>
+                            <p class="text-sm">Since Basic Variables are all slack (s₁, s₂, s₃) with cost 0, Zj = Σ(C_B * X_j) = <b>0 for all columns</b>.</p>
+                            <p class="step-title">(b) Calculate Δj (Zj - Cj):</p>
+                            <p class="text-sm">Δ(x₁) = 0 - 4 = <b>-4</b>. Δ(x₂) = 0 - 3 = <b>-3</b>. Δ(x₃) = 0 - 2 = <b>-2</b>.</p>
+                            <p class="step-title">(c) Calculate Replacement Ratio:</p>
+                            <p class="text-sm">Most negative Δj is -4 (Column x₁). Entering variable is x₁. We calculate Ratio = RHS / x₁ column value to find leaving variable.</p>
+                            <p class="step-title">(d) Check Optimality:</p>
+                            <p class="text-sm">For Maximization, table is optimal ONLY if all Δj ≥ 0. Since we have negative values (-4, -3, -2), the solution is <span class="font-bold text-red-600">NOT Optimal</span>.</p>
                         </div>
                     </details>
 
                     <!-- Q9 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q9. Big M Analysis Check <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q9. Big M Table Analysis <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p><b>(a) Basic Vars:</b> s₁ (Cost=0), A₁ (Cost=M), A₂ (Cost=M).</p>
-                            <p><b>(b) Optimality:</b> <span class="text-red-600 font-bold">Not Optimal</span>. Min problem needs all (Cj-Zj) ≥ 0, but (5-7M) is highly negative.</p>
-                            <p><b>(c) Enter/Leave:</b> Entering = x₁ (most negative Cj-Zj). Leaving = s₁ (Minimum positive ratio = 3).</p>
+                            <p class="text-sm mb-4">Given a Minimization Big M table.</p>
+                            <p class="step-title">(a) Identify Basic Variables & Cost:</p>
+                            <p class="text-sm">From the C_B column: <b>s₁ (Cost = 0)</b>, <b>A₁ (Cost = M)</b>, <b>A₂ (Cost = M)</b>.</p>
+                            <p class="step-title">(b) Check Optimality:</p>
+                            <p class="text-sm">For Minimization, table is optimal ONLY if all (Cj - Zj) ≥ 0. In the table, value under x₁ is (5-7M). Since M is a very large positive number, (5-7M) is highly negative. Thus, <span class="font-bold text-red-600">NOT Optimal</span>.</p>
+                            <p class="step-title">(c) Leaving and Entering Variables:</p>
+                            <p class="text-sm">Most negative (Cj-Zj) is (5-7M), so <b>x₁ is the Entering Variable</b>. Ratios (RHS/x₁): s₁=12/4=3, A₁=10/2=5, A₂=10/1=10. Minimum positive ratio is 3. So, <b>s₁ is the Leaving Variable</b>.</p>
                         </div>
                     </details>
                 </div>
@@ -185,92 +214,126 @@
 
                 <!-- ================= MODULE 2 CONTENT (Transportation - 9 Questions) ================= -->
                 <div id="mod2" class="tab-content hidden space-y-4">
-                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 2: Transportation Problem</h2>
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 2: Transportation Problem (9 Qs)</h2>
 
-                    <!-- Q1 -->
+                    <!-- Q1 NWC -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q1. NWC Method (Minimize) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
-                            <p class="step-title">Step 1: Allocate from Top-Left Corner</p>
+                            <div class="question-box">Solve using North-West Corner. Supply(20, 30, 25), Demand(10, 35, 30).</div>
+                            <p class="step-title">Step 1: Allocate from Top-Left (North-West) Corner</p>
+                            <p class="text-sm mb-2">Pehle (S1,D1) pe start karenge aur capacity check karke aage right/down move karenge.</p>
                             <table class="math-table w-full">
                                 <tr><th>S/D</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
-                                <tr><td><b>S₁</b></td><td class="highlight">10 (C:4)</td><td class="highlight">10 (C:6)</td><td>-</td><td>20</td></tr>
-                                <tr><td><b>S₂</b></td><td>-</td><td class="highlight">25 (C:5)</td><td class="highlight">5 (C:7)</td><td>30</td></tr>
-                                <tr><td><b>S₃</b></td><td>-</td><td>-</td><td class="highlight">25 (C:5)</td><td>25</td></tr>
+                                <tr><td><b>S₁</b></td><td class="highlight">10 (C:4)</td><td class="highlight">10 (C:6)</td><td>(C:8)</td><td>20</td></tr>
+                                <tr><td><b>S₂</b></td><td>(C:3)</td><td class="highlight">25 (C:5)</td><td class="highlight">5 (C:7)</td><td>30</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:4)</td><td>(C:6)</td><td class="highlight">25 (C:5)</td><td>25</td></tr>
                                 <tr><td><b>Demand</b></td><td>10</td><td>35</td><td>30</td><td><b>75</b></td></tr>
                             </table>
-                            <p class="mt-2"><b>Total Cost:</b> (10×4)+(10×6)+(25×5)+(5×7)+(25×5) = <span class="font-bold text-blue-700">385</span></p>
-                            <p><b>Degeneracy:</b> 5 allocations = (3+3-1). Non-Degenerate.</p>
+                            <p class="step-title">Step 2: Total Cost & Degeneracy</p>
+                            <p class="text-sm"><b>Cost</b> = (10×4)+(10×6)+(25×5)+(5×7)+(25×5) = 40+60+125+35+125 = <span class="font-bold text-blue-700">385</span></p>
+                            <p class="text-sm"><b>Degeneracy</b>: Total allocated cells = 5. Formula (m+n-1) = 3+3-1 = 5. Since 5=5, it is <span class="font-bold text-green-600">Non-Degenerate</span>.</p>
                         </div>
                     </details>
 
-                    <!-- Q2 -->
+                    <!-- Q2 LCM -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q2. Least Cost Method (Minimize) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q2. Least Cost Method (LCM) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
+                            <div class="question-box">Solve using Least Cost Method. Supply(20, 30, 40), Demand(30, 20, 40).</div>
                             <p class="step-title">Step 1: Pick Lowest Cost Cell First</p>
+                            <p class="text-sm mb-2">Pure table me jo sabse choti value hai (5 at S3,D2) waha pehle allocate karo. Fir jo next choti ho us par jao.</p>
                             <table class="math-table w-full">
                                 <tr><th>S/D</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
-                                <tr><td><b>S₁</b></td><td class="highlight">20 (C:8)</td><td>-</td><td>-</td><td>20</td></tr>
-                                <tr><td><b>S₂</b></td><td class="highlight">10 (C:12)</td><td>-</td><td class="highlight">20 (C:9)</td><td>30</td></tr>
-                                <tr><td><b>S₃</b></td><td>-</td><td class="highlight">20 (C:5)</td><td class="highlight">20 (C:8)</td><td>40</td></tr>
+                                <tr><td><b>S₁</b></td><td class="highlight">20 (C:8)</td><td>(C:6)</td><td>(C:10)</td><td>20</td></tr>
+                                <tr><td><b>S₂</b></td><td class="highlight">10 (C:12)</td><td>(C:7)</td><td class="highlight">20 (C:9)</td><td>30</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:11)</td><td class="highlight">20 (C:5)</td><td class="highlight">20 (C:8)</td><td>40</td></tr>
                             </table>
-                            <p class="mt-2"><b>Total Cost:</b> 160 + 120 + 180 + 100 + 160 = <span class="font-bold text-blue-700">720</span></p>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm"><b>Cost</b> = (20×8)+(10×12)+(20×9)+(20×5)+(20×8) = 160+120+180+100+160 = <span class="font-bold text-blue-700">720</span></p>
                         </div>
                     </details>
 
-                    <!-- Q3 -->
+                    <!-- Q3 VAM -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q3. Vogel's Method (VAM) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q3. Vogel's Approximation (VAM) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
-                            <p class="step-title">Step 1: Calculate Penalties & Allocate</p>
+                            <div class="question-box">Solve using VAM. Supply(25, 35, 30), Demand(20, 30, 40).</div>
+                            <p class="step-title">Step 1: Calculate Penalties</p>
+                            <p class="text-sm mb-2">Har row aur column ki sabse 2 choti values ka difference (Penalty) nikalo. Jiski penalty sabse badi ho us row/col ki sabse choti cost ko allocate karo.</p>
                             <table class="math-table w-full">
                                 <tr><th>S/D</th><th>D₁</th><th>D₂</th><th>D₃</th><th>Supply</th></tr>
-                                <tr><td><b>S₁</b></td><td>-</td><td class="highlight">25 (C:3)</td><td>-</td><td>25</td></tr>
+                                <tr><td><b>S₁</b></td><td>(C:8)</td><td class="highlight">25 (C:3)</td><td>(C:7)</td><td>25</td></tr>
                                 <tr><td><b>S₂</b></td><td class="highlight">20 (C:4)</td><td class="highlight">5 (C:6)</td><td class="highlight">10 (C:9)</td><td>35</td></tr>
-                                <tr><td><b>S₃</b></td><td>-</td><td>-</td><td class="highlight">30 (C:6)</td><td>30</td></tr>
+                                <tr><td><b>S₃</b></td><td>(C:5)</td><td>(C:7)</td><td class="highlight">30 (C:6)</td><td>30</td></tr>
                             </table>
-                            <p class="mt-2"><b>Total Cost:</b> 75 + 80 + 30 + 90 + 180 = <span class="font-bold text-blue-700">455</span></p>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm"><b>Cost</b> = (25×3)+(20×4)+(5×6)+(10×9)+(30×6) = 75+80+30+90+180 = <span class="font-bold text-blue-700">455</span></p>
                         </div>
                     </details>
 
-                    <!-- Q4, 5, 6 -->
+                    <!-- Q4 MODI -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
-                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q4, Q5, Q6. MODI Optimality Checks <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q4. MODI Check Optimality <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Q4 Check:</p><p>Δij for empty cell (S1,D3) = -2. Since it's negative, solution is <span class="text-red-600 font-bold">NOT optimal</span>.</p>
-                            <p class="step-title">Q5 Check:</p><p>Solution forms a closed loop among basic cells (invalid allocation). Cannot test optimality directly.</p>
-                            <p class="step-title">Q6 Check:</p><p>All empty cells have Δij ≥ 0. Solution <span class="text-green-600 font-bold">IS Optimal</span>.</p>
+                            <p class="step-title">Check rule: Δij = Cij - (ui + vj)</p>
+                            <p class="text-sm">First calculate ui, vj for allocated cells. Then check unallocated cells.<br>For unallocated cell (S1,D3), calculate Δ₁₃ = C₁₃ - (u₁ + v₃). Here C₁₃ = 8, u₁ = 0, v₃ = 10.<br>Δ₁₃ = 8 - (0+10) = <b>-2</b>.</p>
+                            <p class="text-sm mt-2">Kyunki Δ value negative (-2) aayi hai, iska matlab solution <b><span class="text-red-600 font-bold">NOT Optimal</span></b> hai.</p>
                         </div>
                     </details>
 
-                    <!-- Q7 -->
+                    <!-- Q5 MODI -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q5. MODI Check Optimality <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p class="step-title">Checking the given Basic Feasible Solution</p>
+                            <p class="text-sm">Pehle check karenge m+n-1. Table me 3 Rows aur 3 Cols hain. m+n-1 = 5. <br>Lekin table me allocated cells check karne par pata chalta hai ki agar wo loop form kar rahe hain (closed circuit), toh direct MODI test nahi lag sakta. Solution Degenerate ya Invalid BFS hoga.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q6 MODI -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q6. MODI Check Optimality <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p class="step-title">Check empty cells (Δij)</p>
+                            <p class="text-sm">Sabhi unallocated (empty) cells ka Δij = Cij - (ui + vj) calculate kiya. Sabhi values zero (0) ya positive (+) aayin.<br>(Example: S1D3=4, S2D1=5, S3D1=3, S3D2=3).</p>
+                            <p class="text-sm mt-2">Kyunki koi bhi value negative nahi hai, isliye diya gaya solution <b><span class="text-green-600 font-bold">Optimal (Best)</span></b> hai.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q7 Max NWC -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q7. NWC Method (Maximization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix</p><p>Subtract all elements from the Max Profit element (12) and then apply NWC.</p>
-                            <p><b>Allocations:</b> S1D1=15, S1D2=5, S2D2=20, S2D3=10, S3D3=25.</p>
-                            <p><b>Total Profit:</b> <span class="font-bold text-blue-700">600</span></p>
+                            <p class="step-title">Step 1: Convert Profit to Loss Matrix</p>
+                            <p class="text-sm">Maximization sum ko Loss me badalne ke liye sabse highest profit (12) me se saare numbers minus karenge. Fir NWC apply karenge.</p>
+                            <p class="text-sm mt-2"><b>Final Allocations:</b> S1D1=15, S1D2=5, S2D2=20, S2D3=10, S3D3=25.</p>
+                            <p class="step-title">Step 2: Calculate Profit (Using original values)</p>
+                            <p class="text-sm">Profit = (15×8)+(5×6)+(20×9)+(10×7)+(25×8) = 120+30+180+70+200 = <span class="font-bold text-blue-700">600</span></p>
                         </div>
                     </details>
 
-                    <!-- Q8 -->
+                    <!-- Q8 Max LCM -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q8. Least Cost Method (Maximization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix</p><p>Subtract all from Max Profit (13). Apply LCM on Loss Matrix.</p>
-                            <p><b>Allocations:</b> S1D1=20, S1D3=5, S2D2=25, S2D3=5, S3D3=20.</p>
-                            <p><b>Total Profit:</b> <span class="font-bold text-blue-700">875</span></p>
+                            <p class="step-title">Step 1: Convert Profit to Loss Matrix</p>
+                            <p class="text-sm">Highest profit value is 13. Subtract all from 13. Apply LCM on the new table.</p>
+                            <p class="text-sm mt-2"><b>Final Allocations:</b> S1D1=20, S1D3=5, S2D2=25, S2D3=5, S3D3=20.</p>
+                            <p class="step-title">Step 2: Calculate Profit</p>
+                            <p class="text-sm">Profit = (20×11)+(5×9)+(25×12)+(5×10)+(20×13) = 220+45+300+50+260 = <span class="font-bold text-blue-700">875</span></p>
                         </div>
                     </details>
 
-                    <!-- Q9 -->
+                    <!-- Q9 Max VAM -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q9. Vogel's Method (Maximization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix</p><p>Subtract all from Max Profit (15). Apply VAM (Penalties).</p>
-                            <p><b>Allocations:</b> S1D2=20, S2D1=5, S2D2=10, S2D3=15, S3D1=25.</p>
-                            <p><b>Total Profit:</b> <span class="font-bold text-blue-700">940</span></p>
+                            <p class="step-title">Step 1: Convert Profit to Loss Matrix</p>
+                            <p class="text-sm">Highest profit value is 15. Subtract all from 15. Apply VAM (Penalties) on the new table.</p>
+                            <p class="text-sm mt-2"><b>Final Allocations:</b> S1D2=20, S2D1=5, S2D2=10, S2D3=15, S3D1=25.</p>
+                            <p class="step-title">Step 2: Calculate Profit</p>
+                            <p class="text-sm">Profit = (20×12)+(5×9)+(10×11)+(15×13)+(25×14) = 240+45+110+195+350 = <span class="font-bold text-blue-700">940</span></p>
                         </div>
                     </details>
                 </div>
@@ -278,94 +341,135 @@
 
                 <!-- ================= MODULE 3 CONTENT (Assignment - 9 Questions) ================= -->
                 <div id="mod3" class="tab-content hidden space-y-4">
-                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 3: Assignment Problem</h2>
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 3: Assignment Problem (9 Qs)</h2>
 
-                    <!-- Q1 -->
+                    <!-- Assign Q1 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q1. Hungarian Method (Minimization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
-                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 overflow-x-auto">
-                            <p class="step-title">Final Assignment Table</p>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <p class="step-title">Step 1: Row Reduction & Column Reduction</p>
+                            <p class="text-sm mb-2">Har row ka min minus kiya, fir har column ka min minus kiya.</p>
                             <table class="math-table w-full md:w-1/2">
                                 <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th></tr>
                                 <tr><td><b>W₁</b></td><td>4</td><td class="highlight">0 (Assign)</td><td>5</td></tr>
                                 <tr><td><b>W₂</b></td><td class="highlight">0 (Assign)</td><td>1</td><td class="strike">0</td></tr>
                                 <tr><td><b>W₃</b></td><td>1</td><td>7</td><td class="highlight">0 (Assign)</td></tr>
                             </table>
-                            <p class="mt-2">W₁→J₂ (2), W₂→J₁ (6), W₃→J₃ (1). <b>Total Min Cost = 9</b></p>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">W₁→J₂ (2), W₂→J₁ (6), W₃→J₃ (1). <br><b>Total Min Cost</b> = 2+6+1 = <span class="font-bold text-blue-700">9</span></p>
                         </div>
                     </details>
 
-                    <!-- Q2 -->
+                    <!-- Assign Q2 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q2. Hungarian Method (Minimization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Final Assignments (After Line Adjustments)</p>
-                            <p>W₁ → J₃ (Cost = 4)<br>W₂ → J₂ (Cost = 5)<br>W₃ → J₁ (Cost = 6)</p>
-                            <p><b>Total Min Cost = 15</b></p>
+                            <p class="step-title">Step 1: Reduction & Line Adjustment</p>
+                            <p class="text-sm mb-2">Reduce karne ke baad lines draw ki. Uncovered me min value 1 thi jise adjust kiya gaya.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th></tr>
+                                <tr><td><b>W₁</b></td><td>1</td><td>1</td><td class="highlight">0 (Assign)</td></tr>
+                                <tr><td><b>W₂</b></td><td class="strike">0</td><td class="highlight">0 (Assign)</td><td>5</td></tr>
+                                <tr><td><b>W₃</b></td><td class="highlight">0 (Assign)</td><td>4</td><td class="strike">0</td></tr>
+                            </table>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">W₁→J₃ (4), W₂→J₂ (5), W₃→J₁ (6). <br><b>Total Min Cost</b> = 4+5+6 = <span class="font-bold text-blue-700">15</span></p>
                         </div>
                     </details>
 
-                    <!-- Q3 -->
+                    <!-- Assign Q3 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q3. Hungarian Method (Minimization) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Final Assignments</p>
-                            <p>W₁ → J₃ (Cost = 5)<br>W₂ → J₁ (Cost = 6)<br>W₃ → J₂ (Cost = 6)</p>
-                            <p><b>Total Min Cost = 17</b></p>
+                            <p class="step-title">Step 1: Reduction & Assignment</p>
+                            <p class="text-sm">Normal row & col reduction rules lagaye.</p>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">Final Assignments: W₁→J₃ (5), W₂→J₁ (6), W₃→J₂ (6).<br><b>Total Min Cost</b> = 5+6+6 = <span class="font-bold text-blue-700">17</span></p>
                         </div>
                     </details>
 
-                    <!-- Q4 -->
+                    <!-- Assign Q4 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q4. Maximization Assignment <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix (Subtract from Max=12)</p>
-                            <p><b>Final Assignments:</b> W₁→J₃ (9), W₂→J₁ (12), W₃→J₂ (9). <br><b>Max Profit = 30</b></p>
+                            <p class="step-title">Step 1: Loss Matrix Conversion</p>
+                            <p class="text-sm mb-2">Maximum profit element 12 hai. Sabko 12 se minus karenge.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th></tr>
+                                <tr><td><b>W₁</b></td><td class="strike">0</td><td>1</td><td class="highlight">0 (Assign)</td></tr>
+                                <tr><td><b>W₂</b></td><td class="highlight">0 (Assign)</td><td>1</td><td>4</td></tr>
+                                <tr><td><b>W₃</b></td><td>5</td><td class="highlight">0 (Assign)</td><td class="strike">0</td></tr>
+                            </table>
+                            <p class="step-title">Step 2: Total Profit</p>
+                            <p class="text-sm">W₁→J₃ (9), W₂→J₁ (12), W₃→J₂ (9). <br><b>Total Max Profit</b> = 9+12+9 = <span class="font-bold text-blue-700">30</span></p>
                         </div>
                     </details>
 
-                    <!-- Q5 -->
+                    <!-- Assign Q5 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q5. Maximization Assignment <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix</p>
-                            <p><b>Final Assignments:</b> W₁→J₁ (12), W₂→J₂ (15), W₃→J₃ (16). <br><b>Max Profit = 43</b></p>
+                            <p class="step-title">Step 1: Loss Matrix Conversion</p>
+                            <p class="text-sm">Max element 16 se minus karke solve kiya.</p>
+                            <p class="step-title">Step 2: Total Profit</p>
+                            <p class="text-sm">Final Assignments: W₁→J₁ (12), W₂→J₂ (15), W₃→J₃ (16).<br><b>Total Max Profit</b> = 12+15+16 = <span class="font-bold text-blue-700">43</span></p>
                         </div>
                     </details>
 
-                    <!-- Q6 -->
+                    <!-- Assign Q6 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q6. Maximization Assignment <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Convert to Loss Matrix</p>
-                            <p><b>Final Assignments:</b> W₁→J₁ (14), W₂→J₂ (13), W₃→J₃ (15). <br><b>Max Profit = 42</b></p>
+                            <p class="step-title">Step 1: Loss Matrix Conversion</p>
+                            <p class="text-sm">Max element 15 se minus karke solve kiya.</p>
+                            <p class="step-title">Step 2: Total Profit</p>
+                            <p class="text-sm">Final Assignments: W₁→J₁ (14), W₂→J₂ (13), W₃→J₃ (15).<br><b>Total Max Profit</b> = 14+13+15 = <span class="font-bold text-blue-700">42</span></p>
                         </div>
                     </details>
 
-                    <!-- Q7 -->
+                    <!-- Assign Q7 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q7. Unbalanced (3 Workers, 4 Jobs) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Add Dummy Worker (W4) with cost 0</p>
-                            <p><b>Final Assignments:</b> W₁→J₄ (6), W₂→J₂ (7), W₃→J₁ (7), W₄→J₃ (0). <br><b>Min Cost = 20</b></p>
+                            <p class="step-title">Step 1: Add Dummy Worker (W4)</p>
+                            <p class="text-sm mb-2">W4 ki saari values 0 rakhenge taaki Matrix 4x4 ho jaye.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th><th>J₄</th></tr>
+                                <tr><td><b>W₁</b></td><td>2</td><td>1</td><td>2</td><td class="highlight">0 (Assign)</td></tr>
+                                <tr><td><b>W₂</b></td><td>1</td><td class="highlight">0 (Assign)</td><td>3</td><td class="strike">0</td></tr>
+                                <tr><td><b>W₃</b></td><td class="highlight">0 (Assign)</td><td>1</td><td class="strike">0</td><td>1</td></tr>
+                                <tr><td class="text-red-600"><b>Dummy W₄</b></td><td class="strike">0</td><td class="strike">0</td><td class="highlight">2 (Assign)</td><td>2</td></tr>
+                            </table>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">W₁→J₄ (6), W₂→J₂ (7), W₃→J₁ (7), W₄→J₃ (0). <br><b>Total Min Cost</b> = 6+7+7+0 = <span class="font-bold text-blue-700">20</span></p>
                         </div>
                     </details>
 
-                    <!-- Q8 -->
+                    <!-- Assign Q8 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q8. Unbalanced (4 Workers, 3 Jobs) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Add Dummy Job (J4) with cost 0</p>
-                            <p><b>Final Assignments:</b> W₁→J₁ (16), W₂→J₃ (17), W₃→J₄ (0), W₄→J₂ (18). <br><b>Min Cost = 51</b></p>
+                            <p class="step-title">Step 1: Add Dummy Job (J4)</p>
+                            <p class="text-sm">Column J4 add karenge jiski saari values 0 hongi.</p>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">Final Assignments: W₁→J₁ (16), W₂→J₃ (17), W₃→J₄ (0), W₄→J₂ (18).<br><b>Total Min Cost</b> = 16+17+0+18 = <span class="font-bold text-blue-700">51</span></p>
                         </div>
                     </details>
 
-                    <!-- Q9 -->
+                    <!-- Assign Q9 -->
                     <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
                         <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">Q9. Prohibited Assignment (Big M) <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i></summary>
                         <div class="px-6 pb-6 pt-2 border-t text-gray-700">
-                            <p class="step-title">Step 1: Insert 'M' (Infinity) for prohibited cell W2, J3</p>
-                            <p><b>Final Assignments:</b> W₁→J₁ (4), W₂→J₂ (5), W₃→J₃ (3). <br><b>Min Cost = 12</b></p>
+                            <p class="step-title">Step 1: Insert 'M' (Infinity)</p>
+                            <p class="text-sm mb-2">Worker W2 Job J3 pe assign nahi ho sakta, toh waha 'M' daal denge.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th>Worker</th><th>J₁</th><th>J₂</th><th>J₃</th></tr>
+                                <tr><td><b>W₁</b></td><td class="highlight">0 (Assign)</td><td>4</td><td>3</td></tr>
+                                <tr><td><b>W₂</b></td><td>1</td><td class="highlight">0 (Assign)</td><td class="text-red-600 font-bold bg-red-50">M</td></tr>
+                                <tr><td><b>W₃</b></td><td>5</td><td>4</td><td class="highlight">0 (Assign)</td></tr>
+                            </table>
+                            <p class="step-title">Step 2: Total Cost</p>
+                            <p class="text-sm">W₁→J₁ (4), W₂→J₂ (5), W₃→J₃ (3). <br><b>Total Min Cost</b> = 4+5+3 = <span class="font-bold text-blue-700">12</span></p>
                         </div>
                     </details>
 
