@@ -1000,14 +1000,1254 @@ Course: BCA
                         </div>
                     </article>
                 </div>
-                <!-- 3. Data Structures Content (Hidden by default) -->
-                <div id="ds" class="tab-content space-y-8 hidden">
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 text-center text-gray-500 shadow-sm">
-                        <i class="fas fa-folder-open text-3xl mb-3 text-gray-300"></i>
-                        <p>Data Structures notes coming soon...</p>
-                    </div>
-                </div>
 
+                <!-- 3. Data Structures Content (Hidden by default) -->
+                <div id="ds" class="tab-content space-y-6 hidden">
+                    
+                    <!-- Module Switcher (Tabs) -->
+                    <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 gap-4">
+                        <h3 class="text-2xl font-bold text-gray-900">Data Structures Notes</h3>
+                        <div class="flex bg-gray-100 p-1 rounded-lg">
+                            <button onclick="switchDsModule('module1', this)" class="ds-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 1</button>
+                            <button onclick="switchDsModule('module2', this)" class="ds-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all">Module 2</button>
+                        </div>
+                    </div>
+
+                    <!-- ================= MODULE 1 CONTENT ================= -->
+                    <div id="module1" class="ds-module-content space-y-6 hidden">
+                        
+                        <!-- M1 Q1 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q1: Data Structure & Classification</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Data Structure. Explain its importance and classification with examples.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q1')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q1">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q1-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q1" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q1-code" class="whitespace-pre-wrap">A Data Structure is a method of organizing, storing, and managing data efficiently so that operations such as insertion, deletion, searching, and updating can be performed effectively. It is a logical or mathematical model used to organize data in memory.
+
+Importance of Data Structure:
+1. Efficient storage of data – Organizes data systematically.
+2. Faster access and retrieval – Makes searching and processing quicker.
+3. Better memory utilization – Uses memory efficiently and reduces wastage.
+4. Simplifies implementation of algorithms – Makes programming easier and improves performance.
+
+Classification of Data Structure:
+1. Primitive Data Structures
+These are the basic data types directly supported by the computer.
+Examples: Integer, Float, Character, Boolean, Pointer
+
+2. Non-Primitive Data Structures
+These are derived from primitive data types and can store multiple data elements.
+They are classified into:
+a) Linear Data Structures
+- Data elements are arranged sequentially.
+- Each element is connected to the next element. 
+Examples: Array, Linked List, Stack, Queue
+
+b) Non-Linear Data Structures
+- Data elements are not arranged in sequence.
+- They form hierarchical or network relationships.
+Examples: Tree, Graph</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q2 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q2: Abstract Data Type (ADT)</h3>
+                                    <p class="text-sm text-gray-600 mt-1">What is an Abstract Data Type (ADT)? Explain its features, components and representation.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q2')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q2">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q2-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q2" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q2-code" class="whitespace-pre-wrap">An Abstract Data Type (ADT) is a logical description of a data structure that specifies:
+- What data can be stored.
+- What operations can be performed.
+- The behavior of those operations.
+It does not specify how the data is implemented. ADT focuses on "What" rather than "How".
+
+Features of ADT:
+1. Data Abstraction – Hides the implementation details from the user.
+2. Encapsulation – Groups data and operations together.
+3. Modularity – Allows independent design of different components.
+4. Reusability – Can be reused in multiple applications.
+5. Security – Restricts direct access to data and allows access only through defined operations.
+
+Components of an ADT:
+An ADT consists of two main components:
+1. Data Objects: The values or data that are stored. Example: Student records, numbers, etc.
+2. Operations: The actions performed on the data. Examples: Insert(), Delete(), Search(), Update(), Display().
+
+General Representation of ADT:
+ADT Name
+{
+    Data Objects
+    Operations
+}</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q3 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q3: Linked Structure</h3>
+                                    <p class="text-sm text-gray-600 mt-1">What is a Linked Structure? Explain its representation, characteristics, advantages and disadvantages.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q3')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q3">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q3-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q3" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q3-code" class="whitespace-pre-wrap">A Linked Structure is a dynamic data structure in which elements, called nodes, are connected using links (pointers). Unlike arrays, linked structures do not require contiguous memory locations.
+
+Each node contains:
+- Data – Stores the actual information.
+- Link/Pointer – Stores the address of the next node.
+
+Representation:
+10 → 20 → 30 → 40 → NULL
+- 10, 20, 30, 40 are the data values.
+- Arrows represent links (pointers).
+- NULL indicates the end of the linked structure.
+
+Characteristics:
+1. Dynamic size.
+2. Memory allocated at runtime.
+3. Efficient insertion and deletion.
+4. Sequential access only.
+
+Advantages:
+1. Dynamic data structure – Size can increase or decrease at runtime.
+2. No memory wastage – Memory is allocated only when needed.
+3. Easy implementation of linear data structures like stacks and queues.
+4. Efficient insertion and deletion – No shifting of elements is required.
+5. Flexible – Nodes can be stored anywhere in memory.
+6. Scalable – Elements can be added or removed at any position.
+
+Disadvantages:
+1. Requires extra memory to store pointers.
+2. Traversal is slower than arrays because elements are accessed sequentially.
+3. Reverse traversal is not possible in a singly linked structure.
+4. Random access is not possible since indexing is not supported.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q4 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q4: Singly Linked List Traversal</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain traversal operation in a Singly Linked List with example.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q4')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q4">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q4-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q4" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q4-code" class="whitespace-pre-wrap">Traversal is the process of visiting each node of a Singly Linked List one by one, starting from the head node and moving to the next node until the last node (NULL) is reached. It is used to display or process every element.
+
+Traversal Operation Steps:
+1. Start from the head node.
+2. Store the head node in a temporary pointer called current.
+3. Display or process the data of the current node.
+4. Move current to the next node using current = current.next.
+5. Repeat Steps 3 and 4 until current becomes NULL.
+
+Code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def insert_at_beginning(head, data):
+    new_node = Node(data)
+    new_node.next = head
+    return new_node
+
+def traverse(head):
+    current = head
+    while current:
+        print(current.data, end=" -> ")
+        current = current.next
+    print("None")
+
+head = None
+head = insert_at_beginning(head, 4)
+head = insert_at_beginning(head, 3)
+head = insert_at_beginning(head, 2)
+head = insert_at_beginning(head, 1)
+traverse(head)
+
+Output:
+1 -> 2 -> 3 -> 4 -> None</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q5 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q5: SLL Insertion at End</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain insertion at the end of a Singly Linked List.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q5')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q5">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q5-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q5" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q5-code" class="whitespace-pre-wrap">Insertion at the end of a Singly Linked List means adding a new node as the last node of the list. The new node's next pointer is set to NULL, and the last node's next pointer is updated to point to the new node.
+
+Steps:
+1. Create a new node with the given data.
+2. If the linked list is empty (head = NULL), make the new node the head.
+3. Otherwise, traverse the list until the last node is reached.
+4. Set the next pointer of the last node to the new node.
+5. Set the next pointer of the new node to NULL.
+
+Python Code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def insert_end(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next is not None:
+                temp = temp.next
+            temp.next = new_node
+            
+    def display(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+list1 = LinkedList()
+list1.insert_end(10)
+list1.insert_end(20)
+list1.insert_end(30)
+print("Linked List:")
+list1.display()
+list1.insert_end(40)
+print("After inserting 40 at the end:")
+list1.display()
+
+Output:
+Linked List:
+10 -> 20 -> 30 -> None
+After inserting 40 at the end:
+10 -> 20 -> 30 -> 40 -> None</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q6 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q6: SLL Deletion at Beginning</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain deletion from the beginning of a Singly Linked List.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q6')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q6">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q6-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q6" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q6-code" class="whitespace-pre-wrap">Deletion from the beginning of a Singly Linked List means removing the first node (head node) from the linked list. After deletion, the head pointer is updated to point to the next node.
+
+Steps:
+1. Check if the linked list is empty (head = NULL). If it is empty, there is nothing to delete.
+2. Store the first node in a temporary pointer.
+3. Update the head to point to the next node (head = head.next).
+4. Delete (free) the old first node.
+5. Return the updated head.
+
+Python Code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def delete_at_beginning(head):
+    if head is None:
+        return None
+    head = head.next
+    return head
+
+Output Demonstration:
+Before Deletion:
+Head
+↓
+10 → 20 → 30 → 40 → NULL
+
+Delete the first node (10).
+
+After Deletion: 
+Head 
+↓ 
+20 → 30 → 40 → NULL</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q7 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q7: Doubly Linked List</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Doubly Linked List and explain its representation, advantages and disadvantages.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q7')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q7">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q7-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q7" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q7-code" class="whitespace-pre-wrap">A Doubly Linked List (DLL) is a type of linked list in which each node contains a data element and two links:
+- Previous (prev) – Points to the previous node. 
+- Next (next) – Points to the next node.
+This allows traversal in both forward and backward directions, making insertion and deletion easier.
+
+Representation:
+Each node consists of three parts:
++--------+------+--------+
+| Prev   | Data | Next   |
++--------+------+--------+
+
+Example:
+NULL ← 10 ⇄ 20 ⇄ 30 ⇄ 40 → NULL
+- The first node's prev = NULL.
+- The last node's next = NULL.
+
+Advantages:
+1. Easy reverse traversal from last node to first node.
+2. Memory can be allocated or reallocated dynamically.
+3. Bidirectional traversal is possible.
+4. Deletion of nodes is easier than in a SLL because the previous node is directly accessible.
+
+Disadvantages:
+1. Uses extra memory because each node stores two pointers.
+2. Traversal can be slower than SLL due to additional pointer handling.
+3. Implementation and maintenance are more complex.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q8 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q8: DLL Insertion at Beginning</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain insertion at the beginning of a Doubly Linked List.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q8')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q8">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q8-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q8" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q8-code" class="whitespace-pre-wrap">Insertion at the beginning of a DLL means adding a new node as the first node of the list. The new node becomes the head, and the previous and next pointers are updated accordingly.
+
+Steps:
+1. Create a new node with the given data.
+2. Set the next pointer of the new node to the current head.
+3. Set the previous pointer of the new node to NULL.
+4. If the list is not empty, update the previous pointer of the current head to point to the new node.
+5. Update the head to point to the new node.
+
+Python Code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+def insert_at_beginning(head, data):
+    new_node = Node(data)
+    new_node.next = head
+    new_node.prev = None
+    if head is not None:
+        head.prev = new_node
+    head = new_node
+    return head
+
+Output Demonstration:
+Before Insertion:
+NULL ← 20 ⇄ 30 ⇄ 40 → NULL
+Insert 10 at the beginning.
+After Insertion:
+NULL ← 10 ⇄ 20 ⇄ 30 ⇄ 40 → NULL</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q9 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q9: DLL Deletion at End</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain deletion at the end of a Doubly Linked List.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q9')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q9">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q9-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q9" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q9-code" class="whitespace-pre-wrap">Deletion at the end of a DLL means removing the last node from the list. The next pointer of the second-last node is updated to NULL, and the last node is deleted.
+
+Steps:
+1. Check if the list is empty (head = NULL). If it is empty, there is nothing to delete.
+2. If the list has only one node, set head = NULL.
+3. Traverse the list to reach the last node.
+4. Set the next pointer of the second-last node to NULL.
+5. Delete (free) the last node.
+
+Python Code:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
+
+def delete_at_end(head):
+    if head is None:
+        return None
+    if head.next is None:
+        return None
+    current = head
+    while current.next:
+        current = current.next
+    current.prev.next = None
+    return head
+
+Output Demonstration:
+Before Deletion:
+NULL ← 10 ⇄ 20 ⇄ 30 ⇄ 40 → NULL
+Delete the last node (40).
+After Deletion:
+NULL ← 10 ⇄ 20 ⇄ 30 → NULL</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q10 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q10: Stack Basics</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Stack. Explain its basic terminologies, advantages, and disadvantages.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q10')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q10">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q10-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q10" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q10-code" class="whitespace-pre-wrap">A Stack is a linear data structure that follows the LIFO (Last In First Out) principle. It means the last element inserted is the first one to be removed.
+Both insertion and deletion operations happen at one end only.
+- New elements are always inserted at the top (Push).
+- Elements are removed only from the top (Pop).
+
+Basic Terminologies:
+1. Top: The position of the most recently inserted element.
+2. Size: Refers to the current number of elements present.
+3. Push(): Inserts a new element at the top of the stack.
+4. Pop(): Removes the topmost element from the stack.
+5. Top() / Peek(): Returns the top element without removing it.
+6. isEmpty(): Returns True if the stack is empty; otherwise False.
+7. size(): Returns the total number of elements in the stack.
+
+Advantages of Stack:
+1. Push and Pop operations take constant time O(1).
+2. Follows LIFO, useful for function calls and expression evaluation.
+3. Memory efficient, as it stores only the required elements.
+
+Disadvantages of Stack:
+1. Limited access – Only the top element can be accessed.
+2. Stack Overflow may occur if more elements are pushed than the stack can hold, leading to data loss.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q11 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q11: Stack Operations</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain the push, pop, top() and isEmpty() operations of a stack.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q11')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q11">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q11-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q11" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q11-code" class="whitespace-pre-wrap">1. Push Operation
+- Push() is used to insert a new element at the top of the stack.
+- The newly inserted element becomes the topmost element.
+Code:
+stack = []
+stack.append(1)
+stack.append(2)
+stack.append(3)
+for i in stack: print(i)
+// Output: 1 2 3
+
+2. Pop Operation
+- Pop() is used to remove the last (topmost) element from the stack.
+- If the stack is empty, it returns None.
+Code:
+def pop(stack):
+    if len(stack) == 0: return None
+    else: return stack.pop()
+// Popped Element: 3
+
+3. Top() Operation
+- Top() returns the topmost element of the stack without removing it.
+Code:
+def top():
+    if len(stack) == 0: return None
+    return stack[-1]
+// Top Element: 3
+
+4. isEmpty() Operation
+- isEmpty() is used to check whether the stack is empty or not.
+Code:
+def is_empty():
+    if len(stack) == 0: return 1
+    else: return 0
+// Output: 0</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q12 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q12: Queue Basics</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Queue. Explain its basic terminologies, characteristics, advantages, and disadvantages.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q12')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q12">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q12-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q12" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q12-code" class="whitespace-pre-wrap">A Queue is a linear data structure that follows the FIFO (First In First Out) principle.
+- Insertion is performed at the Rear end.
+- Deletion is performed from the Front end.
+
+Basic Terminologies:
+1. Front/Head: Position of the entry ready to be served/removed.
+2. Rear/Tail: Position of the last entry (most recently added).
+3. Size: Current number of elements in the queue.
+4. Capacity: Maximum number of elements the queue can hold.
+
+Characteristics:
+1. Follows FIFO principle.
+2. Insertion is performed only at the rear.
+3. Deletion is performed only from the front.
+4. Can be implemented using Arrays or Linked Lists.
+
+Advantages:
+1. Maintains the order of elements using FIFO.
+2. Efficient insertion and deletion operations.
+3. Widely used in CPU scheduling, printer spooling, resource sharing.
+
+Disadvantages:
+1. Random access is not possible.
+2. In a linear queue, unused memory may remain at the front after deletions.
+3. Searching requires sequential traversal.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q13 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q13: Queue Operations</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain the operations performed on a Queue.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q13')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q13">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q13-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q13" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q13-code" class="whitespace-pre-wrap">1. Enqueue Operation
+- Enqueue() is used to insert a new element at the rear of the queue.
+- Time Complexity: O(1)
+
+2. Dequeue Operation
+- Dequeue() is used to remove the front element from the queue.
+- If the queue is empty, the operation results in Queue Underflow.
+- Time Complexity: O(1)
+
+3. Front() / Peek() Operation
+- Front() returns the front element of the queue without removing it.
+- Time Complexity: O(1)
+
+4. isEmpty() Operation
+- isEmpty() is used to check whether the queue is empty or not.
+- Time Complexity: O(1)
+
+Example:
+Initially:
+Front       Rear
+  ↓           ↓
++----+----+----+
+| 10 | 20 | 30 |
++----+----+----+
+- Enqueue(40) → 10 → 20 → 30 → 40
+- Dequeue() → Removes 10 
+- Front() → Returns 20
+- isEmpty() → Returns False</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q14 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q14: Circular Queue</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Circular Queue and explain its features. Also Explain the operations performed on a Circular Queue.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q14')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q14">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q14-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q14" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q14-code" class="whitespace-pre-wrap">A Circular Queue is a linear data structure in which the last position is connected to the first position, forming a circular structure. It efficiently utilizes memory by reusing the empty spaces created after deletion.
+
+Features:
+1. Follows the FIFO (First In First Out) principle.
+2. The last position is connected to the first position.
+3. Efficient memory utilization by reusing vacant spaces.
+4. Prevents memory wastage that occurs in a linear queue.
+
+Operations:
+1. Front: Get the front item from the queue.
+2. Rear: Get the last item from the queue.
+3. enQueue(value): Insert an element at the rear position.
+   - Check if queue is full -> display "Queue is full".
+   - If not full, insert element at the end.
+4. deQueue(): Delete an element from the front position.
+   - Check if queue is empty -> display "Queue is empty".
+   - If not empty, remove the front element.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M1 Q15 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q15: Deque (Double-Ended Queue)</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define Deque and explain its features. Briefly describe the applications of Deque.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m1-q15')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m1-q15">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m1-q15-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m1-q15" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m1-q15-code" class="whitespace-pre-wrap">A Deque (Double-Ended Queue) is a linear data structure in which insertion and deletion can be performed at both the front and the rear ends. It is more flexible than a normal queue.
+
+Features of Deque:
+1. Insertion and deletion can be performed at both front and rear.
+2. Can be implemented using arrays or linked lists.
+3. Two types of Deque:
+   - Input Restricted Deque: Insertion allowed only at one end, but deletion at both ends.
+   - Output Restricted Deque: Deletion allowed only at one end, but insertion at both ends.
+
+Applications of Deque:
+1. Palindrome checking – Comparing characters from both ends of a string.
+2. Undo/Redo operations in text editors and software applications.
+3. Browser history navigation (Back and Forward operations).
+4. Task scheduling in operating systems.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                    <!-- ================= MODULE 2 CONTENT ================= -->
+                    <div id="module2" class="ds-module-content space-y-6 hidden">
+                        
+                        <!-- M2 Q1 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q1: Tree & Binary Tree</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define a tree. Explain what is a binary tree and its basic terminologies.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q1')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q1">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q1-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q1" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q1-code" class="whitespace-pre-wrap">Tree:
+A tree is a non-linear data structure that consists of nodes connected by edges. It starts from a top node called the root. Each node can have one or more child nodes.
+
+Binary Tree:
+A binary tree is a type of tree in which each node can have maximum two children, called the left child and right child.
+
+Basic Terminology:
+1. Root Node: The topmost node of a tree. It does not have any parent.
+2. Parent Node: A node that has one or more child nodes.
+3. Child Node: A node directly connected below a parent node.
+4. Leaf Node / External Node: A node that does not have any child node.
+5. Ancestor of a Node: Nodes on the direct path from the node to the root.
+6. Sibling: Nodes that have the same parent node.
+7. Level of a Node: The number of edges from the root node to that node (Root is Level 0).
+8. Internal Node: A node that has at least one child node.
+9. Subtree: A node along with all its child and descendant nodes.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q2 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q2: Binary Tree Properties & Operations</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define a binary tree with its properties. Briefly explain insertion & deletion.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q2')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q2">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q2-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q2" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q2-code" class="whitespace-pre-wrap">1. Definition:
+A binary tree is a type of tree in which each node can have maximum two children (left and right).
+
+2. Properties:
+- Maximum nodes at level l = 2^l
+- Maximum nodes in a tree of height h = 2^(h+1) - 1
+- Maximum leaf nodes = 2^h
+- Minimum height for n nodes = [log2(n + 1)] - 1
+
+3. Insertion in a Binary Tree:
+- The new node is inserted at the first available empty position at each level (left to right).
+- Done level by level.
+
+4. Deletion in a Binary Tree:
+- Find the node to be deleted.
+- Find the last/deepest node in the tree.
+- Replace the value of the node to be deleted with the deepest node's value.
+- Delete the deepest node from its original position.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q3 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q3: BST Traversal</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain different types of traversal in BST with appropriate example for each.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q3')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q3">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q3-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q3" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q3-code" class="whitespace-pre-wrap">Tree traversal means visiting every node in the tree exactly once.
+Three main types of depth-first traversals:
+
+1. Inorder Traversal (Left -> Root -> Right)
+- First visit left subtree, then root, then right subtree.
+- In a BST, Inorder traversal always gives nodes in ascending (sorted) order.
+
+2. Preorder Traversal (Root -> Left -> Right)
+- First visit the root, then left subtree, then right subtree.
+- Commonly used to create a copy of the tree.
+
+3. Postorder Traversal (Left -> Right -> Root)
+- First visit left subtree, then right subtree, then root node.
+- Commonly used for deleting a tree.
+
+Traversal Results Example (Tree: 50 -> L:30(L:20, R:40) R:70(R:80)):
+- Inorder: 20 -> 30 -> 40 -> 50 -> 70 -> 80
+- Preorder: 50 -> 30 -> 20 -> 40 -> 70 -> 80
+- Postorder: 20 -> 40 -> 30 -> 80 -> 70 -> 50</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q4 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q4: Deletion in BST</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain deletion in Binary Search Tree with its different cases.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q4')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q4">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q4-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q4" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q4-code" class="whitespace-pre-wrap">Deleting a node from a BST requires maintaining the BST property (Left < Root < Right). 
+
+Case 1: Deleting a Node with 0 Children (Leaf Node)
+- Rule: If the node has no children, it can be deleted directly without affecting the rest of the tree.
+
+Case 2: Deleting a Node with 1 Child
+- Rule: Remove the target node and link its parent directly to its single child.
+
+Case 3: Deleting a Node with 2 Children
+- Rule: Find the smallest node in the right subtree (Inorder Successor), copy its value to the target node, and then delete that successor node from its original position.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q5 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q5: Insertion in BST</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain with example insertion in a Binary search tree.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q5')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q5">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q5-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q5" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q5-code" class="whitespace-pre-wrap">A Binary Search Tree (BST) is a binary tree in which:
+- All values smaller than the root are placed in the left subtree.
+- All values greater than the root are placed in the right subtree.
+
+Example: Insert 50, 30, 70, 20, 40, 60, and 80
+Step 1: Insert 50 as the root node.
+Step 2: Insert 30. Since 30 < 50, it is placed on the left side.
+Step 3: Insert 70. Since 70 > 50, it is placed on the right side.
+Step 4: Insert 20. Since 20 < 50 and 20 < 30, it is placed to the left of 30.
+Step 5: Insert 40. Since 40 < 50 but 40 > 30, it is placed to the right of 30.
+Step 6: Insert 60. Since 60 > 50 but 60 < 70, it is placed to the left of 70.
+Step 7: Insert 80. Since 80 > 50 and 80 > 70, it is placed to the right of 70.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q6 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q6: AVL Tree</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Write a short note on AVL Tree.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q6')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q6">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q6-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q6" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q6-code" class="whitespace-pre-wrap">An AVL Tree is a type of Binary Search Tree (BST). It keeps itself balanced after insertion and deletion.
+The difference between the height of the left and right subtree is called the Balance Factor.
+Balance Factor = Height of Left Subtree − Height of Right Subtree 
+For a balanced AVL tree, the balance factor should be -1, 0, or +1.
+
+1. Insertion
+After insertion, the tree checks whether it is balanced. If unbalanced, rotations are used to balance it.
+Four types of rotations: LL Rotation, RR Rotation, LR Rotation, RL Rotation.
+
+2. Deletion
+- A leaf node can be deleted directly.
+- If a node has one child, the child takes its place.
+- If two children, its inorder successor can replace it.
+After deletion, if the tree is unbalanced, rotations are performed.
+
+3. Operations
+- Insertion, Deletion, Searching, Tree Traversal, Balancing using rotations.
+AVL Tree keeps the tree balanced, so searching, insertion, and deletion are faster and take O(log n) time.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q7 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q7: Heap Data Structure</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Define heap. List and explain its advantages, disadvantages and types.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q7')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q7">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q7-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q7" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q7-code" class="whitespace-pre-wrap">A Heap is a special type of complete binary tree. All levels are completely filled except possibly the last level, which is filled from left to right.
+
+Types of Heap:
+1. Min Heap: The parent node is smaller than or equal to its children. The smallest element is always at the root.
+2. Max Heap: The parent node is greater than or equal to its children. The largest element is always at the root.
+
+Advantages of Heap:
+- It provides fast access to the minimum or maximum element.
+- It is useful for priority queues.
+- Insertion and deletion are efficient.
+- It is used in Heap Sort.
+
+Disadvantages of Heap:
+- Searching for a specific element is slow.
+- It does not store elements in fully sorted order.
+- Implementation can be more complex than a simple list.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q8 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q8: Graphs</h3>
+                                    <p class="text-sm text-gray-600 mt-1">What is graph? Explain its components, types and representation techniques.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q8')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q8">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q8-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q8" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q8-code" class="whitespace-pre-wrap">A graph is a non-linear data structure made up of a set of vertices (nodes) and edges (connections) that model relationships between objects.
+G = (V, E), where (V) is vertices and (E) is edges.
+
+Components of a Graph:
+- Vertex (Node): An individual data element.
+- Edge (Arc/Link): A connecting line between two vertices.
+- Adjacent Vertices: Two vertices joined directly by a common edge.
+- Degree: The total number of edges connected to a specific vertex.
+- Path: A continuous sequence of edges connecting vertices.
+- Cycle: A closed path that starts and ends at the exact same vertex.
+
+Representations of Graph:
+1. Adjacency Matrix: A way of representing a graph as a boolean matrix of (0's and 1's).
+2. Adjacency List: An array of Lists is used to store edges between two vertices.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q9 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q9: BFS and DFS Traversals</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain BFS and DFS graph traversals with algorithms.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q9')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q9">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q9-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q9" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q9-code" class="whitespace-pre-wrap">1. BFS (Breadth First Search)
+BFS visits vertices level by level. It uses a Queue (FIFO) data structure.
+Algorithm:
+1. Start from a selected vertex.
+2. Mark the vertex as visited and insert it into the queue.
+3. Remove a vertex from the queue.
+4. Visit all its unvisited adjacent vertices and insert them into the queue.
+5. Repeat until the queue becomes empty.
+
+2. DFS (Depth First Search)
+DFS goes as deep as possible along one path before backtracking. It uses a Stack or Recursion.
+Algorithm:
+1. Start from a selected vertex.
+2. Mark the vertex as visited.
+3. Visit an unvisited adjacent vertex.
+4. Continue going deeper until no unvisited adjacent vertex remains.
+5. Backtrack and visit the remaining unvisited vertices.
+6. Repeat until all vertices are visited.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q10 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q10: Hash Functions</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain with examples the division, multiplication, mid square and folding hash functions.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q10')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q10">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q10-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q10" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q10-code" class="whitespace-pre-wrap">Hashing is a technique used to store and search data quickly in a hash table.
+
+1. Division Method:
+Key is divided by the size of the hash table. Remainder is used as hash index.
+Formula: h(k) = k mod m
+Example: Key = 25, Table size = 10 -> 25 mod 10 = 5
+
+2. Multiplication Method:
+Key is multiplied by a constant A (between 0 and 1). The fractional part is used.
+Formula: h(k) = floor(m × (kA mod 1))
+Example: Key = 25, A = 0.6, m = 10
+25 × 0.6 = 15.0 -> Fractional part = 0 -> 10 × 0 = 0
+
+3. Mid-Square Method:
+The key is squared, and middle digits are selected as the index.
+Example: Key = 25 -> 25² = 625 -> Middle digit = 2
+
+4. Folding Method:
+The key is divided into smaller parts. Parts are added together.
+Example: Key = 123456 -> 12 + 34 + 56 = 102. 
+For table size 10: 102 mod 10 = 2</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q11 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q11: Collision & Separate Chaining</h3>
+                                    <p class="text-sm text-gray-600 mt-1">What is collision in hashing? Explain separate chaining technique.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q11')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q11">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q11-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q11" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q11-code" class="whitespace-pre-wrap">A collision occurs in hashing when two or more different keys get the same hash index in a hash table.
+Example: h(k) = k mod 10. For keys 25 and 35:
+25 mod 10 = 5
+35 mod 10 = 5 (Collision!)
+
+Separate Chaining:
+A technique used to handle collisions. Each position of the hash table contains a linked list (chain). If multiple keys have the same hash index, they are stored in the same chain.
+Example:
+Keys = 25, 35, 45, 12
+h(k) = k mod 10
+Index 2: 12
+Index 5: 25 -> 35 -> 45
+
+Advantage: Can store multiple keys at the same hash index and handles collisions efficiently.</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- M2 Q12 -->
+                        <article class="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                            <div class="bg-gray-50 px-6 py-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                                <div class="flex-1">
+                                    <h3 class="text-lg font-bold text-gray-900"><i class="fas fa-network-wired text-brand-500 mr-2"></i> Q12: Open Addressing</h3>
+                                    <p class="text-sm text-gray-600 mt-1">Explain open addressing collision resolution with all its types.</p>
+                                </div>
+                                <div class="flex gap-2 w-full md:w-auto">
+                                    <button onclick="toggleNote('ds-m2-q12')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-brand-500 text-sm font-medium rounded-md text-brand-600 bg-white hover:bg-brand-50 transition-colors">
+                                        <i class="fas fa-chevron-down mr-2"></i> <span id="btn-text-ds-m2-q12">Open</span>
+                                    </button>
+                                    <button onclick="copyNoteText(this, 'ds-m2-q12-code')" class="flex-1 md:flex-none justify-center inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 transition-colors">
+                                        <i class="far fa-copy mr-2"></i> <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="ds-m2-q12" class="hidden border-t border-gray-200">
+                                <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto">
+<pre id="ds-m2-q12-code" class="whitespace-pre-wrap">Open Addressing is a collision resolution technique where all keys are stored inside the hash table itself. When a collision occurs, another empty position is searched.
+
+1. Linear Probing
+If the calculated position is occupied, check the next position one by one until an empty position is found.
+Formula: h(k, i) = (h(k) + i) mod m
+Example: Keys 25, 35, 45 (mod 10). 
+25 -> 5
+35 -> 5 (Occupied) -> 6
+45 -> 5 (Occupied) -> 6 (Occupied) -> 7
+
+2. Quadratic Probing
+After a collision, positions are checked using squares (1², 2², 3²).
+Formula: h(k, i) = (h(k) + i²) mod m
+Example: Keys 25, 35, 45.
+25 -> 5
+35 -> (5 + 1²) mod 10 = 6
+45 -> (5 + 2²) mod 10 = 9
+
+3. Double Hashing
+Two hash functions are used. If the first position is occupied, the second hash function determines the next position.
+Formula: h(k, i) = (h1(k) + i × h2(k)) mod m</pre>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div> <!-- End of Module 2 -->
+
+                </div>
+                
                 <!-- 4. Theory of Computation Content (Hidden by default) -->
                 <div id="toc" class="tab-content space-y-8 hidden">
                     <div class="bg-white p-8 rounded-xl border border-gray-200 text-center text-gray-500 shadow-sm">
@@ -1149,6 +2389,7 @@ Course: BCA
                 document.getElementById(targetId).classList.add('block');
             });
         });
+
         // Toggle Open/Close Notes (Accordion Logic)
         function toggleNote(id) {
             const content = document.getElementById(id);
@@ -1168,6 +2409,27 @@ Course: BCA
                 icon.classList.remove('fa-chevron-up');
                 icon.classList.add('fa-chevron-down');
             }
+        }
+
+        // Data Structures (DS) Module Switcher Logic
+        function switchDsModule(moduleId, btnElement) {
+            // Sabhi modules ko hide karo
+            document.querySelectorAll('.ds-module-content').forEach(mod => {
+                mod.classList.add('hidden');
+                mod.classList.remove('block');
+            });
+            
+            // Sabhi buttons ko normal style me laao
+            document.querySelectorAll('.ds-mod-btn').forEach(btn => {
+                btn.className = 'ds-mod-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all';
+            });
+            
+            // Selected module ko show karo
+            document.getElementById(moduleId).classList.remove('hidden');
+            document.getElementById(moduleId).classList.add('block');
+            
+            // Click kiye gaye button ko highlight karo
+            btnElement.className = 'ds-mod-btn bg-white shadow-sm text-brand-600 font-medium px-4 py-1.5 rounded-md transition-all';
         }
     </script>
 
