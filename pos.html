@@ -119,4 +119,1293 @@
                             <div>3. What are system calls? Explain any four types of system calls with examples. <span class="imp-badge">⭐ IMP</span></div>
                             <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
                         </summary>
-                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>A System Call is a mechanism through which a user program requests services from the Operating System kernel.</p>
+                            <p class="mt-3"><b>Importance of System Calls</b><br>
+                            System calls are essential because they provide a secure and controlled interface between user programs and the operating system kernel. They enable applications to access hardware resources and perform operations such as file handling, process management, device control etc.</p>
+                            <p class="mt-3"><b>Types of System Calls</b><br>
+                            1. <b>Process Control System Calls</b><br>These system calls are used for process creation, execution, and termination. They help in managing processes running in the system.<br>Examples: 1. fork() - Creates a new process. 2. exit() - Terminates a process.<br>Use: Creating and managing multiple processes.<br><br>
+                            2. <b>File Management System Calls</b><br>These system calls perform operations on files such as creating, opening, reading, writing, and deleting files.<br>Examples: 1. open() - Opens a file. 2. write() - Writes data to a file.<br>Use: Managing files and directories.<br><br>
+                            3. <b>Device Management System Calls</b><br>These system calls control and communicate with hardware devices such as printers, keyboards, scanners, and disk drives.<br>Examples: 1. read() - Reads data from a device. 2. ioctl() - Controls device-specific operations.<br>Use: Handling input/output devices efficiently.<br><br>
+                            4. <b>Information Maintenance System Calls</b><br>These system calls provide information about the system and manage system-related data.<br>Examples: 1. time() - Gets current system time. 2. uname() - Retrieves system information.<br>Use: Obtaining system and process information.<br><br>
+                            5. <b>Communication System Calls</b><br>These system calls enable communication between processes, either on the same computer or across a network.<br>Examples: 1. pipe() - Creates a communication channel. 2. send() Sends messages.<br>Use: Inter-process communication (IPC) and networking.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q4 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>4. Explain the different types of Operating System structures with suitable examples.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition of Operating System:</b><br>An Operating System (OS) is system software that acts as an intermediate between the user and the computer hardware.</p>
+                            <p class="mt-3">The three main structures of an operating system are:</p>
+                            
+                            <p class="mt-3"><b>1. Monolithic Kernel</b><br>A Monolithic Kernel is an operating system structure in which all system services are present in a single kernel.<br><b>Working:</b><br>1. User sends a request.<br>2. The kernel itself performs all services directly.<br>3. The result is returned to the user.</p>
+<pre>
++-------------------------+
+|          User           |
++-------------------------+
+             |
++-------------------------+
+|   Monolithic Kernel     |
+|-------------------------|
+| Process Mgmt            |
+| Memory Mgmt             |
+| File System             |
+| Device Drivers          |
++-------------------------+
+             |
++-------------------------+
+|       Hardware          |
++-------------------------+
+</pre>
+
+                            <p class="mt-4"><b>2. Layered Kernel</b><br>A Layered Kernel is an operating system structure in which the OS is divided into different layers, and each layer performs a specific function.<br><b>Working:</b><br>1. User sends a request.<br>2. The request passes through different layers one by one.<br>3. The result comes back through the layers.</p>
+<pre>
++-------------------------+
+|          User           |
++-------------------------+
+             |
++-------------------------+
+|   Application Layer     |
+|   System Call Layer     |
++-------------------------+
+|  File & Process Mgmt    |
++-------------------------+
+|  Memory & CPU Mgmt      |
+|  Device Drivers         |
++-------------------------+
+             |
++-------------------------+
+|       Hardware          |
++-------------------------+
+</pre>
+
+                            <p class="mt-4"><b>3. Microkernel</b><br>A Microkernel is an operating system structure that keeps only essential services inside the kernel, while other services run in user space.<br><b>Working:</b><br>1. User sends a request.<br>2. The microkernel forwards the request to the required service in user space.<br>3. The service completes the task and sends the result back.</p>
+<pre>
++-------------------------+
+|          User           |
++-------------------------+
+             |
++-------------------------+
+|      Microkernel        |
+|-------------------------|
+| Process Mgmt            |
+| Memory Mgmt             |
+| IPC                     |
++-------------------------+
+      |             |
++------------+ +----------------+
+|File System | | Device Driver  |
+|(User Space)| | (User Space)   |
++------------+ +----------------+
+      |
++-------------------------+
+|       Hardware          |
++-------------------------+
+</pre>
+                        </div>
+                    </details>
+
+                    <!-- Q5 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>5. What is a process? Explain the different states of a process with a suitable diagram.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>A process is a program that is currently being executed. It is an active entity that requires CPU, memory, and other system resources to perform its task. A process contains the program code, data, current activity, and information required by the operating system to manage its execution.</p>
+                            <p>During its lifetime, a process passes through different states depending on whether it is being created, waiting for the CPU, executing, waiting for I/O, or completing its execution.</p>
+                            
+                            <p class="mt-3"><b>Different States of a Process</b><br>A process generally passes through the following five states:</p>
+                            <p><b>1. New:</b> The process is being created. The operating system creates the necessary resources and prepares the process for execution.<br>
+                            <b>2. Ready:</b> The process is ready to execute and is waiting for the CPU to be assigned to it. It is placed in the ready queue.<br>
+                            <b>3. Running:</b> The process is currently being executed by the CPU. At a particular time, a CPU core can execute one process at a time.<br>
+                            <b>4. Waiting/Blocked:</b> The process is temporarily unable to continue its execution because it is waiting for an event, such as completion of an I/O operation or availability of a required resource.<br>
+                            <b>5. Terminated:</b> The process has completed its execution or has been stopped by the operating system. The resources allocated to the process are then released.</p>
+
+                            <p class="mt-3"><b>Suitable Diagram</b></p>
+<pre>
+          Admit
+            ↓
+    +---------------+
+    |      New      |
+    +---------------+
+            |
+            ↓
+    +---------------+
+    |     Ready     |
+    +---------------+
+            |
+        Dispatch
+            ↓
+    +---------------+
+    |    Running    |
+    +---------------+
+      /           \
+I/O Request      Exit
+    ↓               ↓
++-----------+   +------------+
+|  Waiting  |   | Terminated |
+| / Blocked |   +------------+
++-----------+
+      |
+I/O Completion
+      |
+      ↓
+    Ready
+</pre>
+                            <p class="mt-3"><b>State Transitions</b><br>The process changes from one state to another according to different events. When a new process is admitted, it enters the Ready state. The CPU scheduler then selects a ready process and moves it to the Running state. If the process requests I/O, it moves to the Waiting state. After the I/O operation is completed, it returns to the Ready state. Finally, when the process completes its execution, it moves to the Terminated state.</p>
+                            <p><b>Conclusion</b><br>The process states help the operating system manage CPU and system resources efficiently. By keeping track of the current state of every process, the operating system can decide which process should run, which processes need to wait, and when resources can be released.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q6 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>6. Explain process scheduling. What are the different scheduling queues used by an Operating System?</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Process Scheduling</b><br>Process scheduling is the activity of the Operating System that selects a process from the ready queue and allocates the CPU to it for execution. Since many processes may be present in the system at the same time but the CPU can execute only a limited number of processes at once, scheduling is required to decide which process should run next.</p>
+                            <p>The main purpose of process scheduling is to keep the CPU busy and improve system performance. The component of the OS that selects the next process is called the CPU scheduler or short-term scheduler.</p>
+                            
+                            <p class="mt-3"><b>Different Scheduling Queues</b><br>An Operating System generally uses the following scheduling queues:</p>
+                            <p><b>1. Job Queue:</b><br>It contains all the processes that are present in the system and are waiting to be admitted for execution. It includes processes stored on secondary storage.<br>
+                            <b>2. Ready Queue:</b><br>It contains processes that are ready to execute and are waiting for CPU allocation. The CPU scheduler selects a process from this queue.<br>
+                            <b>3. Device Queue:</b><br>It contains processes that are waiting for a particular I/O device such as a printer, keyboard, disk, or network device. A separate device queue may exist for each I/O device.</p>
+
+                            <p class="mt-3"><b>Simple Diagram</b></p>
+<pre>
+       New Process
+            |
+            v
+    +----------------+
+    |   Job Queue    |
+    +----------------+
+            |
+            v
+    +----------------+
+    |  Ready Queue   |
+    +----------------+
+            |
+      CPU Scheduler
+            |
+            v
+         +-----+
+         | CPU |
+         +-----+
+            |
+      +-----+-----+
+      |           |
+      v           v
+  I/O Wait       Exit
+      |
+      v
++------------------+
+|   Device Queue   |
++------------------+
+      |
+      v
+  Ready Queue
+</pre>
+                            <p class="mt-3">When a process is created, it enters the job queue. After being admitted to memory, it enters the ready queue. The CPU scheduler selects a process from the ready queue and assigns the CPU to it. If the process requires I/O, it moves to the appropriate device queue and returns to the ready queue after completing the I/O operation.<br>Thus, process scheduling and scheduling queues help the Operating System manage processes efficiently and utilize the CPU and other resources effectively.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q7 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>7. What are threads? Explain the advantages of multithreading.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Threads</b><br>A thread is the smallest unit of execution within a process. A process can contain one or more threads, and each thread performs a separate task.</p>
+                            <p>Threads of the same process share resources such as code, data, and files, but each thread has its own program counter, registers, and stack.<br>For example, a web browser may use different threads for loading a webpage, playing a video, and responding to user input.</p>
+
+                            <p class="mt-3"><b>Multithreading</b><br>Multithreading is the ability of a process to execute multiple threads concurrently. It allows different tasks of the same process to run at the same time, improving the performance and responsiveness of the system.</p>
+
+                            <p class="mt-3"><b>Diagram</b></p>
+<pre>
+         Process
+            |
+ -----------------------
+   |        |        |
+Thread 1 Thread 2 Thread 3
+   |        |        |
+ Task A   Task B   Task C
+</pre>
+                            
+                            <p class="mt-3"><b>Advantages of Multithreading</b></p>
+                            <p><b>1. Improved Responsiveness:</b><br>Multithreading allows one part of an application to continue working even when another thread is busy. This makes applications more responsive.<br>
+                            <b>2. Better CPU Utilization:</b><br>When one thread is waiting for I/O, another thread can use the CPU. This reduces CPU idle time.<br>
+                            <b>3. Resource Sharing:</b><br>Threads of the same process share memory and other resources. Therefore, communication between threads is easier than between separate processes.<br>
+                            <b>4. Faster Execution:</b><br>Multiple threads can execute concurrently, and on a multi-core processor they may run in parallel, reducing the time required to complete tasks.<br>
+                            <b>5. Economy:</b><br>Creating and managing threads generally requires fewer resources than creating separate processes.</p>
+                            <p>Thus, multithreading improves responsiveness, CPU utilization, resource sharing, and overall performance of an Operating System and applications.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q8 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>8. What is a Race Condition? Explain the Critical-Section Problem with a suitable example. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Race Condition</b><br>A race condition occurs when two or more processes or threads access and modify a shared resource at the same time. The final result depends on the order of execution and may be incorrect.</p>
+                            
+                            <p class="mt-3"><b>Critical-Section Problem</b><br>A critical section is the part of a program where a process accesses or modifies a shared resource, such as a variable, file, or memory.</p>
+                            <p>The Critical-Section Problem is to ensure that processes can access shared resources safely without causing data inconsistency.</p>
+                            <p>A solution should satisfy:<br>
+                            <b>Mutual Exclusion:</b> Only one process can execute its critical section at a time.<br>
+                            <b>Progress:</b> A process should be allowed to enter the critical section when it is free.<br>
+                            <b>Bounded Waiting:</b> A process should not wait indefinitely.</p>
+
+                            <p class="mt-3"><b>Example</b><br>Suppose two processes, P1 and P2, update the same variable X = 5.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th colspan="2">Shared Variable X = 5</th></tr>
+                                <tr><th>P1</th><th>P2</th></tr>
+                                <tr><td>X = X + 1</td><td>X = X + 1</td></tr>
+                                <tr><th colspan="2">Final X = 6</th></tr>
+                            </table>
+                            <p>Both processes may read X = 5 before either writes the updated value. Therefore, the final value may become 6 instead of 7. This is a race condition.</p>
+                            <p>The problem can be prevented using synchronization mechanisms such as mutex locks and semaphores, which allow only one process to access the critical section at a time.<br>Thus, the Critical-Section Problem helps prevent race conditions and maintains consistency of shared data.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q9 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>9. What is a Mutex Lock? Explain how Mutex Locks are used for Process Synchronization. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Mutex Lock</b><br>A mutex (Mutual Exclusion) lock is a synchronization mechanism used in an Operating System to ensure that only one process or thread can access a shared resource at a time. It prevents multiple processes from modifying shared data simultaneously.</p>
+                            <p>A mutex lock has two basic operations:<br>
+                            <b>1. Acquire/Lock:</b> A process obtains the lock before entering the critical section. If the lock is already held by another process, the process waits.<br>
+                            <b>2. Release/Unlock:</b> After completing its work in the critical section, the process releases the lock so that another waiting process can access the resource.</p>
+                            
+                            <p class="mt-3"><b>Use of Mutex Lock for Process Synchronization</b><br>Mutex locks are mainly used to protect the critical section, where shared resources such as files, variables, or memory are accessed.</p>
+                            <p><b>Example:</b><br>Suppose two processes, P1 and P2, want to update the same bank account balance.</p>
+                            <table class="math-table w-full md:w-1/2">
+                                <tr><th colspan="2">Shared Resource: Bank Account Balance</th></tr>
+                                <tr><th>P1</th><th>P2</th></tr>
+                                <tr><td>Acquire Lock</td><td>Wait for Lock</td></tr>
+                                <tr><td>Critical Section</td><td></td></tr>
+                                <tr><td>Update Balance</td><td></td></tr>
+                                <tr><td>Release Lock</td><td>P2 gets Lock</td></tr>
+                            </table>
+                            <p>Here, P1 acquires the mutex lock and updates the balance. P2 must wait until P1 releases the lock. This prevents both processes from changing the balance at the same time.</p>
+                            <p>Mutex locks are especially useful when multiple processes or threads share the same data or resources. By allowing only one process to enter the critical section at a time, a mutex ensures that shared data remains consistent and prevents unexpected results caused by simultaneous access.<br>Thus, mutex locks provide mutual exclusion and help prevent race conditions and data inconsistency during process synchronization.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q10 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>10. What is a semaphore? Explain the wait() and signal() operations with an example. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Semaphore</b><br>A semaphore is a synchronization mechanism provided by an Operating System to control access to shared resources by multiple processes or threads. It is an integer variable that helps prevent problems such as race conditions when processes access the same resource at the same time.</p>
+                            <p>A semaphore can be accessed only through two main atomic operations: wait() operation and signal() operation.</p>
+
+                            <p class="mt-3"><b>1. wait() Operation</b><br>The wait() operation is performed when a process wants to enter the critical section or use a shared resource. It decreases the value of the semaphore by 1.</p>
+<pre>
+wait(S)
+{
+    while (S<=0)
+        wait;
+    S--;
+}
+</pre>
+                            <p>If the semaphore value is greater than 0, the process can continue and access the resource. If the value is 0, the process has to wait until the resource becomes available.</p>
+
+                            <p class="mt-3"><b>2. signal() Operation</b><br>The signal() operation is performed when a process has finished using the shared resource. It increases the semaphore value by 1 and allows another waiting process to use the resource.</p>
+<pre>
+signal(S)
+{
+    S++;
+}
+</pre>
+                            
+                            <p class="mt-3"><b>Example</b><br>Consider a system having one printer shared by two processes, P1 and P2. Since there is only one printer, only one process should use it at a time. Therefore, we initialize the semaphore as: S = 1</p>
+                            <p>The working can be represented as:<br>
+                            Semaphore S=1<br>
+                            P1 calls wait(S)<br>
+                            S=0<br>
+                            P1 uses Printer<br>
+                            P1 calls signal(S)<br>
+                            S=1<br>
+                            P2 can use Printer</p>
+                            <p>When P1 calls wait(S), the semaphore becomes 0 and P1 gets access to the printer. If P2 tries to use the printer at the same time, it has to wait because the semaphore value is 0. After P1 completes its printing, it calls signal(S), which changes the value back to 1. P2 can then access the printer.<br>Thus, semaphores are important for process synchronization because they control access to shared resources and help prevent conflicts between processes.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q11 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>11. Explain Reader-Writer Problem.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>The Reader-Writer Problem is a classical process synchronization problem in which multiple processes share a common data resource such as a file or database.</p>
+                            <p>There are two types of processes:<br>
+                            <b>Reader:</b> Only reads the shared data. Multiple readers can read the data at the same time.<br>
+                            <b>Writer:</b> Modifies the shared data. A writer must have exclusive access, so no reader or other writer can access the data while it is writing.</p>
+
+                            <p class="mt-3"><b>Working</b><br>When one or more readers are reading, other readers can also read simultaneously. However, when a writer is accessing the shared data, all other readers and writers must wait.</p>
+
+                            <p class="mt-3"><b>Diagram</b></p>
+<pre>
+          Shared Data
+               |
+    +----------+----------+
+    |                     |
+ Readers                Writer
+    |                     |
+Read together     Exclusive Access
+    |                     |
+    +----------+----------+
+               |
+           Wait/Sync
+</pre>
+                            <p class="mt-3">For example, suppose several users are reading a student database. All users can read the database at the same time. But when an administrator updates the database, other users must wait until the update is completed.<br>The problem is solved using semaphores, mutex locks, or other synchronization mechanisms.<br>Thus, the Reader-Writer Problem ensures safe access to shared data while allowing multiple readers to work simultaneously.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q12 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>12. Explain Multilevel Queue Scheduling with a suitable diagram.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>Multilevel Queue Scheduling is a CPU scheduling method in which the ready queue is divided into multiple separate queues based on the type or priority of processes.<br>For example, processes can be divided into foreground processes and background processes. Each queue can have its own scheduling algorithm.</p>
+                            <p><b>Example Queues</b><br>
+                            System Processes: Highest priority<br>
+                            Interactive Processes: High priority<br>
+                            Batch Processes: Lower priority<br>
+                            Student/Background Jobs: Lowest priority</p>
+
+                            <p class="mt-3"><b>Diagram</b></p>
+<pre>
+        Ready Queue
+             |
+ +-----------------------+
+ |           |           |
+ v           v           v
++---+      +---+       +---+
+|Sys|      |Int|       |Bat|
+|Pro|      |Pro|       |Pro|
++---+      +---+       +---+
+ |           |           |
+Priority   Priority   Priority
+Sched.     Sched.     Sched.
+ |           |           |
+ +-----------------------+
+             |
+            CPU
+</pre>
+                            <p class="mt-3">Each queue can use a different scheduling algorithm. For example, the foreground queue may use Round Robin, while the background queue may use FCFS.<br>The queues themselves may be scheduled using fixed priority or time slicing. In fixed priority, higher-priority queues are served first.</p>
+                            <p><b>Advantage:</b> It separates different types of processes and allows each group to be managed according to its requirements.<br><b>Limitation:</b> A process is generally assigned to a queue permanently, so it cannot easily move between queues.<br>Thus, multilevel queue scheduling organizes processes into separate queues according to their type or priority.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q13 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>13. Explain Multilevel Feedback Queue Scheduling with a suitable diagram.</div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>Multilevel Feedback Queue (MLFQ) Scheduling is a CPU scheduling method in which processes are placed in multiple queues and are allowed to move between queues according to their CPU requirements and behavior.<br>Unlike multilevel queue scheduling, a process in MLFQ can move from one queue to another.</p>
+
+                            <p class="mt-3"><b>Diagram</b></p>
+<pre>
+    New Process
+        |
+        v
+ +-------------+
+ |   Queue 1   |
+ | Round Robin |
+ +-------------+
+        | Uses more CPU time
+        v
+ +-------------+
+ |   Queue 2   |
+ | Round Robin |
+ +-------------+
+        | Uses more CPU time
+        v
+ +-------------+
+ |   Queue 3   |
+ |    FCFS     |
+ +-------------+
+        |
+        v
+       CPU
+</pre>
+                            <p>In this example, Queue 1 has the highest priority and Queue 3 has the lowest priority.</p>
+                            <p><b>Working</b><br>
+                            1. A new process enters the highest-priority queue.<br>
+                            2. If it completes within its time quantum, it finishes.<br>
+                            3. If it uses the entire time quantum, it may be moved to a lower-priority queue.<br>
+                            4. Short or interactive processes remain in higher-priority queues and get faster CPU service.<br>
+                            5. Lower-priority processes are eventually given CPU time to avoid starvation.<br>
+                            6. MLFQ can use different scheduling algorithms for different queues, such as Round Robin for higher queues and FCFS for the lowest queue.</p>
+                            <p>Thus, Multilevel Feedback Queue Scheduling provides flexibility because processes can move between queues based on their execution behavior.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q14 Round Robin -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>14. Calculate average waiting time and turnaround time using Round robin. Time slice = 3 ms <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <div class="question-box">
+                                Process: P1(AT:0, BT:7), P2(AT:1, BT:4), P3(AT:2, BT:3), P4(AT:3, BT:4)
+                            </div>
+                            <p class="step-title">Gantt Chart Construction</p>
+                            <div class="gantt-chart">
+                                <div class="gantt-box">P1<span class="gantt-time-first">0</span><span class="gantt-time">3</span></div>
+                                <div class="gantt-box">P2<span class="gantt-time">6</span></div>
+                                <div class="gantt-box">P3<span class="gantt-time">9</span></div>
+                                <div class="gantt-box">P4<span class="gantt-time">12</span></div>
+                                <div class="gantt-box">P1<span class="gantt-time">15</span></div>
+                                <div class="gantt-box">P2<span class="gantt-time">16</span></div>
+                                <div class="gantt-box">P4<span class="gantt-time">17</span></div>
+                                <div class="gantt-box">P1<span class="gantt-time">18</span></div>
+                            </div>
+
+                            <p class="step-title mt-8">Calculation Table</p>
+                            <table class="math-table w-full">
+                                <tr><th>Process</th><th>Arrival (AT)</th><th>Burst (BT)</th><th>Completion (CT)</th><th>Turnaround (TAT)</th><th>Waiting (WT)</th></tr>
+                                <tr><td><b>P1</b></td><td>0</td><td>7</td><td>18</td><td>18 - 0 = <b>18</b></td><td>18 - 7 = <b>11</b></td></tr>
+                                <tr><td><b>P2</b></td><td>1</td><td>4</td><td>16</td><td>16 - 1 = <b>15</b></td><td>15 - 4 = <b>11</b></td></tr>
+                                <tr><td><b>P3</b></td><td>2</td><td>3</td><td>9</td><td>9 - 2 = <b>7</b></td><td>7 - 3 = <b>4</b></td></tr>
+                                <tr><td><b>P4</b></td><td>3</td><td>4</td><td>17</td><td>17 - 3 = <b>14</b></td><td>14 - 4 = <b>10</b></td></tr>
+                            </table>
+                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md font-bold">
+                                Average Turnaround Time (TAT) = (18 + 15 + 7 + 14) / 4 = 54 / 4 = 13.5 ms <br>
+                                Average Waiting Time (WT) = (11 + 11 + 4 + 10) / 4 = 36 / 4 = 9.0 ms
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Q15 SJF -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>15. Calculate average waiting time and turnaround time using SJF. (Non-preemptive) <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <div class="question-box">
+                                Process: P1(AT:2, BT:2), P2(AT:0, BT:1), P3(AT:2, BT:3), P4(AT:3, BT:5), P5(AT:4, BT:4)
+                            </div>
+                            <p class="step-title">Gantt Chart Construction</p>
+                            <div class="gantt-chart">
+                                <div class="gantt-box">P2<span class="gantt-time-first">0</span><span class="gantt-time">1</span></div>
+                                <div class="gantt-box bg-gray-200 text-gray-500">Idle<span class="gantt-time">2</span></div>
+                                <div class="gantt-box">P1<span class="gantt-time">4</span></div>
+                                <div class="gantt-box">P3<span class="gantt-time">7</span></div>
+                                <div class="gantt-box">P5<span class="gantt-time">11</span></div>
+                                <div class="gantt-box">P4<span class="gantt-time">16</span></div>
+                            </div>
+
+                            <p class="step-title mt-8">Calculation Table</p>
+                            <table class="math-table w-full">
+                                <tr><th>Process</th><th>Arrival (AT)</th><th>Burst (BT)</th><th>Completion (CT)</th><th>Turnaround (TAT)</th><th>Waiting (WT)</th></tr>
+                                <tr><td><b>P1</b></td><td>2</td><td>2</td><td>4</td><td>4 - 2 = <b>2</b></td><td>2 - 2 = <b>0</b></td></tr>
+                                <tr><td><b>P2</b></td><td>0</td><td>1</td><td>1</td><td>1 - 0 = <b>1</b></td><td>1 - 1 = <b>0</b></td></tr>
+                                <tr><td><b>P3</b></td><td>2</td><td>3</td><td>7</td><td>7 - 2 = <b>5</b></td><td>5 - 3 = <b>2</b></td></tr>
+                                <tr><td><b>P4</b></td><td>3</td><td>5</td><td>16</td><td>16 - 3 = <b>13</b></td><td>13 - 5 = <b>8</b></td></tr>
+                                <tr><td><b>P5</b></td><td>4</td><td>4</td><td>11</td><td>11 - 4 = <b>7</b></td><td>7 - 4 = <b>3</b></td></tr>
+                            </table>
+                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-md font-bold">
+                                Avg TAT = (2 + 1 + 5 + 13 + 7) / 5 = 28 / 5 = 5.6 ms <br>
+                                Avg WT = (0 + 0 + 2 + 8 + 3) / 5 = 13 / 5 = 2.6 ms
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Q16 FCFS Example -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>16. Sums on FCFS scheduling algorithm. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <div class="question-box">
+                                Example for FCFS:<br>
+                                P1(AT:0, BT:4), P2(AT:1, BT:3), P3(AT:2, BT:1), P4(AT:3, BT:2)
+                            </div>
+                            <p class="step-title">Gantt Chart</p>
+                            <div class="gantt-chart">
+                                <div class="gantt-box">P1<span class="gantt-time-first">0</span><span class="gantt-time">4</span></div>
+                                <div class="gantt-box">P2<span class="gantt-time">7</span></div>
+                                <div class="gantt-box">P3<span class="gantt-time">8</span></div>
+                                <div class="gantt-box">P4<span class="gantt-time">10</span></div>
+                            </div>
+                            <p class="step-title mt-8">Calculation</p>
+                            <table class="math-table w-full">
+                                <tr><th>Process</th><th>AT</th><th>BT</th><th>CT</th><th>TAT (CT-AT)</th><th>WT (TAT-BT)</th></tr>
+                                <tr><td>P1</td><td>0</td><td>4</td><td>4</td><td>4</td><td>0</td></tr>
+                                <tr><td>P2</td><td>1</td><td>3</td><td>7</td><td>6</td><td>3</td></tr>
+                                <tr><td>P3</td><td>2</td><td>1</td><td>8</td><td>6</td><td>5</td></tr>
+                                <tr><td>P4</td><td>3</td><td>2</td><td>10</td><td>7</td><td>5</td></tr>
+                            </table>
+                            <p class="mt-2 font-bold">Avg TAT = 23 / 4 = 5.75 ms | Avg WT = 13 / 4 = 3.25 ms</p>
+                        </div>
+                    </details>
+
+                    <!-- Q17 Priority Example -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>17. Sums on priority scheduling algorithm. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700">
+                            <div class="question-box">
+                                Example for Non-Preemptive Priority (Lower number = Higher Priority):<br>
+                                P1(AT:0, BT:4, PR:2), P2(AT:1, BT:3, PR:1), P3(AT:2, BT:1, PR:4), P4(AT:3, BT:2, PR:3)
+                            </div>
+                            <p class="step-title">Gantt Chart</p>
+                            <div class="gantt-chart">
+                                <div class="gantt-box">P1<span class="gantt-time-first">0</span><span class="gantt-time">4</span></div>
+                                <div class="gantt-box">P2<span class="gantt-time">7</span></div>
+                                <div class="gantt-box">P4<span class="gantt-time">9</span></div>
+                                <div class="gantt-box">P3<span class="gantt-time">10</span></div>
+                            </div>
+                            <p class="step-title mt-8">Calculation</p>
+                            <table class="math-table w-full">
+                                <tr><th>Process</th><th>AT</th><th>BT</th><th>CT</th><th>TAT</th><th>WT</th></tr>
+                                <tr><td>P1</td><td>0</td><td>4</td><td>4</td><td>4</td><td>0</td></tr>
+                                <tr><td>P2</td><td>1</td><td>3</td><td>7</td><td>6</td><td>3</td></tr>
+                                <tr><td>P3</td><td>2</td><td>1</td><td>10</td><td>8</td><td>7</td></tr>
+                                <tr><td>P4</td><td>3</td><td>2</td><td>9</td><td>6</td><td>4</td></tr>
+                            </table>
+                            <p class="mt-2 font-bold">Avg TAT = 24 / 4 = 6.0 ms | Avg WT = 14 / 4 = 3.5 ms</p>
+                        </div>
+                    </details>
+                </div>
+
+
+                <!-- ================= MODULE 2 CONTENT ================= -->
+                <div id="mod2" class="tab-content hidden space-y-4">
+                    <h2 class="text-xl font-bold text-blue-800 mb-4">Module 2: Exact Notes Verbatim</h2>
+
+                    <!-- Q1 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>1. What is a deadlock? Explain the four necessary conditions for deadlock with suitable examples. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition of Deadlock</b><br>A deadlock is a situation in an operating system where two or more processes are permanently blocked, because each process is waiting for a resource held by another process.</p>
+                            <p><b>Example</b><br>Consider two processes P1 and P2 and two resources R1 and R2:<br>P1 holds R1 and is waiting for R2.<br>P2 holds R2 and is waiting for R1.</p>
+<pre>
+P1 —holds—> R1
+↑           |
+|           ↓
+R2 <—holds— P2
+
+P1 waits for R2
+P2 waits for R1
+</pre>
+                            <p>Therefore, both processes wait indefinitely, resulting in a deadlock.</p>
+
+                            <p class="mt-4"><b>Four Necessary Conditions for Deadlock</b><br>Deadlock can occur only when all four of the following conditions exist simultaneously:</p>
+                            
+                            <p><b>1. Mutual Exclusion</b><br>Mutual exclusion means that a resource can be used by only one process at a time.<br>If one process is using a resource, another process cannot use the same resource until it is released.<br>
+                            <b>Example</b><br>Suppose there is only one printer in a system.<br>P1 is using the printer.<br>P2 requests the printer.<br>P2 must wait until P1 releases it.</p>
+<pre>
+Printer → P1
+          ↓
+       P2 waits
+</pre>
+                            <p>Thus, the printer is a non-shareable resource, satisfying the mutual exclusion condition.</p>
+
+                            <p class="mt-4"><b>2. Hold and Wait</b><br>Hold and wait means that a process is holding at least one resource while waiting to acquire another resource.<br>The process does not release the resource it already has while waiting for the additional resource.<br>
+                            <b>Example</b><br>Suppose:<br>P1 has acquired the printer.<br>P1 is still holding the printer.<br>P1 is waiting for the scanner.</p>
+<pre>
+P1
+├── holds → Printer
+└── waits → Scanner
+</pre>
+                            <p>If another process holds the scanner and waits for the printer, a deadlock can occur.</p>
+
+                            <p class="mt-4"><b>3. No Preemption</b><br>No preemption means that a resource cannot be forcibly taken away from a process that is currently holding it.<br>The process must release the resource voluntarily after completing its operation.<br>
+                            <b>Example</b><br>Suppose P1 is using a printer.<br>The operating system cannot simply take the printer away from P1 in the middle of a printing operation and give it to P2.</p>
+<pre>
+P1 → using Printer
+
+P2 → requests Printer
+          ↓
+         Wait
+</pre>
+                            <p>P1 must finish its operation and release the printer.<br>Therefore, the resource cannot be forcibly preempted.</p>
+
+                            <p class="mt-4"><b>4. Circular Wait</b><br>Circular wait occurs when a circular chain of processes exists in which each process is waiting for a resource held by the next process in the chain.<br>
+                            <b>Example</b><br>Suppose there are two processes and two resources:<br>P1 holds R1 and waits for R2.<br>P2 holds R2 and waits for R1.</p>
+<pre>
+P1 —waits for—> R2
+↑               |
+|               ↓
+R1 <—held by——— P2
+</pre>
+                            <p>P1 cannot proceed until P2 releases R2, while P2 cannot proceed until P1 releases R1.<br>Hence, they remain blocked indefinitely.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q2 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>2. Explain the different methods for handling deadlocks. Compare deadlock prevention, avoidance, detection and recovery. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition of Deadlock</b><br>A deadlock is a situation in an operating system where two or more processes are permanently blocked, because each process is waiting for a resource held by another process.</p>
+                            <p>Operating systems use four main methods to handle deadlocks: prevention, avoidance, detection, and recovery.</p>
+                            
+                            <p class="mt-3"><b>1. Deadlock Prevention</b><br>Deadlock prevention is a method in which the operating system ensures that at least one of the four necessary conditions for deadlock never occurs.<br>The four conditions are:<br>Mutual Exclusion<br>Hold and Wait<br>No Preemption<br>Circular Wait<br>Example: The OS can prevent hold and wait by requiring a process to request all the resources it needs at once.<br>Advantage: Deadlock is completely prevented.<br>Disadvantage: It may result in low resource utilization and reduced system performance.</p>
+
+                            <p class="mt-3"><b>2. Deadlock Avoidance</b><br>Deadlock avoidance allows the necessary conditions to exist but ensures that the system never enters an unsafe state. <br>Before allocating a resource, the OS checks whether the allocation will keep the system safe.<br>The most common method is the Banker's Algorithm.<br>Advantage: Provides better resource utilization.<br>Disadvantage: The maximum resource requirements of processes must be known in advance.</p>
+
+                            <p class="mt-3"><b>3. Deadlock Detection</b><br>In this method, the OS allows deadlocks to occur and periodically checks the system to determine whether a deadlock exists.<br>A Wait-for Graph or other deadlock detection algorithms can be used.<br>Advantage: Resources can be allocated more freely.<br>Disadvantage: A deadlock may occur before it is detected.</p>
+
+                            <p class="mt-3"><b>4. Deadlock Recovery</b><br>Once a deadlock is detected, the OS takes action to break the deadlock and restore normal operation.<br>Common recovery methods include:<br>Process termination: Terminate one or more processes involved in the deadlock.<br>Resource preemption: Take resources from selected processes and allocate them to others.</p>
+
+                            <p class="mt-3"><b>Comparison of Deadlock Prevention, Avoidance, Detection and Recovery</b></p>
+                            <div class="overflow-x-auto">
+                                <table class="math-table w-full">
+                                    <tr><th>Basis</th><th>Prevention</th><th>Avoidance</th><th>Detection</th><th>Recovery</th></tr>
+                                    <tr><td><b>Basic idea</b></td><td>Prevents deadlock by breaking at least one necessary condition.</td><td>Avoids deadlock by keeping the system in a safe state.</td><td>Allows deadlock and checks whether it has occurred.</td><td>Removes an already detected deadlock.</td></tr>
+                                    <tr><td><b>Deadlock occurrence</b></td><td>No</td><td>No, if correctly applied</td><td>Yes, possible</td><td>Already occurred</td></tr>
+                                    <tr><td><b>When action is taken</b></td><td>Before deadlock occurs</td><td>Before granting resource requests</td><td>After/during execution to identify deadlock</td><td>After deadlock is detected</td></tr>
+                                    <tr><td><b>Main technique</b></td><td>Restrict resource allocation</td><td>Banker's Algorithm</td><td>Wait-for Graph / Detection Algorithm</td><td>Process termination / Resource preemption</td></tr>
+                                    <tr><td><b>Resource utilization</b></td><td>Generally low</td><td>Better than prevention</td><td>Generally high</td><td>May decrease during recovery</td></tr>
+                                    <tr><td><b>Information required</b></td><td>Usually does not require maximum future needs</td><td>Requires maximum resource requirements in advance</td><td>Does not necessarily require maximum future needs</td><td>Requires information about deadlocked processes/resources</td></tr>
+                                    <tr><td><b>Main disadvantage</b></td><td>Low resource utilization and reduced concurrency</td><td>Complex and requires advance information</td><td>Deadlock can occur before detection</td><td>May cause loss of work</td></tr>
+                                    <tr><td><b>Example</b></td><td>Prevent circular wait or hold-and-wait</td><td>Banker's Algorithm checks safe state</td><td>Detect a cycle using Wait-for Graph</td><td>Terminate a process or preempt a resource</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Q3 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>3. Explain deadlock prevention. How can each of the four necessary conditions for deadlock be prevented? <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition</b><br>Deadlock prevention is a technique in which the operating system ensures that at least one of the four necessary conditions for deadlock never occurs. <br>By breaking any one condition, deadlock can be prevented.</p>
+                            <p>The four necessary conditions and their prevention methods are:</p>
+                            <p><b>1. Prevent Mutual Exclusion</b><br>Make resources sharable wherever possible.<br>Multiple processes can access the resource simultaneously if the resource permits it.<br>However, some resources, such as printers, cannot be easily shared.</p>
+                            <p class="mt-2"><b>2. Prevent Hold and Wait</b><br>A process should not hold one resource while waiting for another.<br>This can be prevented by:<br>Requiring a process to request all required resources at once before execution.<br>Making a process release its currently held resources before requesting new resources.<br>Example: A process must request both a printer and scanner together instead of holding the printer while waiting for the scanner.</p>
+                            <p class="mt-2"><b>3. Prevent No Preemption</b><br>Resources can be preempted (taken away) from a process when necessary.<br>If a process requests a resource that is unavailable, its currently held resources may be released and allocated again later.<br>Example: If P1 cannot obtain a required resource, the OS may force P1 to release the resources it currently holds.</p>
+                            <p class="mt-2"><b>4. Prevent Circular Wait</b><br>Assign a fixed ordering to all resource types.<br>Processes must request resources only according to this order.<br>Example: If the order is R1 < R2 < R3, a process must request R1 before R2 and R2 before R3. This prevents a circular chain of waiting.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q4 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>4. Explain deadlock avoidance and describe the Banker's Algorithm with its basic steps. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition</b><br>Deadlock avoidance is a technique in which the operating system allocates resources carefully so that the system never enters an unsafe state.<br>Unlike deadlock prevention, it does not necessarily eliminate the four necessary conditions. Instead, the OS checks each resource request before granting it.<br>The most important deadlock avoidance algorithm is the Banker's Algorithm.</p>
+                            <p class="mt-3"><b>Banker's Algorithm</b><br>The Banker's Algorithm is used when the OS knows the maximum resource requirements of each process in advance. It works like a bank that gives loans only when it is sure that all customers can eventually be satisfied.</p>
+                            <p class="mt-3"><b>Basic Steps</b></p>
+                            <p><b>Step 1: Check the Resource Request</b><br>When a process requests resources, the OS first checks whether the request is within the process's remaining declared requirement.<br>Request ≤ Need<br>If the request is greater than the remaining need, the request is considered invalid.</p>
+                            <p><b>Step 2: Check Resource Availability</b><br>The OS checks whether the requested resources are currently available.<br>Request ≤ Available<br>If sufficient resources are not available, the process must wait.</p>
+                            <p><b>Step 3: Pretend to Allocate the Resources</b><br>If the resources are available, the OS temporarily assumes that the resources are allocated to the requesting process.<br>The values are updated as:<br>Available = Available − Request<br>Allocation = Allocation + Request<br>Need = Need − Request</p>
+                            <p><b>Step 4: Check for Safe State</b><br>The OS checks whether all processes can still complete successfully.<br>If the system remains safe, the request is granted.<br>If the system becomes unsafe, the request is denied and the process must wait.</p>
+
+                            <p class="mt-3"><b>Important Terms</b><br>
+                            Available: Number of resources currently available in the system.<br>
+                            Maximum: Maximum number of resources that a process may require.<br>
+                            Allocation: Number of resources currently allocated to a process.<br>
+                            Need: Number of additional resources required by a process to complete.<br>
+                            The formula is: Need = Maximum − Allocation</p>
+
+                            <p class="mt-3"><b>Example</b><br>Suppose process P1 has:<br>Maximum requirement: 10<br>Currently allocated: 4<br>Therefore:<br>Need = Maximum − Allocation<br>Need = 10 − 4 = 6<br>Thus, P1 may still require 6 more resources to complete.<br>The OS will grant additional resources only if doing so keeps the system in a safe state.</p>
+
+                            <p class="mt-3"><b>Safe State</b><br>A system is in a safe state if there is at least one sequence of processes in which every process can obtain its remaining resources and complete successfully without causing a deadlock.<br>A safe sequence can be represented as: P1 → P2 → P3 → ⋯<br>If such a sequence exists, the system is safe.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q5 Banker's Sum -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>5. Using Banker's Algorithm, determine whether the system is in a safe state. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed overflow-x-auto">
+                            <table class="math-table w-full">
+                                <tr><th>Process</th><th>Allocation A B C</th><th>Max Need A B C</th></tr>
+                                <tr><td>P0</td><td>0 1 0</td><td>7 5 3</td></tr>
+                                <tr><td>P1</td><td>2 0 0</td><td>3 2 2</td></tr>
+                                <tr><td>P2</td><td>3 0 2</td><td>9 0 2</td></tr>
+                                <tr><td>P3</td><td>2 1 1</td><td>2 2 2</td></tr>
+                                <tr><td>P4</td><td>0 0 2</td><td>4 3 3</td></tr>
+                            </table>
+
+                            <p class="step-title">Step 1: Calculate Need Matrix</p>
+                            <p>Formula: Need = Max − Allocation</p>
+                            <p>P0: (7,5,3) − (0,1,0) = (7,4,3)<br>
+                            P1: (3,2,2) − (2,0,0) = (1,2,2)<br>
+                            P2: (9,0,2) − (3,0,2) = (6,0,0)<br>
+                            P3: (2,2,2) − (2,1,1) = (0,1,1)<br>
+                            P4: (4,3,3) − (0,0,2) = (4,3,1)</p>
+
+                            <table class="math-table w-full mt-2">
+                                <tr><th>Process</th><th>Allocation</th><th>Max</th><th>Need</th></tr>
+                                <tr><td>P0</td><td>0 1 0</td><td>7 5 3</td><td>7 4 3</td></tr>
+                                <tr><td>P1</td><td>2 0 0</td><td>3 2 2</td><td>1 2 2</td></tr>
+                                <tr><td>P2</td><td>3 0 2</td><td>9 0 2</td><td>6 0 0</td></tr>
+                                <tr><td>P3</td><td>2 1 1</td><td>2 2 2</td><td>0 1 1</td></tr>
+                                <tr><td>P4</td><td>0 0 2</td><td>4 3 3</td><td>4 3 1</td></tr>
+                            </table>
+
+                            <p class="step-title mt-4">Step 2: Start with Available</p>
+                            <p>Work = (3, 3, 2)<br>We need to find a process where: Need ≤ Work</p>
+                            
+                            <p><b>Check P0:</b><br>Need(P0) = (7, 4, 3)<br>(7, 4, 3) ≰ (3, 3, 2). P0 cannot execute.</p>
+                            
+                            <p><b>Check P1:</b><br>Need(P1) = (1, 2, 2)<br>(1, 2, 2) ≤ (3, 3, 2). P1 can execute.<br>After P1 finishes: Work = Work + Allocation(P1) = (3, 3, 2) + (2, 0, 0) = (5, 3, 2)<br>Safe sequence so far: P1</p>
+
+                            <p><b>Check P3:</b><br>Need(P3) = (0, 1, 1)<br>(0, 1, 1) ≤ (5, 3, 2). P3 can execute.<br>Work = (5, 3, 2) + (2, 1, 1) = (7, 4, 3)<br>Safe sequence: P1 → P3</p>
+
+                            <p><b>Check P4:</b><br>Need(P4) = (4, 3, 1)<br>(4, 3, 1) ≤ (7, 4, 3). P4 can execute.<br>Work = (7, 4, 3) + (0, 0, 2) = (7, 4, 5)<br>Safe sequence: P1 → P3 → P4</p>
+
+                            <p><b>Check P0:</b><br>Need(P0) = (7, 4, 3)<br>(7, 4, 3) ≤ (7, 4, 5). P0 can execute.<br>Work = (7, 4, 5) + (0, 1, 0) = (7, 5, 5)<br>Safe sequence: P1 → P3 → P4 → P0</p>
+
+                            <p><b>Check P2:</b><br>Need(P2) = (6, 0, 0)<br>(6, 0, 0) ≤ (7, 5, 5). P2 can execute.<br>All processes can execute successfully.</p>
+
+                            <p class="mt-4 font-bold text-green-700">Final Answer</p>
+                            <p>All processes can execute successfully.<br>Therefore, the system is in a: SAFE STATE<br>One possible safe sequence is: P1 → P3 → P4 → P0 → P2</p>
+                        </div>
+                    </details>
+
+                    <!-- Q6 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>6. What is swapping? Explain the swapping process and discuss its advantages and limitations. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition</b><br>Swapping is a memory management technique in which a process is temporarily moved from main memory (RAM) to secondary storage and later brought back into main memory when it is required for execution.<br>The area of secondary storage used for storing swapped-out processes is called swap space.</p>
+                            
+                            <p class="mt-3"><b>Swapping Process</b><br>The swapping process takes place in the following steps:<br>
+                            1. A process is loaded and executed in main memory (RAM).<br>
+                            2. When RAM becomes insufficient, the operating system selects a process that is not currently required.<br>
+                            3. The selected process is moved from RAM to secondary storage. This operation is called swap out.<br>
+                            4. The memory space released by the process can now be used by another process.<br>
+                            5. When the swapped-out process is required again, the OS brings it back from secondary storage to RAM. This is called swap in.<br>
+                            6. The process then continues its execution from where it was stopped.</p>
+                            
+                            <p><b>Flow:</b> RAM → Swap Out → Secondary Storage → Swap In → RAM</p>
+
+                            <p class="mt-3"><b>Advantages</b><br>
+                            Better memory utilization: Frees RAM for other processes.<br>
+                            More processes: Allows the system to handle more processes than can fit in physical memory at the same time.<br>
+                            Efficient memory management: Helps the OS manage limited main memory effectively.<br>
+                            Supports multitasking: More processes can remain available for execution.</p>
+
+                            <p class="mt-3"><b>Limitations</b><br>
+                            Slow operation: Secondary storage is much slower than RAM, so swapping takes considerable time.<br>
+                            Performance overhead: Frequent swapping can significantly reduce system performance.<br>
+                            Transfer time: The time required depends on the size of the process being moved.<br>
+                            Thrashing: Excessive swapping can cause the system to spend more time swapping processes than executing them.</p>
+
+                            <p class="mt-3"><b>Conclusion</b><br>Swapping is an important memory management technique that allows the operating system to use RAM efficiently and support multiple processes. However, excessive swapping can cause high overhead and reduce system performance because secondary storage is much slower than RAM.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q7 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>7. Explain contiguous memory allocation. Discuss fixed partitioning, variable partitioning, internal fragmentation and external fragmentation. <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>Contiguous memory allocation is a memory allocation technique in which each process is allocated a single continuous block of physical memory.<br>For example, if a process requires 100 KB, the operating system must find one continuous free memory block of at least 100 KB.</p>
+                            
+                            <p class="mt-3"><b>A simple representation is:</b></p>
+<pre>
+Main Memory
++----------------------+
+| Operating System     |
++----------------------+
+| Process P1           |
++----------------------+
+| Free Space           |
++----------------------+
+| Process P2           |
++----------------------+
+| Free Space           |
++----------------------+
+</pre>
+                            <p>The operating system maintains information about:<br>Which portions of memory are occupied.<br>Which portions are free.<br>The starting and ending addresses of each allocated block.</p>
+                            <p>There are two major types of contiguous allocation: Fixed partitioning and Variable partitioning.</p>
+
+                            <p class="mt-3"><b>Fixed Partitioning</b><br>In fixed partitioning, main memory is divided into a fixed number of partitions before processes are loaded.<br>Each partition can contain one process.</p>
+<pre>
++----------------------+
+| Operating System     |
++----------------------+
+| Partition 1          | → Process P1
++----------------------+
+| Partition 2          | → Process P2
++----------------------+
+| Partition 3          | → Process P3
++----------------------+
+| Partition 4          | → Free
++----------------------+
+</pre>
+                            <p><b>Characteristics:</b><br>The number of partitions is fixed.<br>A process is loaded into one partition.<br>A partition cannot normally contain multiple processes.<br>Simple to implement.<br>The number of simultaneously loaded processes is limited by the number of partitions.</p>
+
+                            <p class="mt-3"><b>Internal Fragmentation in Fixed Partitioning</b><br>Suppose a partition has a size of 100 KB, but a process requires only 70 KB.<br>The remaining: 100 − 70 = 30 KB<br>Inside that partition cannot normally be used by another process.<br>This unused space inside an allocated partition is called internal fragmentation.</p>
+<pre>
+Partition = 100 KB
++----------------------+
+| Process = 70 KB      |
++----------------------+
+| Unused = 30 KB       | ← Internal Fragmentation
++----------------------+
+</pre>
+                            <p>Thus, fixed partitioning mainly suffers from internal fragmentation.</p>
+
+                            <p class="mt-3"><b>Variable Partitioning</b><br>In variable partitioning, partitions are created dynamically according to the size of the process.<br>For example, if processes require 100 KB, 200 KB and 150 KB, the OS allocates approximately those exact sizes.</p>
+<pre>
++----------------------+
+| Operating System     |
++----------------------+
+| Process P1 100KB     |
++----------------------+
+| Process P2 200KB     |
++----------------------+
+| Free 150KB           |
++----------------------+
+| Process P3 100KB     |
++----------------------+
+</pre>
+                            <p><b>Characteristics:</b><br>Partition sizes are not fixed.<br>Partitions are created when processes are loaded.<br>Better utilization of memory than fixed partitioning.<br>Processes can be allocated according to their actual requirements.<br>It can suffer from external fragmentation.</p>
+
+                            <p class="mt-3"><b>External Fragmentation</b><br>As processes enter and leave memory, small free spaces may be created between allocated processes.</p>
+<pre>
++----------------------+
+| Process P1           |
++----------------------+
+| Free 20 KB           |
++----------------------+
+| Process P2           |
++----------------------+
+| Free 30 KB           |
++----------------------+
+| Process P3           |
++----------------------+
+| Free 40 KB           |
++----------------------+
+</pre>
+                            <p>Total free memory = 90 KB, but if a new process requires 60 KB of contiguous space, it cannot be allocated if no single free block is 60 KB.<br>This problem is called external fragmentation.</p>
+
+                            <p class="mt-3"><b>Internal vs External Fragmentation</b></p>
+                            <table class="math-table w-full">
+                                <tr><th>Internal Fragmentation</th><th>External Fragmentation</th></tr>
+                                <tr><td>Wasted space occurs inside an allocated partition/ block.</td><td>Wasted space occurs between allocated blocks.</td></tr>
+                                <tr><td>Common in fixed partitioning.</td><td>Common in variable partitioning.</td></tr>
+                                <tr><td>Space is allocated but not fully used by the process</td><td>Free memory exists but is divided into small holes</td></tr>
+                                <tr><td>Example: 30 KB unused inside a 100 KB partition.</td><td>Example: 20 KB + 30 KB + 40 KB separate free blocks.</td></tr>
+                            </table>
+                        </div>
+                    </details>
+
+                    <!-- Q8 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>8. What is demand paging? Explain the steps involved in handling a page fault. </div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Definition</b><br>Demand paging is a memory management technique in which a page is loaded into main memory (RAM) only when it is required by the executing process.<br>In demand paging, all pages of a process do not need to be loaded into memory at the beginning. Only the required pages are brought into memory. This saves memory and allows more processes to be kept in main memory.</p>
+                            
+                            <p class="mt-3"><b>Page Fault</b><br>A page fault occurs when a process tries to access a page that is not currently present in main memory.<br>When this happens, the operating system must bring the required page from secondary storage into RAM before the process can continue.</p>
+
+                            <p class="mt-3"><b>Steps Involved in Handling a Page Fault</b></p>
+                            <p><b>Step 1: Generate a Memory Reference</b><br>The CPU generates a logical address and tries to access the required page.</p>
+                            <p><b>Step 2: Check the Page Table</b><br>The operating system checks the page table to determine whether the required page is currently present in main memory.</p>
+                            <p><b>Step 3: Page Fault Occurs</b><br>If the page is not present in memory, a page fault trap is generated, and control is transferred to the operating system.</p>
+                            <p><b>Step 4: Check the Validity of the Reference</b><br>The OS checks whether the memory reference is valid.<br>If the reference is invalid, the process is terminated or an appropriate error is generated.</p>
+                            <p><b>Step 5: Find a Free Frame</b><br>If the reference is valid, the OS searches for a free frame in main memory.<br>If no free frame is available, the OS selects a page for removal using a page replacement algorithm.</p>
+                            <p><b>Step 6: Load the Required Page</b><br>The required page is brought from secondary storage into the selected free frame.</p>
+                            <p><b>Step 7: Update the Page Table</b><br>The OS updates the page table to indicate that the page is now present in main memory and records the corresponding frame number.</p>
+                            <p><b>Step 8: Restart the Interrupted Instruction</b><br>The instruction that caused the page fault is restarted, and the process continues its execution normally.</p>
+                            
+                            <p class="mt-3"><b>Example</b><br>Suppose a process needs to access Page 5, but Page 5 is not present in RAM.<br>A page fault occurs. The OS finds a free frame, loads Page 5 from secondary storage into that frame, updates the page table, and then restarts the interrupted instruction.</p>
+
+                            <p class="mt-3"><b>Flow of Page Fault Handling</b></p>
+<pre>
+CPU references a page
+        ↓
+Check Page Table
+        ↓
+Is the page present?
+   ↓              ↓
+  Yes             No
+   ↓              ↓
+Access page    Page Fault
+                  ↓
+          Check validity
+                  ↓
+          Find free frame
+                  ↓
+       Load page from disk
+                  ↓
+          Update page table
+                  ↓
+        Restart instruction
+                  ↓
+          Continue execution
+</pre>
+                        </div>
+                    </details>
+
+                    <!-- Q9 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>9. Explain page replacement. Describe any two page replacement algorithms with suitable examples. </div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>Page Replacement</b><br>Page replacement is a technique used in virtual memory when a page required by a process is not present in main memory. This situation is called a page fault.<br>When all available frames are occupied, the operating system must select one existing page and replace it with the required page. The main aim of page replacement is to reduce the number of page faults and improve system performance.</p>
+                            
+                            <p class="mt-3"><b>Page Replacement Process</b><br>
+                            1. A process requests a page.<br>
+                            2. If the page is not in memory, a page fault occurs.<br>
+                            3. If no free frame is available, the OS selects a page for replacement.<br>
+                            4. The selected page is removed and the required page is loaded into memory.<br>
+                            5. The process continues its execution.</p>
+
+                            <p class="mt-3"><b>1. FIFO (First-In, First-Out) Algorithm</b><br>In the FIFO page replacement algorithm, the page that entered memory first is replaced first.<br>It works like a queue: the oldest page is removed first.</p>
+                            <p><b>Example:</b> Consider 3 frames and the following page reference string: 1, 2, 3, 4</p>
+                            <table class="math-table w-full">
+                                <tr><th>Page</th><th>Frame 1</th><th>Frame 2</th><th>Frame 3</th><th>Result</th></tr>
+                                <tr><td>1</td><td>1</td><td>-</td><td>-</td><td>Fault</td></tr>
+                                <tr><td>2</td><td>1</td><td>2</td><td>-</td><td>Fault</td></tr>
+                                <tr><td>3</td><td>1</td><td>2</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>4</td><td>4</td><td>2</td><td>3</td><td>Fault</td></tr>
+                            </table>
+                            <p>When page 4 is requested, page 1 is removed because it was the first page loaded into memory.<br>Advantage: Simple and easy to implement.<br>Disadvantage: It may replace an important page even if it is frequently used.</p>
+
+                            <p class="mt-4"><b>2. LRU (Least Recently Used) Algorithm</b><br>In the LRU page replacement algorithm, the page that has not been used for the longest period of time is replaced.<br>It uses the recent history of page references to decide which page should be removed.</p>
+                            <p><b>Example:</b> Consider 3 frames and the reference string: 1, 2, 3, 1, 4</p>
+                            <table class="math-table w-full">
+                                <tr><th>Page</th><th>Frame 1</th><th>Frame 2</th><th>Frame 3</th><th>Result</th></tr>
+                                <tr><td>1</td><td>1</td><td>-</td><td>-</td><td>Fault</td></tr>
+                                <tr><td>2</td><td>1</td><td>2</td><td>-</td><td>Fault</td></tr>
+                                <tr><td>3</td><td>1</td><td>2</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>1</td><td>1</td><td>2</td><td>3</td><td>Hit</td></tr>
+                                <tr><td>4</td><td>1</td><td>4</td><td>3</td><td>Fault</td></tr>
+                            </table>
+                            <p>When page 4 is requested, page 2 is replaced because it was the least recently used page.<br>Advantage: Generally performs better than FIFO because it considers recent usage.<br>Disadvantage: It is more difficult and costly to implement.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q10 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>10. Explain allocation of frames. What is thrashing? Discuss its causes and methods for controlling thrashing. </div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p>In a paging system, physical memory is divided into fixed-size blocks called frames, while logical memory is divided into blocks called pages.<br>Page → fixed-size block of logical/virtual memory.<br>Frame → fixed-size block of physical memory.<br>Page size = Frame size.</p>
+                            <p>When a process needs to be loaded into memory, its pages are placed into available frames.</p>
+<pre>
+Process Pages           Physical Memory
+
+Page 0 ───────────────> Frame 5
+Page 1 ───────────────> Frame 2
+Page 2 ───────────────> Frame 8
+Page 3 ───────────────> Frame 1
+</pre>
+                            <p>The pages do not need to occupy contiguous frames.<br>The operating system maintains a frame table to keep track of which frames are free and which are allocated.</p>
+                            
+                            <p class="mt-3"><b>Frame allocation process</b><br>
+                            A process is divided into pages.<br>
+                            The OS determines the number of frames required.<br>
+                            Free frames are identified.<br>
+                            Pages are loaded into available frames.<br>
+                            The page table records the mapping between pages and frames.<br>
+                            When the CPU generates a logical address, the MMU uses the page table to translate it into a physical address.</p>
+
+                            <p class="mt-3"><b>Types of Frame Allocation</b><br>
+                            Equal allocation: Every process receives an equal number of frames.<br>
+                            Proportional allocation: Frames are allocated according to the size of each process.<br>
+                            Priority allocation: Higher-priority processes may receive more frames.</p>
+
+                            <p class="mt-3"><b>Thrashing</b><br>Thrashing is a condition in which the system spends more time handling page faults and swapping pages than executing processes.<br>As a result, CPU utilization decreases and system performance becomes very poor.</p>
+
+                            <p class="mt-3"><b>Causes of Thrashing</b><br>
+                            Insufficient number of frames: A process does not have enough frames to hold the pages it frequently uses.<br>
+                            High degree of multiprogramming: Too many processes are kept in memory at the same time.<br>
+                            Frequent page faults: Processes continuously require pages that are not currently in memory.<br>
+                            Poor frame allocation: Processes may not receive enough frames according to their requirements.</p>
+
+                            <p class="mt-3"><b>Methods for Controlling Thrashing</b><br>
+                            Reduce the degree of multiprogramming: The number of processes in memory can be reduced.<br>
+                            Working Set Model: The OS allocates enough frames to keep the pages that a process is actively using.<br>
+                            Page Fault Frequency (PFF): The OS monitors the page fault rate and allocates additional frames when the rate becomes too high.<br>
+                            Proper frame allocation: Sufficient frames should be allocated to each process.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q11 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>11. Sum: FIFO Page Replacement Algorithm <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed overflow-x-auto">
+                            <div class="question-box">Consider the following page reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5. Number of frames = 3. Using FIFO Page Replacement Algorithm, calculate: a. Number of page faults b. Number of page hits c. Hit ratio d. Page Fault Ratio</div>
+                            
+                            <p><b>Given:</b><br>Reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5<br>Number of frames = 3<br>Algorithm = FIFO (First-In First-Out)</p>
+                            <p>We replace the page that has been in memory for the longest time.</p>
+
+                            <table class="math-table w-full">
+                                <tr><th>Step</th><th>Page</th><th>Frame 1</th><th>Frame 2</th><th>Frame 3</th><th>Result</th></tr>
+                                <tr><td>1</td><td>1</td><td>1</td><td>–</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>2</td><td>2</td><td>1</td><td>2</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>3</td><td>3</td><td>1</td><td>2</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>4</td><td>4</td><td>4</td><td>2</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>5</td><td>1</td><td>4</td><td>1</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>6</td><td>2</td><td>4</td><td>1</td><td>2</td><td>Fault</td></tr>
+                                <tr><td>7</td><td>5</td><td>5</td><td>1</td><td>2</td><td>Fault</td></tr>
+                                <tr><td>8</td><td>1</td><td>5</td><td>1</td><td>2</td><td>Hit</td></tr>
+                                <tr><td>9</td><td>2</td><td>5</td><td>1</td><td>2</td><td>Hit</td></tr>
+                                <tr><td>10</td><td>3</td><td>5</td><td>3</td><td>2</td><td>Fault</td></tr>
+                                <tr><td>11</td><td>4</td><td>5</td><td>3</td><td>4</td><td>Fault</td></tr>
+                                <tr><td>12</td><td>5</td><td>5</td><td>3</td><td>4</td><td>Hit</td></tr>
+                            </table>
+
+                            <p class="mt-3"><b>Calculations</b><br>
+                            Total number of references = 12<br>
+                            Page Faults = 9<br>
+                            Page Hits = 3<br>
+                            Total References = Faults + Hits = 9+3=12</p>
+
+                            <p class="mt-3"><b>Hit Ratio</b><br>
+                            Hit Ratio = Page Hits / Total References<br>
+                            = 3 / 12 = 0.25<br>
+                            <b>Hit Ratio = 25%</b></p>
+
+                            <p class="mt-3"><b>Page Fault Ratio</b><br>
+                            Page Fault Ratio = Page Faults / Total References<br>
+                            = 9 / 12 = 0.75<br>
+                            <b>Page Fault Ratio = 75%</b></p>
+                        </div>
+                    </details>
+
+                    <!-- Q12 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>12. Sum: LRU & Optimal Page Replacement Algorithm <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed overflow-x-auto">
+                            <div class="question-box">Consider the following page reference string: 7, 0, 1, 2, 0, 3, 0, 4. Number of frames = 3. Using LRU and Optimal Page Replacement Algorithm, calculate: a. Number of page faults b. Number of page hits c. Hit ratio d. Page Fault Ratio</div>
+                            
+                            <p class="font-bold text-lg mt-4 text-blue-800">LRU (Least Recently Used) Page Replacement</p>
+                            <p>The page that has not been used for the longest time is replaced.</p>
+                            <table class="math-table w-full">
+                                <tr><th>Step</th><th>Page</th><th>Frame 1</th><th>Frame 2</th><th>Frame 3</th><th>Result</th></tr>
+                                <tr><td>1</td><td>7</td><td>7</td><td>–</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>2</td><td>0</td><td>7</td><td>0</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>3</td><td>1</td><td>7</td><td>0</td><td>1</td><td>Fault</td></tr>
+                                <tr><td>4</td><td>2</td><td>2</td><td>0</td><td>1</td><td>Fault</td></tr>
+                                <tr><td>5</td><td>0</td><td>2</td><td>0</td><td>1</td><td>Hit</td></tr>
+                                <tr><td>6</td><td>3</td><td>2</td><td>0</td><td>3</td><td>Fault</td></tr>
+                                <tr><td>7</td><td>0</td><td>2</td><td>0</td><td>3</td><td>Hit</td></tr>
+                                <tr><td>8</td><td>4</td><td>4</td><td>0</td><td>3</td><td>Fault</td></tr>
+                            </table>
+                            <p><b>Important replacement steps for LRU:</b><br>
+                            At Step 4: Frames 7, 0, 1. Page 2 required. Least recently used is 7. Replace 7 with 2.<br>
+                            At Step 6: Frames 2, 0, 1. Page 3 required. Last uses: 2 (Step 4), 0 (Step 5), 1 (Step 3). Replace 1 with 3.<br>
+                            At Step 8: Frames 2, 0, 3. Page 4 required. Last uses: 2 (Step 4), 0 (Step 7), 3 (Step 6). Replace 2 with 4.</p>
+                            <p class="mt-2"><b>LRU Final Answer:</b><br>Page Faults = 6<br>Page Hits = 2<br>Hit Ratio = 2/8 × 100 = <b>25%</b></p>
+
+                            <hr class="my-6 border-gray-300">
+
+                            <p class="font-bold text-lg text-blue-800">Optimal Page Replacement</p>
+                            <p>In Optimal Page Replacement, replace the page that will be used farthest in the future. If a page will never be used again, replace that page.</p>
+                            <table class="math-table w-full">
+                                <tr><th>Step</th><th>Page</th><th>Frame 1</th><th>Frame 2</th><th>Frame 3</th><th>Result</th></tr>
+                                <tr><td>1</td><td>7</td><td>7</td><td>–</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>2</td><td>0</td><td>7</td><td>0</td><td>–</td><td>Fault</td></tr>
+                                <tr><td>3</td><td>1</td><td>7</td><td>0</td><td>1</td><td>Fault</td></tr>
+                                <tr><td>4</td><td>2</td><td>2</td><td>0</td><td>1</td><td>Fault</td></tr>
+                                <tr><td>5</td><td>0</td><td>2</td><td>0</td><td>1</td><td>Hit</td></tr>
+                                <tr><td>6</td><td>3</td><td>3</td><td>0</td><td>1</td><td>Fault</td></tr>
+                                <tr><td>7</td><td>0</td><td>3</td><td>0</td><td>1</td><td>Hit</td></tr>
+                                <tr><td>8</td><td>4</td><td>4</td><td>0</td><td>1</td><td>Fault</td></tr>
+                            </table>
+                            <p><b>Understanding Step 6 (Optimal):</b><br>Current frames: 2, 0, 1. Page 3 is required. Look at the future reference string: 0, 4. Page 2 is never used again. Page 0 is used at Step 7. Page 1 is never used again. There is a choice between pages 2 and 1. For our table, replace 2 with 3.</p>
+                            <p><b>Step 8 (Optimal):</b><br>Current: 3, 0, 1. Page 4 is required. None of these pages is used again. Replace any one of them. In our table, replace 3 with 4.</p>
+                            <p class="mt-2"><b>Optimal Final Answer:</b><br>Page Faults = 6<br>Page Hits = 2<br>Hit Ratio = 2/8 × 100 = <b>25%</b></p>
+                        </div>
+                    </details>
+
+                    <!-- Q13 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>13. Explain disk structure and disk scheduling. Describe any three disk scheduling algorithms. </div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed">
+                            <p><b>1. Disk Structure</b><br>A magnetic disk is a secondary storage device used to store large amounts of data. It consists of the following important components:<br>
+                            <b>Platters:</b> Circular disks on which data is stored.<br>
+                            <b>Tracks:</b> Concentric circular paths on the surface of a platter.<br>
+                            <b>Sectors:</b> Small divisions of a track where data is actually stored.<br>
+                            <b>Read/Write Head:</b> Used to read data from and write data to the disk.<br>
+                            <b>Cylinder:</b> A set of tracks located at the same position on different platter surfaces.</p>
+                            
+                            <p class="mt-3"><b>Disk Access Time</b><br>The time required to access data mainly depends on:<br>
+                            <b>Seek Time:</b> Time taken by the disk head to move to the required track.<br>
+                            <b>Rotational Latency:</b> Time taken for the required sector to rotate under the read/write head.<br>
+                            <b>Data Transfer Time:</b> Time required to transfer data between the disk and main memory.</p>
+
+                            <p class="mt-3"><b>Disk Scheduling</b><br>Disk scheduling is the technique used by the operating system to decide the order in which pending disk I/O requests are serviced.<br><b>Objectives of Disk Scheduling:</b> Reduce disk head movement, Reduce seek time, Reduce overall access time, Improve disk performance, Provide fair service to requests.</p>
+
+                            <p class="mt-3 font-bold">Algorithms Example Context</p>
+                            <p>Consider the following example: Request Queue: 98, 183, 37, 122. Initial Head Position: 53</p>
+
+                            <p class="mt-3"><b>A. FCFS – First-Come, First-Served</b><br>In FCFS, disk requests are serviced in the same order in which they arrive.<br>Service order: 53 → 98 → 183 → 37 → 122<br>Head Movement: 53→98=45, 98→183=85, 183→37=146, 37→122=85.<br>Total Head Movement = 45+85+146+85 = 361 cylinders.<br>Advantage: Simple and fair. Disadvantage: Can result in large head movement.</p>
+
+                            <p class="mt-3"><b>B. SSTF – Shortest Seek Time First</b><br>In SSTF, the request that is closest to the current head position is serviced first.<br>From 53, 37 is closest. Then 98. Then 122. Finally 183.<br>Service order: 53 → 37 → 98 → 122 → 183<br>Head Movement: 53→37=16, 37→98=61, 98→122=24, 122→183=61.<br>Total Head Movement = 16+61+24+61 = 162 cylinders.<br>Advantage: Reduces total head movement. Disadvantage: May cause starvation for requests far away.</p>
+
+                            <p class="mt-3"><b>C. SCAN – Elevator Algorithm</b><br>In SCAN, the disk head moves in one direction, servicing all requests along its path. When it reaches the end of the disk, it reverses direction and services requests in the opposite direction.<br>Assume disk range = 0–199, moving towards higher.<br>The head services: 53 → 98 → 122 → 183 → 199. Then it reverses: 199 → 37.<br>Head Movement: 53→98=45, 98→122=24, 122→183=61, 183→199=16, 199→37=162.<br>Total Head Movement = 45+24+61+16+162 = 308 cylinders.<br>Advantage: Provides uniform waiting time. Disadvantage: Head travels to the end even if no requests exist there.</p>
+                        </div>
+                    </details>
+
+                    <!-- Q14 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>14. Sum: FCFS and SSTF Disk Scheduling <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed overflow-x-auto">
+                            <div class="question-box">Consider the following disk request queue: 98, 183, 37, 122, 14, 124, 65, 67. Initial head position = 53. Disk range = 0–199. Calculate total head movement using FCFS and SSTF.</div>
+                            
+                            <p class="font-bold text-lg mt-4 text-blue-800">FCFS Disk Scheduling</p>
+                            <p>In FCFS, requests are served in the same order in which they arrive.<br>Service order: 53 → 98 → 183 → 37 → 122 → 14 → 124 → 65 → 67</p>
+                            <table class="math-table w-full">
+                                <tr><th>Step</th><th>From</th><th>To</th><th>Head Movement</th></tr>
+                                <tr><td>1</td><td>53</td><td>98</td><td>|98 - 53| = 45</td></tr>
+                                <tr><td>2</td><td>98</td><td>183</td><td>|183 - 98| = 85</td></tr>
+                                <tr><td>3</td><td>183</td><td>37</td><td>|37 - 183| = 146</td></tr>
+                                <tr><td>4</td><td>37</td><td>122</td><td>|122 - 37| = 85</td></tr>
+                                <tr><td>5</td><td>122</td><td>14</td><td>|14 - 122| = 108</td></tr>
+                                <tr><td>6</td><td>14</td><td>124</td><td>|124 - 14| = 110</td></tr>
+                                <tr><td>7</td><td>124</td><td>65</td><td>|65 - 124| = 59</td></tr>
+                                <tr><td>8</td><td>65</td><td>67</td><td>|67 - 65| = 2</td></tr>
+                            </table>
+                            <p>Total = 45 + 85 + 146 + 85 + 108 + 110 + 59 + 2 = 640</p>
+                            <p class="font-bold text-green-700">Total Head Movement = 640 cylinders</p>
+
+                            <hr class="my-6 border-gray-300">
+
+                            <p class="font-bold text-lg text-blue-800">SSTF Disk Scheduling</p>
+                            <p>In SSTF, the request closest to the current head position is serviced first.<br>From 53, the closest is 65 (Distance 12).</p>
+                            <table class="math-table w-full">
+                                <tr><th>Step</th><th>From</th><th>To</th><th>Head Movement</th></tr>
+                                <tr><td>1</td><td>53</td><td>65</td><td>|65 - 53| = 12</td></tr>
+                                <tr><td>2</td><td>65</td><td>67</td><td>|67 - 65| = 2</td></tr>
+                                <tr><td>3</td><td>67</td><td>37</td><td>|37 - 67| = 30</td></tr>
+                                <tr><td>4</td><td>37</td><td>14</td><td>|14 - 37| = 23</td></tr>
+                                <tr><td>5</td><td>14</td><td>98</td><td>|98 - 14| = 84</td></tr>
+                                <tr><td>6</td><td>98</td><td>122</td><td>|122 - 98| = 24</td></tr>
+                                <tr><td>7</td><td>122</td><td>124</td><td>|124 - 122| = 2</td></tr>
+                                <tr><td>8</td><td>124</td><td>183</td><td>|183 - 124| = 59</td></tr>
+                            </table>
+                            <p>Service Order: 53 → 65 → 67 → 37 → 14 → 98 → 122 → 124 → 183<br>Total = 12 + 2 + 30 + 23 + 84 + 24 + 2 + 59 = 236</p>
+                            <p class="font-bold text-green-700">Total Head Movement = 236 cylinders</p>
+                        </div>
+                    </details>
+
+                    <!-- Q15 -->
+                    <details class="bg-white border border-gray-200 rounded-xl shadow-sm group">
+                        <summary class="px-6 py-4 font-bold text-gray-900 cursor-pointer flex justify-between items-center hover:bg-gray-50">
+                            <div>15. Sum: SCAN and C-SCAN Disk Scheduling <span class="imp-badge">⭐ IMP</span></div>
+                            <i class="fas fa-chevron-down text-blue-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t text-gray-700 text-sm leading-relaxed overflow-x-auto">
+                            <div class="question-box">Consider the following disk request queue: 98, 183, 37, 122, 14, 124, 65, 67. Initial head position = 53. Disk range = 0–199. Initial direction = towards 0. Calculate total head movement using SCAN and C-SCAN.</div>
+                            
+                            <p class="font-bold text-lg mt-4 text-blue-800">SCAN Disk Scheduling</p>
+                            <p>SCAN works like an elevator. The disk head moves in one direction, servicing all requests along the way. When it reaches the end of the disk, it reverses direction and continues servicing requests.</p>
+                            <p>Since the initial direction is towards 0, the head first services the requests below 53: 37, 14. Then it reaches cylinder 0, reverses direction, and services: 65, 67, 98, 122, 124, 183.</p>
+                            <p>Therefore, the head movement is: 53 → 37 → 14 → 0 → 65 → 67 → 98 → 122 → 124 → 183</p>
+                            <p><b>Calculation of Head Movement:</b><br>
+                            53 → 37 = |53 - 37| = 16<br>
+                            37 → 14 = |37 - 14| = 23<br>
+                            14 → 0 = |14 - 0| = 14<br>
+                            0 → 65 = |0 - 65| = 65<br>
+                            65 → 67 = |65 - 67| = 2<br>
+                            67 → 98 = |67 - 98| = 31<br>
+                            98 → 122 = |98 - 122| = 24<br>
+                            122 → 124 = |122 - 124| = 2<br>
+                            124 → 183 = |124 - 183| = 59</p>
+                            <p>Total = 16 + 23 + 14 + 65 + 2 + 31 + 24 + 2 + 59 = 236</p>
+                            <p class="font-bold text-green-700">Total Head Movement = 236 cylinders</p>
+
+                            <hr class="my-6 border-gray-300">
+
+                            <p class="font-bold text-lg text-blue-800">C-SCAN Disk Scheduling</p>
+                            <p>C-SCAN (Circular SCAN) is a disk scheduling algorithm in which the head moves in one direction only. When the head reaches one end of the disk, it moves directly to the other end and continues in the same direction.</p>
+                            <p>Since the initial direction is towards 0, the head first services: 37, 14. Then it reaches 0 and moves to the other end: 0 → 199. From 199, it continues towards 0 and services: 183, 124, 122, 98, 67, 65.</p>
+                            <p>Therefore, the service path is: 53 → 37 → 14 → 0 → 199 → 183 → 124 → 122 → 98 → 67 → 65</p>
+                            <p><b>Calculation of Head Movement:</b><br>
+                            53 → 37 = |53 - 37| = 16<br>
+                            37 → 14 = |37 - 14| = 23<br>
+                            14 → 0 = |14 - 0| = 14<br>
+                            0 → 199 = |0 - 199| = 199<br>
+                            199 → 183 = |199 - 183| = 16<br>
+                            183 → 124 = |183 - 124| = 59<br>
+                            124 → 122 = |124 - 122| = 2<br>
+                            122 → 98 = |122 - 98| = 24<br>
+                            98 → 67 = |98 - 67| = 31<br>
+                            67 → 65 = |67 - 65| = 2</p>
+                            <p>Total = 16 + 23 + 14 + 199 + 16 + 59 + 2 + 24 + 31 + 2 = 386</p>
+                            <p class="font-bold text-green-700">Total Head Movement = 386 cylinders</p>
+                        </div>
+                    </details>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => {
+                c.classList.remove('block'); c.classList.add('hidden');
+            });
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = 'tab-btn text-gray-500 hover:text-gray-700 font-medium px-4 py-1.5 rounded-md transition-all';
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+            btn.className = 'tab-btn bg-white shadow-sm text-blue-600 font-medium px-4 py-1.5 rounded-md transition-all';
+        }
+    </script>
+</body>
+</html>
