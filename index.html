@@ -220,12 +220,11 @@
                 <!-- Subject Tabs Navigation (Box Style - 8 Subjects) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
                     
-                    <!-- 1. Principal of Operating System (Active by default) -->
-                    <button class="tab-btn bg-brand-50 border-2 border-brand-500 text-brand-700 shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center transform scale-105" data-target="os">
-                        <div class="text-3xl mb-3"><i class="fas fa-microchip"></i></div>
-                        Principal of Operating System
-                    </button>
-                    
+                   <!-- 1. Principal of Operating System (Link to new page) -->
+<a href="pos.html" class="bg-white border border-gray-200 text-gray-500 hover:text-brand-600 hover:border-brand-300 hover:shadow-md rounded-xl p-6 font-bold transition-all text-center block cursor-pointer">
+    <div class="text-3xl mb-3"><i class="fas fa-microchip text-indigo-500"></i></div>
+    Principal of Operating System
+</a> 
                     <!-- 2. Java Script (Link to new page) -->
 <a href="java.html" class="bg-white border border-gray-200 text-gray-500 hover:text-brand-600 hover:border-brand-300 hover:shadow-md rounded-xl p-6 font-bold transition-all focus:outline-none text-center block cursor-pointer">
     <div class="text-3xl mb-3"><i class="fab fa-js text-yellow-500"></i></div>
@@ -266,12 +265,6 @@
                         Hindi
                     </a>
                 </div>
-
-                <!-- 1. Operating Systems Content (Active by default) -->
-                <div id="os" class="tab-content space-y-8 block">
-                    <!-- FIREBASE NOTES WILL APPEAR HERE AUTOMATICALLY -->
-                </div>
-
                                 <!-- 4. Theory of Computation Content (Hidden by default) -->
                 <div id="toc" class="tab-content space-y-8 hidden">
                     <div class="bg-white p-8 rounded-xl border border-gray-200 text-center text-gray-500 shadow-sm">
@@ -436,46 +429,6 @@
             // Click kiye gaye button ko highlight karo
             btnElement.className = 'ds-mod-btn bg-white shadow-sm text-brand-600 font-medium px-4 py-1.5 rounded-md transition-all';
         }
-    </script>
-
-    <!-- Firebase Script -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-
-     
-        async function loadNotes() {
-            try {
-                const querySnapshot = await getDocs(collection(db, "notes"));
-                const notesContainer = document.querySelector('#os');
-                
-                querySnapshot.forEach((doc) => {
-                    const note = doc.data();
-                    const uniqueId = `firebase-note-${doc.id}`;
-
-                    const noteHTML = `
-                    <article class="bg-white shadow-sm rounded-xl border border-brand-200 overflow-hidden border-l-4 border-l-brand-500">
-                        <div class="border-b border-gray-200 bg-gray-50 px-6 py-4 flex justify-between items-center flex-wrap gap-4">
-                            <h3 class="text-lg font-bold text-gray-900 flex items-center">
-                                <i class="fas fa-cloud text-brand-500 mr-2"></i> ${note.title}
-                            </h3>
-                            <button onclick="copyNoteText(this, '${uniqueId}')" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
-                                <i class="far fa-copy mr-2"></i> <span>Copy Notes</span>
-                            </button>
-                        </div>
-                        <div class="p-6 bg-gray-900 text-gray-100 font-mono text-sm overflow-x-auto rounded-b-xl">
-                            <pre id="${uniqueId}" class="whitespace-pre-wrap">${note.code}</pre>
-                        </div>
-                    </article>`;
-                    
-                    notesContainer.insertAdjacentHTML('afterbegin', noteHTML);
-                });
-            } catch (error) {
-                console.error("Notes fetch karne mein error:", error);
-            }
-        }
-        
-        loadNotes();
     </script>
 </body>
 </html>
