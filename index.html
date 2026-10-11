@@ -372,42 +372,6 @@
         const mobileLinks = menu.querySelectorAll('a');
         mobileLinks.forEach(link => { link.addEventListener('click', () => { menu.classList.add('hidden'); }); });
 
-        // Copy Notes
-        function copyNoteText(buttonElement, textElementId) {
-            const textToCopy = document.getElementById(textElementId).innerText;
-            const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = textToCopy;
-            tempTextArea.style.position = "absolute";
-            tempTextArea.style.left = "-9999px";
-            document.body.appendChild(tempTextArea);
-            tempTextArea.select();
-            
-            try {
-                document.execCommand('copy');
-                const span = buttonElement.querySelector('span');
-                const icon = buttonElement.querySelector('i');
-                const originalText = span.innerText;
-                const originalIcon = icon.className;
-                
-                span.innerText = 'Copied!';
-                icon.className = 'fas fa-check mr-2';
-                buttonElement.classList.replace('bg-brand-600', 'bg-green-600');
-                buttonElement.classList.replace('hover:bg-brand-700', 'hover:bg-green-700');
-                
-                setTimeout(() => {
-                    span.innerText = originalText;
-                    icon.className = originalIcon;
-                    buttonElement.classList.replace('bg-green-600', 'bg-brand-600');
-                    buttonElement.classList.replace('hover:bg-green-700', 'hover:bg-brand-700');
-                }, 2000);
-            } catch (err) {
-                console.error('Failed to copy text: ', err);
-                alert('Failed to copy text. Please select and copy manually.');
-            } finally {
-                document.body.removeChild(tempTextArea);
-            }
-        }
-
         // Tab Switching Logic
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -464,6 +428,17 @@
 
             sessionStorage.setItem('visitorName', name);
             updateNavName(name);
+
+            // --- GOOGLE SHEETS INTEGRATION START ---
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzi6LiuI-TkGBGCRk1kfmyu0FKYRVeTsu-3m0v_D3vnXXiIlEs-f6zlRmHj1PzXI2W61A/exec'; 
+            
+            const formData = new FormData();
+            formData.append('name', name);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => console.log('Name saved successfully!'))
+                .catch(error => console.error('Error!', error.message));
+            // --- GOOGLE SHEETS INTEGRATION END ---
 
             setTimeout(() => {
                 document.getElementById('welcome-modal').classList.add('hidden');
