@@ -42,6 +42,34 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-500 selection:text-white">
+    <!-- Welcome Popup Modal -->
+    <div id="welcome-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900/60 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-2xl shadow-2xl w-11/12 max-w-md p-6 transform transition-all text-center">
+            
+            <!-- Step 1: Naam Poochne wala box -->
+            <div id="modal-step-1">
+                <div class="w-16 h-16 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome to my Portfolio!</h2>
+                <p class="text-gray-500 mb-6">May I know your good name?</p>
+                <input type="text" id="visitor-name" placeholder="Enter your name..." class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all mb-4 outline-none text-center font-medium">
+                <button onclick="submitName()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors">
+                    Continue
+                </button>
+            </div>
+            
+            <!-- Step 2: Thanks bolne wala box -->
+            <div id="modal-step-2" class="hidden py-4">
+                <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Thanks for coming, <br><span id="display-name" class="text-brand-600"></span>!</h2>
+                <p class="text-gray-500 mt-2">Enjoy exploring my work and notes.</p>
+            </div>
+            
+        </div>
+    </div>
 
     <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -303,13 +331,40 @@
                         &copy; 2024 Vaishnav Shailesh Gupta. All rights reserved. <br class="sm:hidden"> Designed for SEO and accessibility.
                     </p>
                     
-                    <!-- Total Views Counter -->
-                    <div class="mt-4 flex items-center gap-2 bg-brand-50 px-3 py-2 rounded-lg border border-brand-100">
-                        <i class="fas fa-eye text-brand-500"></i>
-                        <span class="text-sm text-gray-600 font-bold">Total Views:</span>
-                        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fvaishnavsg.com&countColor=%232563eb" alt="visitor badge" />
-                    </div>
+                   <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-brand-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-brand-600 px-3 py-2 text-sm font-medium transition-colors">Experience & Projects</a>
+                    <a href="#notes" class="text-gray-600 hover:text-brand-600 px-3 py-2 text-sm font-medium transition-colors">Notes</a>
                     
+                    <!-- Desktop: Total Views Counter (Notes ke bhaju mein) -->
+                    <div class="flex items-center gap-2 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-200 shadow-sm">
+                        <i class="fas fa-eye text-brand-500 text-sm"></i>
+                        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fvaishnavsg.com&countColor=%232563eb" alt="visitor badge" class="h-4" />
+                    </div>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-md p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">About</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Experience</a>
+                <a href="#notes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Notes</a>
+                
+                <!-- Mobile: Total Views Counter -->
+                <div class="block px-3 py-2 mt-2 rounded-md bg-brand-50 border border-brand-100 flex items-center gap-2 w-max">
+                    <i class="fas fa-eye text-brand-500"></i>
+                    <span class="text-sm text-gray-600 font-bold">Views:</span>
+                    <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fvaishnavsg.com&countColor=%232563eb" alt="visitor badge" class="h-5" />
+                </div>
+            </div>
+        </div> 
                 </div>
             </div>
         </div>
@@ -428,6 +483,43 @@
             // Click kiye gaye button ko highlight karo
             btnElement.className = 'ds-mod-btn bg-white shadow-sm text-brand-600 font-medium px-4 py-1.5 rounded-md transition-all';
         }
+        // Welcome Popup Logic
+        document.addEventListener("DOMContentLoaded", () => {
+            // Check karega ki kya user pehle aa chuka hai (refresh par popup rokne ke liye)
+            if (!sessionStorage.getItem('hasVisited')) {
+                setTimeout(() => {
+                    document.getElementById('welcome-modal').classList.remove('hidden');
+                }, 500); // Page load hone ke 0.5 second baad aayega
+            }
+        });
+
+        function submitName() {
+            const nameInput = document.getElementById('visitor-name').value.trim();
+            const name = nameInput ? nameInput : "Guest"; // Agar koi bina naam daale click kare
+            
+            // Step 1 hide karo, Step 2 show karo
+            document.getElementById('modal-step-1').classList.add('hidden');
+            document.getElementById('modal-step-2').classList.remove('hidden');
+            
+            // Naam set karo
+            document.getElementById('display-name').innerText = name;
+
+            // Session save karo taaki refresh pe wapas na aaye
+            sessionStorage.setItem('hasVisited', 'true');
+
+            // 2.5 seconds baad popup automatically band ho jayega
+            setTimeout(() => {
+                document.getElementById('welcome-modal').classList.add('hidden');
+            }, 2500);
+        }
+
+        // Enter key dabane par bhi naam submit ho jaye
+        document.getElementById("visitor-name").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                submitName();
+            }
+        });
     </script>
 </body>
 </html>
